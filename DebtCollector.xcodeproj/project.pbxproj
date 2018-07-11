@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,9 +12,11 @@
 		5A3ED26B20F4AA6700E79CE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A3ED26920F4AA6700E79CE6 /* Main.storyboard */; };
 		5A3ED26D20F4AA6A00E79CE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A3ED26C20F4AA6A00E79CE6 /* Assets.xcassets */; };
 		5A3ED27020F4AA6A00E79CE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A3ED26E20F4AA6A00E79CE6 /* LaunchScreen.storyboard */; };
+		C2ED3D93ECF20D208D037617 /* Pods_DebtCollector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E003D07B2AA4C3D8BEE2F21 /* Pods_DebtCollector.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		280BCFAF28ED4605356A222F /* Pods-DebtCollector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DebtCollector.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DebtCollector/Pods-DebtCollector.debug.xcconfig"; sourceTree = "<group>"; };
 		5A3ED26220F4AA6700E79CE6 /* DebtCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DebtCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A3ED26520F4AA6700E79CE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A3ED26720F4AA6700E79CE6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		5A3ED26C20F4AA6A00E79CE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A3ED26F20F4AA6A00E79CE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A3ED27120F4AA6A00E79CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		976FEA4EE3B23BDF47360425 /* Pods-DebtCollector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DebtCollector.release.xcconfig"; path = "Pods/Target Support Files/Pods-DebtCollector/Pods-DebtCollector.release.xcconfig"; sourceTree = "<group>"; };
+		9E003D07B2AA4C3D8BEE2F21 /* Pods_DebtCollector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DebtCollector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2ED3D93ECF20D208D037617 /* Pods_DebtCollector.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D55AA88D850CB7152394DAF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E003D07B2AA4C3D8BEE2F21 /* Pods_DebtCollector.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5A3ED25920F4AA6700E79CE6 = {
 			isa = PBXGroup;
 			children = (
 				5A3ED26420F4AA6700E79CE6 /* DebtCollector */,
 				5A3ED26320F4AA6700E79CE6 /* Products */,
+				EE7C594B368C39A6B777292C /* Pods */,
+				4D55AA88D850CB7152394DAF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = DebtCollector;
 			sourceTree = "<group>";
 		};
+		EE7C594B368C39A6B777292C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				280BCFAF28ED4605356A222F /* Pods-DebtCollector.debug.xcconfig */,
+				976FEA4EE3B23BDF47360425 /* Pods-DebtCollector.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A3ED27420F4AA6A00E79CE6 /* Build configuration list for PBXNativeTarget "DebtCollector" */;
 			buildPhases = (
+				F0EC886737A8248A71806CAD /* [CP] Check Pods Manifest.lock */,
 				5A3ED25E20F4AA6700E79CE6 /* Sources */,
 				5A3ED25F20F4AA6700E79CE6 /* Frameworks */,
 				5A3ED26020F4AA6700E79CE6 /* Resources */,
+				2CA8962F86CB29853F63FAB0 /* [CP] Embed Pods Frameworks */,
+				D2B0800683DFFBDD074B51CC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,11 +123,12 @@
 				TargetAttributes = {
 					5A3ED26120F4AA6700E79CE6 = {
 						CreatedOnToolsVersion = 9.3.1;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = 5A3ED25D20F4AA6700E79CE6 /* Build configuration list for PBXProject "DebtCollector" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -129,6 +157,72 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CA8962F86CB29853F63FAB0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DebtCollector/Pods-DebtCollector-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyUtils/SwiftyUtils.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUtils.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DebtCollector/Pods-DebtCollector-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2B0800683DFFBDD074B51CC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DebtCollector/Pods-DebtCollector-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0EC886737A8248A71806CAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DebtCollector-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5A3ED25E20F4AA6700E79CE6 /* Sources */ = {
@@ -270,24 +364,21 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		5A3ED27520F4AA6A00E79CE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 280BCFAF28ED4605356A222F /* Pods-DebtCollector.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E9MW74DJ4Y;
 				INFOPLIST_FILE = DebtCollector/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.sweeper777.DebtCollector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -297,16 +388,14 @@
 		};
 		5A3ED27620F4AA6A00E79CE6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 976FEA4EE3B23BDF47360425 /* Pods-DebtCollector.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E9MW74DJ4Y;
 				INFOPLIST_FILE = DebtCollector/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.sweeper777.DebtCollector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
