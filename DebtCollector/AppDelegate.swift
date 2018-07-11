@@ -1,12 +1,5 @@
-//
-//  AppDelegate.swift
-//  DebtCollector
-//
-//  Created by Mulang Su on 2018/07/10.
-//  Copyright © 2018年 Mulang Su. All rights reserved.
-//
-
 import UIKit
+import SwiftyUtils
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +8,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        window?.tintColor = UIColor(hex: "3b7b3b")
+        
         return true
     }
 
