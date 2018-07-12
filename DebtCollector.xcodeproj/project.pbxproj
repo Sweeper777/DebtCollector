@@ -12,6 +12,10 @@
 		5A3ED26B20F4AA6700E79CE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A3ED26920F4AA6700E79CE6 /* Main.storyboard */; };
 		5A3ED26D20F4AA6A00E79CE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A3ED26C20F4AA6A00E79CE6 /* Assets.xcassets */; };
 		5A3ED27020F4AA6A00E79CE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A3ED26E20F4AA6A00E79CE6 /* LaunchScreen.storyboard */; };
+		5A4690BA20F5FE4400911E04 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4690B920F5FE4400911E04 /* Transaction.swift */; };
+		5A4690BC20F600DF00911E04 /* OverviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4690BB20F600DF00911E04 /* OverviewTableViewCell.xib */; };
+		5A4690BE20F6017200911E04 /* OverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4690BD20F6017200911E04 /* OverviewTableViewCell.swift */; };
+		5A6BF0E320F75D0A0035407A /* RealmWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BF0E220F75D0A0035407A /* RealmWrapper.swift */; };
 		C2ED3D93ECF20D208D037617 /* Pods_DebtCollector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E003D07B2AA4C3D8BEE2F21 /* Pods_DebtCollector.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +28,10 @@
 		5A3ED26C20F4AA6A00E79CE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A3ED26F20F4AA6A00E79CE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A3ED27120F4AA6A00E79CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A4690B920F5FE4400911E04 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		5A4690BB20F600DF00911E04 /* OverviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverviewTableViewCell.xib; sourceTree = "<group>"; };
+		5A4690BD20F6017200911E04 /* OverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTableViewCell.swift; sourceTree = "<group>"; };
+		5A6BF0E220F75D0A0035407A /* RealmWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmWrapper.swift; sourceTree = "<group>"; };
 		976FEA4EE3B23BDF47360425 /* Pods-DebtCollector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DebtCollector.release.xcconfig"; path = "Pods/Target Support Files/Pods-DebtCollector/Pods-DebtCollector.release.xcconfig"; sourceTree = "<group>"; };
 		9E003D07B2AA4C3D8BEE2F21 /* Pods_DebtCollector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DebtCollector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -72,8 +80,12 @@
 				5A3ED26520F4AA6700E79CE6 /* AppDelegate.swift */,
 				5A3ED26720F4AA6700E79CE6 /* ViewController.swift */,
 				5A3ED26920F4AA6700E79CE6 /* Main.storyboard */,
+				5A4690B920F5FE4400911E04 /* Transaction.swift */,
+				5A6BF0E220F75D0A0035407A /* RealmWrapper.swift */,
 				5A3ED26C20F4AA6A00E79CE6 /* Assets.xcassets */,
 				5A3ED26E20F4AA6A00E79CE6 /* LaunchScreen.storyboard */,
+				5A4690BB20F600DF00911E04 /* OverviewTableViewCell.xib */,
+				5A4690BD20F6017200911E04 /* OverviewTableViewCell.swift */,
 				5A3ED27120F4AA6A00E79CE6 /* Info.plist */,
 			);
 			path = DebtCollector;
@@ -150,6 +162,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A4690BC20F600DF00911E04 /* OverviewTableViewCell.xib in Resources */,
 				5A3ED27020F4AA6A00E79CE6 /* LaunchScreen.storyboard in Resources */,
 				5A3ED26D20F4AA6A00E79CE6 /* Assets.xcassets in Resources */,
 				5A3ED26B20F4AA6700E79CE6 /* Main.storyboard in Resources */,
@@ -229,8 +242,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A4690BE20F6017200911E04 /* OverviewTableViewCell.swift in Sources */,
 				5A3ED26820F4AA6700E79CE6 /* ViewController.swift in Sources */,
+				5A6BF0E320F75D0A0035407A /* RealmWrapper.swift in Sources */,
 				5A3ED26620F4AA6700E79CE6 /* AppDelegate.swift in Sources */,
+				5A4690BA20F5FE4400911E04 /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
