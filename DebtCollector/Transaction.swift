@@ -9,4 +9,7 @@ class GroupTransaction: Object {
     @objc dynamic var title = ""
     @objc dynamic var details = ""
     let value = List<Transaction>()
+
+class Person : Object {
+    @objc dynamic var name = ""
 }
