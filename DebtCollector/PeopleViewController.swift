@@ -2,12 +2,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SCLAlertView
+import RxRealm
 
 class PeopleViewController: UITableViewController {
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
-        RealmWrapper.shared.people.asObservable()
+        tableView.dataSource = nil
+        tableView.delegate = nil
             .bind(to: tableView.rx.items(cellIdentifier: "cell")) {
                 index, person, cell in
                 cell.textLabel?.text = person.name
