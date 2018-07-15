@@ -10,6 +10,7 @@ class PeopleViewController: UITableViewController {
     override func viewDidLoad() {
         tableView.dataSource = nil
         tableView.delegate = nil
+        Observable.collection(from: RealmWrapper.shared.people)
             .bind(to: tableView.rx.items(cellIdentifier: "cell")) {
                 index, person, cell in
                 cell.textLabel?.text = person.name
