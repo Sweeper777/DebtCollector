@@ -10,4 +10,5 @@ target 'DebtCollector' do
   pod 'RxCocoa'
   pod 'Eureka'
   pod 'RealmSwift'
+  pod 'RxRealm'
 end
