@@ -18,26 +18,26 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="80.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zrW-c7-6kM">
-                        <rect key="frame" x="9" y="9" width="357" height="62.5"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zrW-c7-6kM">
+                        <rect key="frame" x="16" y="16" width="343" height="48.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8i-hU-fxf">
-                                <rect key="frame" x="0.0" y="0.0" width="178.5" height="62.5"/>
+                                <rect key="frame" x="0.0" y="11" width="56.5" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Kbe-Ko-1yZ">
-                                <rect key="frame" x="178.5" y="0.0" width="178.5" height="62.5"/>
+                                <rect key="frame" x="261" y="0.0" width="82" height="48.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owes you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgg-Mo-aov">
-                                        <rect key="frame" x="51.5" y="0.0" width="75.5" height="22.5"/>
+                                        <rect key="frame" x="3.5" y="0.0" width="75.5" height="17.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMA-UH-bh4">
-                                        <rect key="frame" x="48.5" y="22.5" width="82" height="40"/>
+                                        <rect key="frame" x="0.0" y="17.5" width="82" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -48,10 +48,10 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="zrW-c7-6kM" firstAttribute="leading" secondItem="MDH-fP-iB9" secondAttribute="leading" constant="9" id="RV5-ED-MDG"/>
-                    <constraint firstAttribute="bottom" secondItem="zrW-c7-6kM" secondAttribute="bottom" constant="9" id="Z6L-9I-ThB"/>
-                    <constraint firstAttribute="trailing" secondItem="zrW-c7-6kM" secondAttribute="trailing" constant="9" id="fvr-Z3-EhQ"/>
-                    <constraint firstItem="zrW-c7-6kM" firstAttribute="top" secondItem="MDH-fP-iB9" secondAttribute="top" constant="9" id="scV-3C-bmq"/>
+                    <constraint firstItem="zrW-c7-6kM" firstAttribute="leading" secondItem="MDH-fP-iB9" secondAttribute="leading" constant="16" id="RV5-ED-MDG"/>
+                    <constraint firstAttribute="bottom" secondItem="zrW-c7-6kM" secondAttribute="bottom" constant="16" id="Z6L-9I-ThB"/>
+                    <constraint firstAttribute="trailing" secondItem="zrW-c7-6kM" secondAttribute="trailing" constant="16" id="fvr-Z3-EhQ"/>
+                    <constraint firstItem="zrW-c7-6kM" firstAttribute="top" secondItem="MDH-fP-iB9" secondAttribute="top" constant="16" id="scV-3C-bmq"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
