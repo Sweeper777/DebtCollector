@@ -93,10 +93,10 @@
             </objects>
             <point key="canvasLocation" x="239" y="976"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Overview View Controller-->
         <scene sceneID="7db-lP-Gkx">
             <objects>
-                <tableViewController id="Agc-aS-czN" sceneMemberID="viewController">
+                <tableViewController id="Agc-aS-czN" customClass="OverviewViewController" customModule="DebtCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rhn-gA-LWV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
