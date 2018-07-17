@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E7CCBF4753DCDC54B3E3AAED32709BA8"
+               BlueprintIdentifier = "32C24ABF5538F99A89E295D2A25FA4BF"
                BuildableName = "Pods_DebtCollector.framework"
                BlueprintName = "Pods-DebtCollector"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E7CCBF4753DCDC54B3E3AAED32709BA8"
+            BlueprintIdentifier = "32C24ABF5538F99A89E295D2A25FA4BF"
             BuildableName = "Pods_DebtCollector.framework"
             BlueprintName = "Pods-DebtCollector"
             ReferencedContainer = "container:Pods.xcodeproj">

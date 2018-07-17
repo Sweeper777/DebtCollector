@@ -11,4 +11,5 @@ target 'DebtCollector' do
   pod 'Eureka'
   pod 'RealmSwift'
   pod 'RxRealm'
+  pod 'RxDataSources'
 end
