@@ -9,6 +9,7 @@ class OverviewViewController: UITableViewController {
         super.viewDidLoad()
         tableView.dataSource = nil
         tableView.delegate = nil
+        
         tableView.register(UINib(nibName: "OverviewTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         Observable.collection(from: RealmWrapper.shared.transactions)
             .map {
@@ -24,6 +25,13 @@ class OverviewViewController: UITableViewController {
                 })
                 return mapped
             }
+            .bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: OverviewTableViewCell.self)) {
+                index, personAndAmount, cell in
+                cell.nameLabel.text = personAndAmount.key.name
+                let formatter = NumberFormatter()
+                formatter.numberStyle = .currency
+                cell.amountLabel.text = formatter.string(from: personAndAmount.value as NSNumber)
+            }.disposed(by: disposeBag)
     }
 }
 
