@@ -10,6 +10,8 @@ class PersonViewController : UITableViewController {
     var person: Person!
     
     override func viewDidLoad() {
+        title = person.name
+        
         tableView.dataSource = nil
         tableView.delegate = nil
         tableView.register(BriefTransactionTableViewCell.self, forCellReuseIdentifier: "transactionCell")
