@@ -20,5 +20,26 @@ class PersonViewController : UITableViewController {
 enum PersonTableViewSection : SectionModelType {
     case buttonSection(rows: [PersonTableViewRow])
     case transactionSection(rows: [PersonTableViewRow])
+    
+    var items: [PersonTableViewSection.PersonTableViewRow] {
+        switch self {
+        case .buttonSection(rows: let rows):
+            return rows
+        case .transactionSection(rows: let rows):
+            return rows
+        }
+    }
+    
+    init(original: PersonTableViewSection, items: [PersonTableViewSection.PersonTableViewRow]) {
+        switch original {
+        case .buttonSection(rows: _):
+            self = .buttonSection(rows: items)
+        case .transactionSection(rows: _):
+            self = .transactionSection(rows: items)
+        }
+    }
+    
+    typealias Item = PersonTableViewRow
+    
     }
 }
