@@ -1,8 +1,14 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import RxRealm
+import RxDataSources
 
 class PersonViewController : UITableViewController {
+    let disposeBag = DisposeBag()
+    
+    var person: Person!
+    
     override func viewDidLoad() {
         tableView.dataSource = nil
         tableView.delegate = nil
