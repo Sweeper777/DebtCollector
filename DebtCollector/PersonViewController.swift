@@ -14,7 +14,8 @@ class PersonViewController : UITableViewController {
         
         tableView.dataSource = nil
         tableView.delegate = nil
-        tableView.register(BriefTransactionTableViewCell.self, forCellReuseIdentifier: "transactionCell")
+        tableView.register(UINib(nibName: "BriefTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "transactionCell")
+        
     }
 }
 
