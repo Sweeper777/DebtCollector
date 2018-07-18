@@ -68,17 +68,17 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="trU-ec-o03" kind="show" id="IYu-av-Scv"/>
+                        <segue destination="trU-ec-o03" kind="show" identifier="showPerson" id="IYu-av-Scv"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHW-jF-MeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1196" y="976"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Person View Controller-->
         <scene sceneID="KbG-Tr-rS8">
             <objects>
-                <tableViewController id="trU-ec-o03" sceneMemberID="viewController">
+                <tableViewController id="trU-ec-o03" customClass="PersonViewController" customModule="DebtCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ozF-kh-RgZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
