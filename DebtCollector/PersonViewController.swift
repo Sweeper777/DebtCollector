@@ -15,6 +15,7 @@ class PersonViewController : UITableViewController {
         tableView.dataSource = nil
         tableView.delegate = nil
         tableView.register(BriefTransactionTableViewCell.self, forCellReuseIdentifier: "transactionCell")
+    }
 }
 
 enum PersonTableViewSection : SectionModelType {
@@ -41,5 +42,8 @@ enum PersonTableViewSection : SectionModelType {
     
     typealias Item = PersonTableViewRow
     
+    enum PersonTableViewRow {
+        case button(title: String)
+        case transaction(Transaction)
     }
 }
