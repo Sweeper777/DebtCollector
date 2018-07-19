@@ -9,6 +9,7 @@ class OverviewViewController: UITableViewController {
         super.viewDidLoad()
         tableView.dataSource = nil
         tableView.delegate = nil
+        tableView.allowsSelection = false
         
         tableView.register(UINib(nibName: "OverviewTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         Observable.collection(from: RealmWrapper.shared.transactions)
