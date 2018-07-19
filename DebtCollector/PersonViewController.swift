@@ -36,6 +36,15 @@ class PersonViewController : UITableViewController {
                 return cell!
             }
         })
+        
+        Observable.collection(from: RealmWrapper.shared.transactions.filter("personName == %@", person.name).sorted(byKeyPath: "date", ascending: false))
+            .map { (transactions) -> [PersonTableViewSection] in
+                var sections = [PersonTableViewSection.buttonSection(rows: [.button(title: "Delete This Person")])]
+                sections.append(.transactionSection(rows: transactions.toArray().map { .transaction($0) }))
+                return sections
+        }
+        .bind(to: tableView.rx.items(dataSource: dataSource))
+        .disposed(by: disposeBag)
     }
 }
 
