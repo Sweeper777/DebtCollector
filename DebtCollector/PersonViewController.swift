@@ -16,6 +16,9 @@ class PersonViewController : UITableViewController {
         tableView.delegate = nil
         tableView.register(UINib(nibName: "BriefTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "transactionCell")
         
+        let dataSource = RxTableViewSectionedReloadDataSource<PersonTableViewSection>(configureCell:  {
+            ds, tv, ip, item in
+        })
     }
 }
 
