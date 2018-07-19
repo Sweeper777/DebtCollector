@@ -23,7 +23,7 @@ class OverviewViewController: UITableViewController {
                 let mapped = peopleDict.map({ (x) in
                     return x
                 })
-                return mapped
+                return mapped.sorted(by: { $0.value > $1.value })
             }
             .bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: OverviewTableViewCell.self)) {
                 index, personAndAmount, cell in
