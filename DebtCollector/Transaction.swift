@@ -2,7 +2,7 @@ import RealmSwift
 
 class Transaction: Object {
     @objc dynamic var amount: Double = 0.0
-    @objc dynamic var person: Person?
+    @objc dynamic var personName = ""
     @objc dynamic var date = Date()
     let parentTransactions = LinkingObjects(fromType: GroupTransaction.self, property: "transactions")
 }
