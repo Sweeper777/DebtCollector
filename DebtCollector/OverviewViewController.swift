@@ -13,11 +13,11 @@ class OverviewViewController: UITableViewController {
         tableView.register(UINib(nibName: "OverviewTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         Observable.collection(from: RealmWrapper.shared.transactions)
             .map {
-                transactions -> [(key: Person, value: Double)] in
-                var peopleDict = RealmWrapper.shared.people.reduce(into: [Person: Double](), { $0[$1] = 0 })
+                transactions -> [(key: String, value: Double)] in
+                var peopleDict = RealmWrapper.shared.people.reduce(into: [String: Double](), { $0[$1.name] = 0 })
                 for transaction in transactions {
-                    if peopleDict[transaction.person!] != nil {
-                        peopleDict[transaction.person!]! += transaction.amount
+                    if peopleDict[transaction.personName] != nil {
+                        peopleDict[transaction.personName]! += transaction.amount
                     }
                 }
                 let mapped = peopleDict.map({ (x) in
@@ -27,7 +27,7 @@ class OverviewViewController: UITableViewController {
             }
             .bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: OverviewTableViewCell.self)) {
                 index, personAndAmount, cell in
-                cell.nameLabel.text = personAndAmount.key.name
+                cell.nameLabel.text = personAndAmount.key
                 let formatter = NumberFormatter()
                 formatter.numberStyle = .currency
                 cell.amountLabel.text = formatter.string(from: personAndAmount.value as NSNumber)
