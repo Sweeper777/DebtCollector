@@ -18,6 +18,23 @@ class PersonViewController : UITableViewController {
         
         let dataSource = RxTableViewSectionedReloadDataSource<PersonTableViewSection>(configureCell:  {
             ds, tv, ip, item in
+            switch item {
+            case .transaction(let transaction):
+                let cell = tv.dequeueReusableCell(withIdentifier: "transactionCell") as! BriefTransactionTableViewCell
+                cell.amountLabel.text = "\(abs(transaction.amount))"
+                cell.borrowedReturnedLabel.text = transaction.amount < 0 ? "Returned" : "Borrowed"
+                let formatter = DateFormatter()
+                formatter.dateStyle = .short
+                formatter.timeStyle = .none
+                cell.dateLabel.text = formatter.string(from: transaction.date)
+                cell.transactionLabel.text = transaction.parentTransactions.first!.title
+                cell.selectionStyle = .none
+                return cell
+            case .button(title: let title):
+                let cell = tv.dequeueReusableCell(withIdentifier: "buttonCell")
+                cell!.textLabel!.text = title
+                return cell!
+            }
         })
     }
 }
