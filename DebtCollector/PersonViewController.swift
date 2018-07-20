@@ -3,6 +3,7 @@ import RxCocoa
 import RxSwift
 import RxRealm
 import RxDataSources
+import SCLAlertView
 
 class PersonViewController : UITableViewController {
     let disposeBag = DisposeBag()
@@ -55,6 +56,13 @@ class PersonViewController : UITableViewController {
             alert.addButton("No", action: {})
             alert.showWarning("Delete Person", subTitle: "Do you really want to delete this person?")
         }.disposed(by: disposeBag)
+    }
+    
+    func deletePerson() {
+        try! RealmWrapper.shared.realm.write {
+            RealmWrapper.shared.realm.delete(self.person)
+        }
+        navigationController?.popViewController(animated: true)
     }
 }
 
