@@ -42,4 +42,10 @@ class PeopleViewController: UITableViewController {
         alert.showEdit("New Person", subTitle: "Please enter the name of the person:")
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? PersonViewController {
+            vc.person = sender as! Person
+        }
+    }
 }
