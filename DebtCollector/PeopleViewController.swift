@@ -15,6 +15,12 @@ class PeopleViewController: UITableViewController {
                 index, person, cell in
                 cell.textLabel?.text = person.name
         }.disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(Person.self).subscribe(onNext: {
+            [weak self] person in
+            self?.performSegue(withIdentifier: "showPerson", sender: person)
+        }).disposed(by: disposeBag)
+        
     }
     
     @IBAction func addPerson() {
