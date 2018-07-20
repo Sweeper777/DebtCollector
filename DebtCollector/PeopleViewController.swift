@@ -21,6 +21,7 @@ class PeopleViewController: UITableViewController {
             self?.performSegue(withIdentifier: "showPerson", sender: person)
         }).disposed(by: disposeBag)
         
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     @IBAction func addPerson() {
