@@ -45,6 +45,16 @@ class PersonViewController : UITableViewController {
         }
         .bind(to: tableView.rx.items(dataSource: dataSource))
         .disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(PersonTableViewSection.PersonTableViewRow.self).subscribe { [weak self] _ in
+            guard let `self` = self else { return }
+            let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
+            alert.addButton("Yes", action: {
+                self.deletePerson()
+            })
+            alert.addButton("No", action: {})
+            alert.showWarning("Delete Person", subTitle: "Do you really want to delete this person?")
+        }.disposed(by: disposeBag)
     }
 }
 
