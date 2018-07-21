@@ -19,6 +19,9 @@ class PeopleViewController: UITableViewController {
         tableView.rx.modelSelected(Person.self).subscribe(onNext: {
             [weak self] person in
             self?.performSegue(withIdentifier: "showPerson", sender: person)
+            if let selectedIndexPath = self?.tableView.indexPathForSelectedRow {
+                self?.tableView.deselectRow(at: selectedIndexPath, animated: true)
+            }
         }).disposed(by: disposeBag)
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
