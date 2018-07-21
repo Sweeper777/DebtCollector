@@ -26,10 +26,10 @@ class PersonViewController : UITableViewController {
                 formatter1.numberStyle = .currency
                 cell.amountLabel.text = formatter1.string(from: abs(transaction.amount) as NSNumber)
                 cell.borrowedReturnedLabel.text = transaction.amount < 0 ? "Returned" : "Borrowed"
-                let formatter = DateFormatter()
-                formatter.dateStyle = .short
-                formatter.timeStyle = .none
-                cell.dateLabel.text = formatter.string(from: transaction.date)
+                let formatter2 = DateFormatter()
+                formatter2.dateStyle = .short
+                formatter2.timeStyle = .none
+                cell.dateLabel.text = formatter2.string(from: transaction.date)
                 cell.transactionLabel.text = transaction.parentTransactions.first!.title
                 cell.selectionStyle = .none
                 return cell
