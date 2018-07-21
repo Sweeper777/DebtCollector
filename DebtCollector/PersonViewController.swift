@@ -22,7 +22,9 @@ class PersonViewController : UITableViewController {
             switch item {
             case .transaction(let transaction):
                 let cell = tv.dequeueReusableCell(withIdentifier: "transactionCell") as! BriefTransactionTableViewCell
-                cell.amountLabel.text = "\(abs(transaction.amount))"
+                let formatter1 = NumberFormatter()
+                formatter1.numberStyle = .currency
+                cell.amountLabel.text = formatter1.string(from: abs(transaction.amount) as NSNumber)
                 cell.borrowedReturnedLabel.text = transaction.amount < 0 ? "Returned" : "Borrowed"
                 let formatter = DateFormatter()
                 formatter.dateStyle = .short
