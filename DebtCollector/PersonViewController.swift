@@ -55,6 +55,9 @@ class PersonViewController : UITableViewController {
             })
             alert.addButton("No", action: {})
             alert.showWarning("Delete Person", subTitle: "Do you really want to delete this person?")
+            if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
+                self.tableView.deselectRow(at: selectedIndexPath, animated: true)
+            }
         }.disposed(by: disposeBag)
     }
     
