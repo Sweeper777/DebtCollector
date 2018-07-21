@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,6 +21,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="qE7-ul-luR" kind="relationship" relationship="viewControllers" id="7Wg-eM-ZgY"/>
+                        <segue destination="ZjY-9p-tnD" kind="relationship" relationship="viewControllers" id="IuL-He-dYR"/>
                         <segue destination="XbA-7C-UfO" kind="relationship" relationship="viewControllers" id="q2P-jd-vVN"/>
                     </connections>
                 </tabBarController>
@@ -75,6 +77,115 @@
             </objects>
             <point key="canvasLocation" x="1196" y="976"/>
         </scene>
+        <!--All Transactions-->
+        <scene sceneID="DwG-Jx-8Th">
+            <objects>
+                <tableViewController id="lFV-F3-8Ju" customClass="TransactionListViewController" customModule="DebtCollector" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uLL-5a-aOX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="1Jn-9C-6Ct">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Jn-9C-6Ct" id="26g-cM-bwi">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lFV-F3-8Ju" id="osx-Df-9Lo"/>
+                            <outlet property="delegate" destination="lFV-F3-8Ju" id="btB-oE-nSs"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="All Transactions" id="utv-0m-0Tc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ln1-4E-ODY">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addTransaction" destination="lFV-F3-8Ju" id="2aY-dl-hi2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="cyd-Hf-ZZO" kind="presentation" identifier="newTransaction" modalPresentationStyle="formSheet" id="0qO-dI-KcN"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XFL-oL-LpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2145" y="296"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fdK-8D-QdD">
+            <objects>
+                <navigationController id="cyd-Hf-ZZO" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JrN-n1-51p">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Nl4-4M-a9L" kind="relationship" relationship="rootViewController" id="GWA-4P-n2v"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="POd-5P-6P6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2985" y="-376"/>
+        </scene>
+        <!--New Transaction-->
+        <scene sceneID="RJn-ka-3fm">
+            <objects>
+                <viewController id="Nl4-4M-a9L" customClass="NewTransactionViewController" customModule="DebtCollector" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lOp-kj-6Yo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="fh5-UR-O4a"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Transaction" id="cAq-UQ-Y5y">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Dcz-GZ-ph2">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="cancel" destination="Nl4-4M-a9L" id="Msj-dY-duS"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="XoA-Mx-6Ve">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="done" destination="Nl4-4M-a9L" id="jOp-Yh-Zkc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C4p-3Y-IMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3793" y="-376"/>
+        </scene>
+        <!--Transactions-->
+        <scene sceneID="sQb-T4-qmb">
+            <objects>
+                <navigationController id="ZjY-9p-tnD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Transactions" image="transactions" selectedImage="transactions_filled" id="BTB-Xa-vHG"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EhH-1e-6ub">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lFV-F3-8Ju" kind="relationship" relationship="rootViewController" id="Vm3-V9-pGH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="js4-Cd-jzy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1193" y="296"/>
+        </scene>
         <!--Person View Controller-->
         <scene sceneID="KbG-Tr-rS8">
             <objects>
@@ -118,7 +229,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JuP-E7-2mz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2037.5999999999999" y="975.56221889055485"/>
+            <point key="canvasLocation" x="2145" y="976"/>
         </scene>
         <!--People-->
         <scene sceneID="u0m-de-edP">
@@ -168,7 +279,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3V9-ib-vFc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2109.5999999999999" y="-110.19490254872565"/>
+            <point key="canvasLocation" x="2145" y="-376"/>
         </scene>
         <!--Home-->
         <scene sceneID="esB-44-vai">
@@ -189,7 +300,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ush-WA-b6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1161" y="-110"/>
+            <point key="canvasLocation" x="1196" y="-376"/>
         </scene>
     </scenes>
     <resources>
@@ -197,5 +308,7 @@
         <image name="icons8-home_filled" width="25" height="25"/>
         <image name="people" width="25" height="25"/>
         <image name="people_filled" width="25" height="25"/>
+        <image name="transactions" width="25" height="25"/>
+        <image name="transactions_filled" width="25" height="25"/>
     </resources>
 </document>
