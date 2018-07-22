@@ -28,4 +28,8 @@ class TransactionListViewController: UITableViewController {
             }
             .disposed(by: disposeBag)
     }
+    
+    @IBAction func addTransaction() {
+        performSegue(withIdentifier: "newTransaction", sender: nil)
+    }
 }
