@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'DB8C3A0D2B5627B8E8D16289E163BB13'
-               BlueprintName = 'RxSwift'
+               BlueprintIdentifier = '5DEC2B99E1BDCCB27204D88B9E8746C1'
+               BlueprintName = 'LUAutocompleteView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'RxSwift.framework'>
+               BuildableName = 'LUAutocompleteView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
