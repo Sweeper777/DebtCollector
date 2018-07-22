@@ -12,5 +12,10 @@ class TransactionListViewController: UITableViewController {
         tableView.dataSource = nil
         tableView.register(UINib(nibName: "GroupedTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         
+        Observable.collection(from: RealmWrapper.shared.groupTransactions)
+            .bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: GroupedTransactionTableViewCell.self)) {
+                index, groupTransaction, cell in
+            }
+            .disposed(by: disposeBag)
     }
 }
