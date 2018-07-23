@@ -12,6 +12,13 @@ class NewTransactionViewController : FormViewController {
             row.options = ["Borrowed", "Returned"]
             row.value = "Borrowed"
         }
+        .onChange({ (row) in
+           if row.value == "Returned" {
+                let row: RowOf<String> = self.form.rowBy(tag: tagTitle)!
+                row.value = "Returned Money"
+            }
+        })
+            
     }
     
     @IBAction func cancel() {
