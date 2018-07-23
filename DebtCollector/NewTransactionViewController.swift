@@ -14,3 +14,11 @@ class NewTransactionViewController : FormViewController {
         self.dismiss(animated: true, completion: nil)
     }
 }
+
+// MARK: Form tags
+let tagTitle = "title"
+let tagDate = "date"
+let tagReturnedOrBorrowed = "returnedOrBorrowed"
+let tagPerson = "person"
+let tagAmount = "amount"
+let tagDetails = "details"
