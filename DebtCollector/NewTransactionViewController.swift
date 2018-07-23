@@ -4,6 +4,14 @@ import Eureka
 class NewTransactionViewController : FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        form +++ Section()
+        
+        <<< SegmentedRow<String>(tagReturnedOrBorrowed) {
+            row in
+            row.options = ["Borrowed", "Returned"]
+            row.value = "Borrowed"
+        }
     }
     
     @IBAction func cancel() {
