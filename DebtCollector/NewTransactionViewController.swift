@@ -40,8 +40,9 @@ class NewTransactionViewController : FormViewController {
             form +++ Section()
             <<< PickerInlineRow<String>(tagPerson + "\(i)") {
                 row in
-                row.options = [["Not Selected"], RealmWrapper.shared.people.map { $0.name }].flatMap { $0 }
-                row.value = "Not Selected"
+                row.title = "Person"
+                row.options = [["<Not Selected>"], RealmWrapper.shared.people.map { $0.name }.sorted()].flatMap { $0 }
+                row.value = "<Not Selected>"
             }
             <<< DecimalRow(tagAmount) {
                 row in
