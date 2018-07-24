@@ -31,6 +31,15 @@ class NewTransactionViewController : FormViewController {
             row.value = Date()
             row.maximumDate = Date()
         }
+        
+        for i in 0..<RealmWrapper.shared.people.count {
+            form +++ Section()
+            <<< PickerRow<String>(tagPerson + "\(i)") {
+                row in
+                row.options = [["Not Selected"], RealmWrapper.shared.people.map { $0.name }].flatMap { $0 }
+                row.value = "Not Selected"
+            }
+        }
     }
     
     @IBAction func cancel() {
