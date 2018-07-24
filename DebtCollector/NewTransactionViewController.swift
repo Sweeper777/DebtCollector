@@ -1,7 +1,10 @@
 import UIKit
 import Eureka
+import SCLAlertView
+import RealmSwift
 
 class NewTransactionViewController : FormViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -16,6 +19,7 @@ class NewTransactionViewController : FormViewController {
            if row.value == "Returned" {
                 let row: RowOf<String> = self.form.rowBy(tag: tagTitle)!
                 row.value = "Returned Money"
+                row.updateCell()
             }
         })
             
