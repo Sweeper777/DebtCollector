@@ -25,6 +25,12 @@ class NewTransactionViewController : FormViewController {
             row.cell.textField.placeholder = "Required"
         }
         
+        <<< DateRow(tagDate) {
+            row in
+            row.title = "Date"
+            row.value = Date()
+            row.maximumDate = Date()
+        }
     }
     
     @IBAction func cancel() {
