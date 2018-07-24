@@ -19,6 +19,12 @@ class NewTransactionViewController : FormViewController {
             }
         })
             
+        <<< TextRow(tagTitle) {
+            row in
+            row.title = "Title"
+            row.cell.textField.placeholder = "Required"
+        }
+        
     }
     
     @IBAction func cancel() {
