@@ -73,6 +73,18 @@ class NewTransactionViewController : FormViewController {
             showErrorMessage("Please enter a title!")
             return
         }
+        var transactions = [Transaction]()
+        for i in 0..<RealmWrapper.shared.people.count  {
+            guard let name = values[tagPerson + "\(i)"] as? String else {
+                continue
+            }
+            if name == "<Not Selected>" {
+                continue
+            }
+            if transactions.contains(where: { $0.personName == name }) {
+                showErrorMessage("There are duplicate names in the transaction!")
+                return
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
