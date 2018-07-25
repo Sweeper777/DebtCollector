@@ -51,6 +51,11 @@ class NewTransactionViewController : FormViewController {
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = .currency
             }
+            
+            <<< TextRow(tagDetails + "\(i)") {
+                row in
+                row.cell.textField.placeholder = "Details (Optional)"
+            }
         }
     }
     
