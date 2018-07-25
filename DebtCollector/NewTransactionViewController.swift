@@ -66,6 +66,11 @@ class NewTransactionViewController : FormViewController {
     @IBAction func done() {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    func showErrorMessage(_ msg: String) {
+        let alert = SCLAlertView()
+        alert.showError("Error", subTitle: msg)
+    }
 }
 
 // MARK: Form tags
