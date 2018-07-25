@@ -64,6 +64,15 @@ class NewTransactionViewController : FormViewController {
     }
     
     @IBAction func done() {
+        let values = form.values()
+        guard let title = values[tagTitle] as? String else {
+            showErrorMessage("Please enter a title!")
+            return
+        }
+        if title.trimmed() == "" {
+            showErrorMessage("Please enter a title!")
+            return
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
