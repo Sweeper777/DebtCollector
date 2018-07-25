@@ -44,9 +44,9 @@ class NewTransactionViewController : FormViewController {
                 row.options = [["<Not Selected>"], RealmWrapper.shared.people.map { $0.name }.sorted()].flatMap { $0 }
                 row.value = "<Not Selected>"
             }
-            <<< DecimalRow(tagAmount) {
+            <<< DecimalRow(tagAmount + "\(i)") {
                 row in
-                row.title = "Amount"
+                row.title = "Amount (\(Locale.current.currencySymbol ?? Locale.current.currencyCode ?? "$"))"
                 row.cell.textField.placeholder = "0.00"
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = .currency
