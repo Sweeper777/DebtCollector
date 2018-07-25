@@ -84,6 +84,15 @@ class NewTransactionViewController : FormViewController {
             if transactions.contains(where: { $0.personName == name }) {
                 showErrorMessage("There are duplicate names in the transaction!")
                 return
+            }
+            guard let amount = values[tagAmount + "\(i)"] as? Double else {
+                showErrorMessage("Please enter an amount for \(name)!")
+                return
+            }
+            if amount <= 0 {
+                showErrorMessage("Amount cannot be less than or equal to 0!")
+                return
+            }
         }
         self.dismiss(animated: true, completion: nil)
     }
