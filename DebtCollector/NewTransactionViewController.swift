@@ -93,6 +93,16 @@ class NewTransactionViewController : FormViewController {
                 showErrorMessage("Amount cannot be less than or equal to 0!")
                 return
             }
+            let transaction = Transaction()
+            transaction.personName = name
+            transaction.date = values[tagDate] as? Date ?? Date()
+            transaction.details = values[tagDetails + "\(i)"] as? String ?? ""
+            if values[tagReturnedOrBorrowed] as? String == "Returned" {
+                transaction.amount = -amount
+            } else {
+                transaction.amount = amount
+            }
+            transactions.append(transaction)
         }
         self.dismiss(animated: true, completion: nil)
     }
