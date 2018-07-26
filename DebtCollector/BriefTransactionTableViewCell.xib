@@ -25,14 +25,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="80.5" height="48.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/01/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47M-o9-1XJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="80.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80.5" height="16.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LL1-l4-Web">
-                                        <rect key="frame" x="0.0" y="20.5" width="80.5" height="28"/>
+                                        <rect key="frame" x="0.0" y="16.5" width="80.5" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5o-Xb-ySY">
+                                        <rect key="frame" x="0.0" y="38.5" width="80.5" height="10"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -69,6 +75,7 @@
                 <outlet property="amountLabel" destination="tMA-UH-bh4" id="CvG-0u-6s7"/>
                 <outlet property="borrowedReturnedLabel" destination="Mgg-Mo-aov" id="98l-U0-rZ4"/>
                 <outlet property="dateLabel" destination="47M-o9-1XJ" id="7cJ-2G-l2H"/>
+                <outlet property="transactionDetailsLabel" destination="b5o-Xb-ySY" id="MLn-yf-PGq"/>
                 <outlet property="transactionLabel" destination="LL1-l4-Web" id="AUw-pZ-oca"/>
             </connections>
             <point key="canvasLocation" x="94.5" y="119.5"/>
