@@ -116,6 +116,13 @@ class NewTransactionViewController : FormViewController {
             groupedTransaction.transactions.append($0)
         }
         
+        try! RealmWrapper.shared.realm.write {
+            transactions.forEach {
+                RealmWrapper.shared.realm.add($0)
+            }
+            RealmWrapper.shared.realm.add(groupedTransaction)
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
     
