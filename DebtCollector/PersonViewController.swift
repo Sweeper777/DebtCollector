@@ -32,6 +32,13 @@ class PersonViewController : UITableViewController {
                 cell.dateLabel.text = formatter2.string(from: transaction.date)
                 cell.transactionLabel.text = transaction.parentTransactions.first!.title
                 cell.selectionStyle = .none
+                
+                if transaction.details.trimmed() != "" {
+                    cell.transactionDetailsLabel.text = transaction.details
+                } else {
+                    cell.transactionDetailsLabel.removeFromSuperview()
+                }
+                
                 return cell
             case .button(title: let title):
                 let cell = tv.dequeueReusableCell(withIdentifier: "buttonCell")
