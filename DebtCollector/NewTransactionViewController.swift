@@ -110,6 +110,12 @@ class NewTransactionViewController : FormViewController {
             return
         }
         
+        let groupedTransaction = GroupTransaction()
+        groupedTransaction.title = title
+        transactions.forEach {
+            groupedTransaction.transactions.append($0)
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
     
