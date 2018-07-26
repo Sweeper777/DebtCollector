@@ -104,6 +104,12 @@ class NewTransactionViewController : FormViewController {
             }
             transactions.append(transaction)
         }
+        
+        if transactions.isEmpty {
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
     
