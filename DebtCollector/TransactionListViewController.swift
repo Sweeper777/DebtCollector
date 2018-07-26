@@ -2,6 +2,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import RxRealm
+import RealmSwift
 import SwiftyUtils
 
 class TransactionListViewController: UITableViewController {
@@ -12,7 +13,7 @@ class TransactionListViewController: UITableViewController {
         tableView.dataSource = nil
         tableView.register(UINib(nibName: "GroupedTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         
-        Observable.collection(from: RealmWrapper.shared.groupTransactions)
+        Observable.collection(from: RealmWrapper.shared.groupTransactions.sorted(byKeyPath: "transactions.first.date"))
             .bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: GroupedTransactionTableViewCell.self)) {
                 index, groupTransaction, cell in
                 let totalAmount = abs(groupTransaction.transactions.map { $0.amount }.reduce(0, +))
