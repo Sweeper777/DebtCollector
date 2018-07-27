@@ -95,8 +95,8 @@ class NewTransactionViewController : FormViewController {
             }
             let transaction = Transaction()
             transaction.personName = name
-            transaction.date = values[tagDate] as? Date ?? Date()
             transaction.details = values[tagDetails + "\(i)"] as? String ?? ""
+            transaction.date = values[tagDate] as? Date ?? Date()
             if values[tagReturnedOrBorrowed] as? String == "Returned" {
                 transaction.amount = -amount
             } else {
@@ -112,6 +112,7 @@ class NewTransactionViewController : FormViewController {
         
         let groupedTransaction = GroupTransaction()
         groupedTransaction.title = title
+        groupedTransaction.date = values[tagDate] as? Date ?? Date()
         transactions.forEach {
             groupedTransaction.transactions.append($0)
         }
