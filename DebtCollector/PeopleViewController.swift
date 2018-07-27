@@ -31,6 +31,10 @@ class PeopleViewController: UITableViewController {
         let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
         let nameField = alert.addTextField("Name")
         alert.addButton("OK", action: {
+            if nameField.text?.trimmed() == "" {
+                return
+            }
+            
             if RealmWrapper.shared.people.contains(where: { $0.name == nameField.text!.trimmed() }) {
                 let errorAlert = SCLAlertView()
                 errorAlert.showError("Error", subTitle: "A person with this name already exists!")
