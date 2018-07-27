@@ -12,9 +12,9 @@ class OverviewViewController: UITableViewController {
         tableView.allowsSelection = false
         
         tableView.register(UINib(nibName: "OverviewTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        Observable.collection(from: RealmWrapper.shared.transactions)
+        Observable.combineLatest(Observable.collection(from: RealmWrapper.shared.transactions), Observable.collection(from: RealmWrapper.shared.people), resultSelector: { (transactions: $0, people: $1) })
             .map {
-                transactions -> [(key: String, value: Double)] in
+                transactions, people -> [(key: String, value: Double)] in
                 var peopleDict = RealmWrapper.shared.people.reduce(into: [String: Double](), { $0[$1.name] = 0 })
                 for transaction in transactions {
                     if peopleDict[transaction.personName] != nil {
