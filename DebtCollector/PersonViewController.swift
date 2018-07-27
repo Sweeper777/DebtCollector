@@ -47,7 +47,7 @@ class PersonViewController : UITableViewController {
             }
         })
         
-        Observable.collection(from: RealmWrapper.shared.transactions.filter("personName == %@", person.name).sorted(byKeyPath: "date", ascending: false))
+        Observable.collection(from: RealmWrapper.shared.transactions.filter("personName == %@", person.name).sorted(byKeyPath: "date", ascending: true))
             .map { (transactions) -> [PersonTableViewSection] in
                 var sections = [PersonTableViewSection.buttonSection(rows: [.button(title: "Delete This Person")])]
                 sections.append(.transactionSection(rows: transactions.toArray().map { .transaction($0) }))
