@@ -101,6 +101,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="All Transactions" id="utv-0m-0Tc">
+                        <barButtonItem key="backBarButtonItem" title=" " id="iUY-ei-7YM"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ln1-4E-ODY">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -110,6 +111,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="cyd-Hf-ZZO" kind="presentation" identifier="newTransaction" modalPresentationStyle="formSheet" id="0qO-dI-KcN"/>
+                        <segue destination="RLI-JK-oi8" kind="show" identifier="showDetailTransaction" id="LYA-iW-NO5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XFL-oL-LpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -301,6 +303,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ush-WA-b6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1196" y="-376"/>
+        </scene>
+        <!--Detail Transaction View Controller-->
+        <scene sceneID="D9h-Sw-xnR">
+            <objects>
+                <tableViewController id="RLI-JK-oi8" customClass="DetailTransactionViewController" customModule="DebtCollector" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Out-1n-JBc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="transactionCell" rowHeight="81" id="RsU-Sp-AkJ" customClass="DetailTransactionTableViewCell" customModule="DebtCollector" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="81"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RsU-Sp-AkJ" id="y7u-vt-1gr">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="buttonCell" textLabel="Mw7-P9-A4f" style="IBUITableViewCellStyleDefault" id="xfB-9n-8gR">
+                                <rect key="frame" x="0.0" y="136.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xfB-9n-8gR" id="pkQ-Ia-ACA">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Delete This Transaction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mw7-P9-A4f">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RLI-JK-oi8" id="ETD-ea-2EA"/>
+                            <outlet property="delegate" destination="RLI-JK-oi8" id="e5k-dx-w51"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Rq-GW-LKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2985" y="296"/>
         </scene>
     </scenes>
     <resources>
