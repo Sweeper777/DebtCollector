@@ -63,6 +63,16 @@ class DetailTransactionViewController : UITableViewController {
             }
             }.disposed(by: disposeBag)
     }
+    
+    func deleteTransaction() {
+        try! RealmWrapper.shared.realm.write {
+            for transaction in self.groupedTransaction.transactions {
+                RealmWrapper.shared.realm.delete(transaction)
+            }
+            RealmWrapper.shared.realm.delete(self.groupedTransaction)
+        }
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 enum DetailTransactionTableViewSection : SectionModelType {
