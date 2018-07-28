@@ -18,6 +18,9 @@
 		5A3F33FA2101D7A700B28C14 /* GroupedTransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A3F33F92101D7A700B28C14 /* GroupedTransactionTableViewCell.xib */; };
 		5A3F33FC2101D7B800B28C14 /* GroupedTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3F33FB2101D7B800B28C14 /* GroupedTransactionTableViewCell.swift */; };
 		5A3F33FE2101E36100B28C14 /* NewTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3F33FD2101E36100B28C14 /* NewTransactionViewController.swift */; };
+		5A4580AF210A9B92002691FB /* DetailTransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4580AE210A9B92002691FB /* DetailTransactionTableViewCell.xib */; };
+		5A4580B1210A9BE8002691FB /* DetailTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4580B0210A9BE8002691FB /* DetailTransactionTableViewCell.swift */; };
+		5A4580B3210A9CA3002691FB /* DetailTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4580B2210A9CA3002691FB /* DetailTransactionViewController.swift */; };
 		5A4690BA20F5FE4400911E04 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4690B920F5FE4400911E04 /* Transaction.swift */; };
 		5A4690BC20F600DF00911E04 /* OverviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4690BB20F600DF00911E04 /* OverviewTableViewCell.xib */; };
 		5A4690BE20F6017200911E04 /* OverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4690BD20F6017200911E04 /* OverviewTableViewCell.swift */; };
@@ -42,6 +45,9 @@
 		5A3F33F92101D7A700B28C14 /* GroupedTransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupedTransactionTableViewCell.xib; sourceTree = "<group>"; };
 		5A3F33FB2101D7B800B28C14 /* GroupedTransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedTransactionTableViewCell.swift; sourceTree = "<group>"; };
 		5A3F33FD2101E36100B28C14 /* NewTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionViewController.swift; sourceTree = "<group>"; };
+		5A4580AE210A9B92002691FB /* DetailTransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTransactionTableViewCell.xib; sourceTree = "<group>"; };
+		5A4580B0210A9BE8002691FB /* DetailTransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransactionTableViewCell.swift; sourceTree = "<group>"; };
+		5A4580B2210A9CA3002691FB /* DetailTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransactionViewController.swift; sourceTree = "<group>"; };
 		5A4690B920F5FE4400911E04 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		5A4690BB20F600DF00911E04 /* OverviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverviewTableViewCell.xib; sourceTree = "<group>"; };
 		5A4690BD20F6017200911E04 /* OverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTableViewCell.swift; sourceTree = "<group>"; };
@@ -99,6 +105,7 @@
 				5A8A05E920FDD65300D98280 /* PersonViewController.swift */,
 				5A3F33F72101D5B200B28C14 /* TransactionListViewController.swift */,
 				5A3F33FD2101E36100B28C14 /* NewTransactionViewController.swift */,
+				5A4580B2210A9CA3002691FB /* DetailTransactionViewController.swift */,
 				5A3ED26920F4AA6700E79CE6 /* Main.storyboard */,
 				5A4690B920F5FE4400911E04 /* Transaction.swift */,
 				5A6BF0E220F75D0A0035407A /* RealmWrapper.swift */,
@@ -110,6 +117,8 @@
 				5A3EE36420FC950B00756EC8 /* BriefTransactionTableViewCell.swift */,
 				5A3F33F92101D7A700B28C14 /* GroupedTransactionTableViewCell.xib */,
 				5A3F33FB2101D7B800B28C14 /* GroupedTransactionTableViewCell.swift */,
+				5A4580AE210A9B92002691FB /* DetailTransactionTableViewCell.xib */,
+				5A4580B0210A9BE8002691FB /* DetailTransactionTableViewCell.swift */,
 				5A3ED27120F4AA6A00E79CE6 /* Info.plist */,
 			);
 			path = DebtCollector;
@@ -186,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A4580AF210A9B92002691FB /* DetailTransactionTableViewCell.xib in Resources */,
 				5A4690BC20F600DF00911E04 /* OverviewTableViewCell.xib in Resources */,
 				5A3F33FA2101D7A700B28C14 /* GroupedTransactionTableViewCell.xib in Resources */,
 				5A3ED27020F4AA6A00E79CE6 /* LaunchScreen.storyboard in Resources */,
@@ -279,9 +289,11 @@
 				5A4690BE20F6017200911E04 /* OverviewTableViewCell.swift in Sources */,
 				5A3ED26820F4AA6700E79CE6 /* OverviewViewController.swift in Sources */,
 				5A3F33FE2101E36100B28C14 /* NewTransactionViewController.swift in Sources */,
+				5A4580B1210A9BE8002691FB /* DetailTransactionTableViewCell.swift in Sources */,
 				5A6BF0E320F75D0A0035407A /* RealmWrapper.swift in Sources */,
 				5A8A05EA20FDD65300D98280 /* PersonViewController.swift in Sources */,
 				5A3ED26620F4AA6700E79CE6 /* AppDelegate.swift in Sources */,
+				5A4580B3210A9CA3002691FB /* DetailTransactionViewController.swift in Sources */,
 				5A3F33FC2101D7B800B28C14 /* GroupedTransactionTableViewCell.swift in Sources */,
 				5A4690BA20F5FE4400911E04 /* Transaction.swift in Sources */,
 				5A3EE36520FC950B00756EC8 /* BriefTransactionTableViewCell.swift in Sources */,
