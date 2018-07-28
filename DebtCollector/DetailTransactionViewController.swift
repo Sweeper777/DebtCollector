@@ -41,6 +41,27 @@ class DetailTransactionViewController : UITableViewController {
             }
         })
         
+        Observable.collection(from: groupedTransaction.transactions.sorted(byKeyPath: "personName", ascending: true))
+            .map { (transactions) -> [DetailTransactionTableViewSection] in
+                var sections = [DetailTransactionTableViewSection.buttonSection(rows: [.button(title: "Delete This Transaction")])]
+                sections.append(.transactionSection(rows: transactions.toArray().map { .transaction($0) }))
+                return sections
+            }
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(DetailTransactionTableViewSection.DetailTransactionTableViewRow.self).subscribe { [weak self] _ in
+            guard let `self` = self else { return }
+            let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
+            alert.addButton("Yes", action: {
+                self.deleteTransaction()
+            })
+            alert.addButton("No", action: {})
+            alert.showWarning("Delete Transaction", subTitle: "Do you really want to delete this transaction?")
+            if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
+                self.tableView.deselectRow(at: selectedIndexPath, animated: true)
+            }
+            }.disposed(by: disposeBag)
     }
 }
 
