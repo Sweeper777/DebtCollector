@@ -1,6 +1,0 @@
-framework module RFKeyboardToolbar {
-  umbrella header "RFKeyboardToolbar-umbrella.h"
-
-  export *
-  module * { export * }
-}

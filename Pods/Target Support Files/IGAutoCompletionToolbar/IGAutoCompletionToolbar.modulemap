@@ -1,0 +1,6 @@
+framework module IGAutoCompletionToolbar {
+  umbrella header "IGAutoCompletionToolbar-umbrella.h"
+
+  export *
+  module * { export * }
+}

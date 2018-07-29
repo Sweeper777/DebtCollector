@@ -1,12 +1,12 @@
 PODS:
   - Differentiator (3.0.2)
   - Eureka (4.1.1)
+  - IGAutoCompletionToolbar (0.2.2)
   - Realm (3.5.0):
     - Realm/Headers (= 3.5.0)
   - Realm/Headers (3.5.0)
   - RealmSwift (3.5.0):
     - Realm (= 3.5.0)
-  - RFKeyboardToolbar (1.3)
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
   - RxDataSources (3.0.2):
@@ -22,8 +22,8 @@ PODS:
 
 DEPENDENCIES:
   - Eureka
+  - IGAutoCompletionToolbar
   - RealmSwift
-  - RFKeyboardToolbar
   - RxCocoa
   - RxDataSources
   - RxRealm
@@ -43,9 +43,9 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
   Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
+  IGAutoCompletionToolbar: 3a11d4ca6cf71c7a44f1f9388657cbb9ef5045bb
   Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
   RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
-  RFKeyboardToolbar: c96a7d9458564d1fedc8ef6844b6c467934aade2
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
   RxRealm: a6c6c0a07cb61f34209969ca6657734edfdfff30
@@ -53,6 +53,6 @@ SPEC CHECKSUMS:
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SwiftyUtils: ae914aa96b5672e9282904771e5e5b44d2e307d6
 
-PODFILE CHECKSUM: c025a04660cd0d3f04e2b420c6c4505aad0d34b7
+PODFILE CHECKSUM: af09865572bef5d174a3725b6f809902718c93f8
 
 COCOAPODS: 1.3.1
