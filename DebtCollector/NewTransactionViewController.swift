@@ -2,7 +2,7 @@ import UIKit
 import Eureka
 import SCLAlertView
 import RealmSwift
-import RFKeyboardToolbar
+import IGAutoCompletionToolbar
 
 class NewTransactionViewController : FormViewController {
     
@@ -56,11 +56,10 @@ class NewTransactionViewController : FormViewController {
             <<< TextRow(tagDetails + "\(i)") {
                 row in
                 
-                let buttons = ["Paid by cash", "Paid by card", "Paid by PayPal"].map { x in RFToolbarButton(title: x, andEventHandler: {
-                    row.cell.textField.text = x
-                    row.value = x
-                }, for: .touchUpInside)! }
-                row.cell.textField.inputAccessoryView = RFKeyboardToolbar(buttons: buttons)
+                let toolbar = IGAutoCompletionToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
+                toolbar.items = ["Paid by cash", "Paid by card", "Paid by PayPal"]
+                toolbar.textField = row.cell.textField
+                row.cell.textField.inputAccessoryView = toolbar
                 
                 row.cell.textField.placeholder = "Details (Optional)"
             }
