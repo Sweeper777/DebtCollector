@@ -28,6 +28,19 @@ class TransactionListViewController: UITableViewController {
                 cell.transactionNameLabel.text = groupTransaction.title
             }
             .disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(GroupTransaction.self).subscribe(onNext: {
+            [weak self] groupTransaction in
+            self?.performSegue(withIdentifier: "showDetailTransaction", sender: groupTransaction)
+        }).disposed(by: disposeBag)
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? DetailTransactionViewController {
+            vc.groupedTransaction = sender as! GroupTransaction
+        }
     }
     
     @IBAction func addTransaction() {
