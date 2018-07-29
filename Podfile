@@ -12,5 +12,5 @@ target 'DebtCollector' do
   pod 'RealmSwift'
   pod 'RxRealm'
   pod 'RxDataSources'
-  pod 'LUAutocompleteView'
+  pod 'RFKeyboardToolbar'
 end

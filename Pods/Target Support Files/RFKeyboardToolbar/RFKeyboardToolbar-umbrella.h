@@ -10,7 +10,9 @@
 #endif
 #endif
 
+#import "RFKeyboardToolbar.h"
+#import "RFToolbarButton.h"
 
-FOUNDATION_EXPORT double LUAutocompleteViewVersionNumber;
-FOUNDATION_EXPORT const unsigned char LUAutocompleteViewVersionString[];
+FOUNDATION_EXPORT double RFKeyboardToolbarVersionNumber;
+FOUNDATION_EXPORT const unsigned char RFKeyboardToolbarVersionString[];
 

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '5DEC2B99E1BDCCB27204D88B9E8746C1'
-               BlueprintName = 'LUAutocompleteView'
+               BlueprintIdentifier = '69F64FFB5A4D56CE77DA1A2602F70938'
+               BlueprintName = 'RFKeyboardToolbar'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'LUAutocompleteView.framework'>
+               BuildableName = 'RFKeyboardToolbar.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
