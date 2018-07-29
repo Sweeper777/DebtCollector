@@ -2,6 +2,7 @@ import UIKit
 import Eureka
 import SCLAlertView
 import RealmSwift
+import RFKeyboardToolbar
 
 class NewTransactionViewController : FormViewController {
     
@@ -54,6 +55,13 @@ class NewTransactionViewController : FormViewController {
             
             <<< TextRow(tagDetails + "\(i)") {
                 row in
+                
+                let buttons = ["Paid by cash", "Paid by card", "Paid by PayPal"].map { x in RFToolbarButton(title: x, andEventHandler: {
+                    row.cell.textField.text = x
+                    row.value = x
+                }, for: .touchUpInside)! }
+                row.cell.textField.inputAccessoryView = RFKeyboardToolbar(buttons: buttons)
+                
                 row.cell.textField.placeholder = "Details (Optional)"
             }
         }
