@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '2FC575D5B8DB659B0F8A4262D2C54603'
-               BlueprintName = 'IGAutoCompletionToolbar'
+               BlueprintIdentifier = '14F86AC89CC09D13FF1D706B9D3D26EF'
+               BlueprintName = 'MenuItemKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'IGAutoCompletionToolbar.framework'>
+               BuildableName = 'MenuItemKit.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
