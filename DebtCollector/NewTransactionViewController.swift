@@ -145,10 +145,6 @@ class NewTransactionViewController : FormViewController {
         let alert = SCLAlertView()
         alert.showError("Error", subTitle: msg)
     }
-    
-    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        return action.description.starts(with: "_menuitemkit_block_")
-    }
 }
 
 // MARK: Form tags
