@@ -2,7 +2,7 @@ import UIKit
 import Eureka
 import SCLAlertView
 import RealmSwift
-import MenuItemKit
+import IGAutoCompletionToolbar
 
 class NewTransactionViewController : FormViewController {
     
@@ -56,17 +56,10 @@ class NewTransactionViewController : FormViewController {
             <<< TextRow(tagDetails + "\(i)") {
                 row in
                 
-                let menuController = UIMenuController.shared
-                var menuItems = [UIMenuItem]()
-                for item in ["Paid by cash", "Paid by card", "Paid by Paypal"] {
-                    let menuItem = UIMenuItem.init(title: item, action: { _ in
-                        row.cell.textField.text = item
-                        row.value = item
-                    })
-                    menuItems.append(menuItem)
-                }
-                menuController.menuItems = menuItems
-                menuController.isMenuVisible = true
+                let toolbar = IGAutoCompletionToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
+                toolbar.items = ["Paid by cash", "Paid by card", "Paid by PayPal"]
+                toolbar.textField = row.cell.textField
+                row.cell.textField.inputAccessoryView = toolbar
                 
                 row.cell.textField.placeholder = "Details (Optional)"
             }
