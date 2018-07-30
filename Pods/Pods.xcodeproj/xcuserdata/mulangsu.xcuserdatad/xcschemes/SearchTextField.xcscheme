@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '2FC575D5B8DB659B0F8A4262D2C54603'
-               BlueprintName = 'IGAutoCompletionToolbar'
+               BlueprintIdentifier = '40828297DB98039A410B80AF53352ECD'
+               BlueprintName = 'SearchTextField'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'IGAutoCompletionToolbar.framework'>
+               BuildableName = 'SearchTextField.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

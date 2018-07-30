@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '8BC5157B9C26BFD7ED03BB486F5725BB'
+               BlueprintIdentifier = 'F7F8C18B525AA0748B54D90A40FC61E7'
                BlueprintName = 'Realm'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Realm.framework'>
