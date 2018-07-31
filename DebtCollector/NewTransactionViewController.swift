@@ -2,7 +2,7 @@ import UIKit
 import Eureka
 import SCLAlertView
 import RealmSwift
-import IGAutoCompletionToolbar
+import SearchTextField
 
 class NewTransactionViewController : FormViewController {
     
@@ -53,13 +53,14 @@ class NewTransactionViewController : FormViewController {
                 numberFormatter.numberStyle = .currency
             }
             
-            <<< TextRow(tagDetails + "\(i)") {
+            <<< SearchTextRow(tagDetails + "\(i)") {
                 row in
                 
-                let toolbar = IGAutoCompletionToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
-                toolbar.items = ["Paid by cash", "Paid by card", "Paid by PayPal"]
-                toolbar.textField = row.cell.textField
-                row.cell.textField.inputAccessoryView = toolbar
+                guard let tf = row.cell.textField as? SearchTextField else {
+                    return
+                }
+                
+                tf.filterStrings(["Paid by cash", "Paid by card", "Paid by Paypal"])
                 
                 row.cell.textField.placeholder = "Details (Optional)"
             }
