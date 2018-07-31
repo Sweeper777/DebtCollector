@@ -61,6 +61,14 @@ class NewTransactionViewController : FormViewController {
                 }
                 
                 tf.filterStrings(["Paid by cash", "Paid by card", "Paid by Paypal"])
+                tf.itemSelectionHandler = {
+                    items, itemIndex in
+                    row.cell.textField.text = items[itemIndex].title
+                    row.value = items[itemIndex].title
+                }
+                tf.forceNoFiltering = true
+                tf.startVisible = true
+                tf.theme.bgColor = .white
                 
                 row.cell.textField.placeholder = "Details (Optional)"
             }
