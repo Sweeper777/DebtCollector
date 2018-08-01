@@ -11,6 +11,8 @@ class DetailTransactionViewController : UITableViewController {
     var groupedTransaction: GroupTransaction!
     
     override func viewDidLoad() {
+        title = groupedTransaction.title
+        
         tableView.dataSource = nil
         tableView.delegate = nil
         tableView.register(UINib(nibName: "DetailTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "transactionCell")
