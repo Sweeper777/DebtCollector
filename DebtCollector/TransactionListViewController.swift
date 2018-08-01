@@ -13,7 +13,7 @@ class TransactionListViewController: UITableViewController {
         tableView.dataSource = nil
         tableView.register(UINib(nibName: "GroupedTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         
-        Observable.collection(from: RealmWrapper.shared.groupTransactions.sorted(byKeyPath: "date"))
+        Observable.collection(from: RealmWrapper.shared.groupTransactions.sorted(byKeyPath: "date", ascending: false))
             .bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: GroupedTransactionTableViewCell.self)) {
                 index, groupTransaction, cell in
                 let totalAmount = abs(groupTransaction.transactions.map { $0.amount }.reduce(0, +))
