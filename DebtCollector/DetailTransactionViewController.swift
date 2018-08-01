@@ -52,7 +52,9 @@ class DetailTransactionViewController : UITableViewController {
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
-        tableView.rx.modelSelected(DetailTransactionTableViewSection.DetailTransactionTableViewRow.self).subscribe { [weak self] _ in
+        tableView.rx.modelSelected(DetailTransactionTableViewSection.DetailTransactionTableViewRow.self).subscribe { [weak self] model in
+            guard let modelNonNil = model.element else { return }
+            guard case .button = modelNonNil else { return }
             guard let `self` = self else { return }
             let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
             alert.addButton("Yes", action: {
