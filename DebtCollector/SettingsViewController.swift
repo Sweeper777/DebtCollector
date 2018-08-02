@@ -12,4 +12,11 @@ class SettingsViewController : FormViewController {
             row.value = UserSettings.detailPresets
         }
     }
+    
+    @IBAction func done() {
+        let values = form.values()
+        UserSettings.detailPresets = (values[tagDetailPresets] as? String) ?? ""
+        
+        self.dismiss(animated: true, completion: nil)
+    }
 }
