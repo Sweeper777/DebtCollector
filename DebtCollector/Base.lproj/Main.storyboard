@@ -27,7 +27,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8FB-qN-BHU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="240" y="220"/>
+            <point key="canvasLocation" x="-988" y="596"/>
         </scene>
         <!--People-->
         <scene sceneID="2rs-1n-vkb">
@@ -75,7 +75,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHW-jF-MeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1196" y="976"/>
+            <point key="canvasLocation" x="2154" y="1034"/>
         </scene>
         <!--All Transactions-->
         <scene sceneID="DwG-Jx-8Th">
@@ -117,6 +117,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XFL-oL-LpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2145" y="296"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qUd-h6-M27">
+            <objects>
+                <navigationController id="amC-mm-smG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W9Q-6M-Ypi">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6ds-dY-muX" kind="relationship" relationship="rootViewController" id="SXd-FU-mhC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KxM-Wr-MgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2985" y="-1151"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="oTg-Bx-DsO">
+            <objects>
+                <viewController id="6ds-dY-muX" customClass="SettingsViewController" customModule="DebtCollector" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZYP-dx-cS8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="XAS-Ow-a6L"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="F7D-0G-NPi">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="dVj-2M-pK9">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="done" destination="6ds-dY-muX" id="LE5-Eb-3yk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XHB-U5-ke7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3793" y="-1152"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fdK-8D-QdD">
@@ -231,7 +274,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JuP-E7-2mz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2145" y="976"/>
+            <point key="canvasLocation" x="3103" y="1034"/>
         </scene>
         <!--People-->
         <scene sceneID="u0m-de-edP">
@@ -252,7 +295,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Si9-Kl-xdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="239" y="976"/>
+            <point key="canvasLocation" x="1196" y="1034"/>
         </scene>
         <!--Overview View Controller-->
         <scene sceneID="7db-lP-Gkx">
@@ -277,7 +320,14 @@
                             <outlet property="delegate" destination="Agc-aS-czN" id="bLw-L3-ynP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="C6D-G9-wdn"/>
+                    <navigationItem key="navigationItem" id="C6D-G9-wdn">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="icons8-settings_filled" id="0rM-lQ-fDc">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="amC-mm-smG" kind="presentation" id="RCe-y7-Y5l"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3V9-ib-vFc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -353,6 +403,7 @@
     <resources>
         <image name="icons8-home" width="25" height="25"/>
         <image name="icons8-home_filled" width="25" height="25"/>
+        <image name="icons8-settings_filled" width="25" height="25"/>
         <image name="people" width="25" height="25"/>
         <image name="people_filled" width="25" height="25"/>
         <image name="transactions" width="25" height="25"/>
