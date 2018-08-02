@@ -37,6 +37,7 @@ class NewTransactionViewController : FormViewController {
             row.maximumDate = Date()
         }
         
+        let filterStrings = UserSettings.detailPresets.split(separator: "\n").map(String.init)
         for i in 0..<RealmWrapper.shared.people.count {
             form +++ Section()
             <<< PickerInlineRow<String>(tagPerson + "\(i)") {
@@ -60,7 +61,7 @@ class NewTransactionViewController : FormViewController {
                     return
                 }
                 
-                tf.filterStrings(["Paid by cash", "Paid by card", "Paid by Paypal"])
+                tf.filterStrings(filterStrings)
                 tf.itemSelectionHandler = {
                     items, itemIndex in
                     row.cell.textField.text = items[itemIndex].title
