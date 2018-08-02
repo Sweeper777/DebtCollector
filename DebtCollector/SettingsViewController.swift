@@ -20,3 +20,5 @@ class SettingsViewController : FormViewController {
         self.dismiss(animated: true, completion: nil)
     }
 }
+
+let tagDetailPresets = "detailPresets"
