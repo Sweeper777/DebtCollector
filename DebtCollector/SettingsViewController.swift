@@ -22,3 +22,5 @@ class SettingsViewController : FormViewController {
 }
 
 let tagDetailPresets = "detailPresets"
+let tagShowPresetsWhenBorrowing = "showPresetsWhenBorrowing"
+let tagShowPresetsWhenReturning = "showPresetsWhenReturning"
