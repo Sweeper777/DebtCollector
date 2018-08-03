@@ -11,6 +11,18 @@ class SettingsViewController : FormViewController {
             row in
             row.value = UserSettings.detailPresets
         }
+        
+        form +++ Section("show presets when...")
+        <<< CheckRow(tagShowPresetsWhenBorrowing) {
+            row in
+            row.title = "Borrowing"
+            row.value = UserSettings.showPresetsWhenBorrowing
+        }
+        <<< CheckRow(tagShowPresetsWhenReturning) {
+            row in
+            row.title = "Returning"
+            row.value = UserSettings.showPresetsWhenReturning
+        }
     }
     
     @IBAction func done() {
