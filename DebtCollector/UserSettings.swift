@@ -1,13 +1,13 @@
 import Foundation
 
 final class UserSettings {
-    static var detailPresets: String {
+    static var detailPresetsForReturning: String {
         get {
-            return UserDefaults.standard.string(forKey: "detailPresets") ?? ""
+            return UserDefaults.standard.string(forKey: "detailPresetsForReturning") ?? ""
         }
         
         set {
-            UserDefaults.standard.set(newValue, forKey: "detailPresets")
+            UserDefaults.standard.set(newValue, forKey: "detailPresetsForReturning")
         }
     }
     
