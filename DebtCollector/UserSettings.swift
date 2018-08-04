@@ -11,5 +11,15 @@ final class UserSettings {
         }
     }
     
+    static var detailPresetsForBorrowing: String {
+        get {
+            return UserDefaults.standard.string(forKey: "detailPresetsForBorrowing") ?? ""
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: "detailPresetsForBorrowing")
+        }
+    }
+    
     private init() {}
 }
