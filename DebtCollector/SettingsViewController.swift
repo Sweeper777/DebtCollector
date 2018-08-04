@@ -27,4 +27,5 @@ class SettingsViewController : FormViewController {
     }
 }
 
-let tagDetailPresets = "detailPresets"
+let tagDetailPresetsBorrowing = "tagDetailPresetsBorrowing"
+let tagDetailPresetsReturning = "tagDetailPresetsReturning"
