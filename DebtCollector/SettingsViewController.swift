@@ -11,6 +11,12 @@ class SettingsViewController : FormViewController {
             row in
             row.value = UserSettings.detailPresetsForBorrowing
         }
+        
+        form +++ Section(header: "detail presets (returning)", footer: "These are preset options that will show up when you start typing in the \"Details\" field when adding a returning transaction. Write one on each line.")
+        <<< TextAreaRow(tagDetailPresetsReturning) {
+            row in
+            row.value = UserSettings.detailPresetsForReturning
+        }
     }
     
     @IBAction func done() {
