@@ -38,7 +38,8 @@ class NewTransactionViewController : FormViewController {
             row.maximumDate = Date()
         }
         
-        let filterStrings = UserSettings.detailPresets.split(separator: "\n").map(String.init)
+        let presetsToUse = (form.values()[tagReturnedOrBorrowed] as? String ?? "Borrowed") == "Borrowed" ? UserSettings.detailPresetsForBorrowing : UserSettings.detailPresetsForReturning
+        let filterStrings = presetsToUse.split(separator: "\n").map(String.init)
         for i in 0..<RealmWrapper.shared.people.count {
             form +++ Section()
             <<< PickerInlineRow<String>(tagPerson + "\(i)") {
@@ -58,22 +59,33 @@ class NewTransactionViewController : FormViewController {
             <<< SearchTextRow(tagDetails + "\(i)") {
                 row in
                 
-                guard let tf = row.cell.textField as? SearchTextField else {
+                row.cell.textField.placeholder = "Details (Optional)"
+            }
+            .cellSetup({ (cell, row) in
+                guard let tf = cell.textField as? SearchTextField else {
                     return
                 }
                 
-                tf.filterStrings(filterStrings)
                 tf.itemSelectionHandler = {
                     items, itemIndex in
-                    row.cell.textField.text = items[itemIndex].title
+                    cell.textField.text = items[itemIndex].title
                     row.value = items[itemIndex].title
                 }
                 tf.forceNoFiltering = true
                 tf.startVisible = true
                 tf.theme.bgColor = .white
-                
-                row.cell.textField.placeholder = "Details (Optional)"
-            }
+            })
+            .cellUpdate({
+                [weak self] (cell, row) in
+                guard let `self` = self else { return }
+                guard let tf = cell.textField as? SearchTextField else {
+                    return
+                }
+                let presetsToUse = (self.form.values()[tagReturnedOrBorrowed] as? String ?? "Borrowed") == "Borrowed" ? UserSettings.detailPresetsForBorrowing : UserSettings.detailPresetsForReturning
+                let filterStrings = presetsToUse.split(separator: "\n").map(String.init)
+                tf.filterStrings(filterStrings)
+                tf.hideResultsList()
+            })
         }
     }
     
