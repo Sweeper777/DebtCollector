@@ -13,4 +13,5 @@ target 'DebtCollector' do
   pod 'RxRealm'
   pod 'RxDataSources'
   pod 'SearchTextField'
+  pod 'LTHPasscodeViewController'
 end

@@ -1,6 +1,7 @@
 PODS:
   - Differentiator (3.0.2)
   - Eureka (4.1.1)
+  - LTHPasscodeViewController (3.9.1)
   - Realm (3.5.0):
     - Realm/Headers (= 3.5.0)
   - Realm/Headers (3.5.0)
@@ -22,6 +23,7 @@ PODS:
 
 DEPENDENCIES:
   - Eureka
+  - LTHPasscodeViewController
   - RealmSwift
   - RxCocoa
   - RxDataSources
@@ -43,6 +45,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
   Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
+  LTHPasscodeViewController: f468d93fed2ffdc8843ac78c270c60d058e3affb
   Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
   RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
@@ -53,6 +56,6 @@ SPEC CHECKSUMS:
   SearchTextField: 261b0febd49194492f29555fff3c5c0019ca84d2
   SwiftyUtils: ae914aa96b5672e9282904771e5e5b44d2e307d6
 
-PODFILE CHECKSUM: ddf730abd245de6853037cc62512aaf9cfc36f5b
+PODFILE CHECKSUM: 0ff8267d1dde619ad8c76df9e4728ae1249ed2c5
 
 COCOAPODS: 1.3.1
