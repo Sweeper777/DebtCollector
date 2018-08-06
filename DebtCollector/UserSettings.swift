@@ -21,5 +21,15 @@ final class UserSettings {
         }
     }
     
+    static var showDetailPresetsOnBorrow: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "showDetailPresetsOnBorrow")
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: "showDetailPresetsOnBorrow")
+        }
+    }
+    
     private init() {}
 }
