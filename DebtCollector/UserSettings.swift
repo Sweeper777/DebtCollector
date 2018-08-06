@@ -11,5 +11,15 @@ final class UserSettings {
         }
     }
     
+    static var showDetailPresetsOnReturn: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "showDetailPresetsOnReturn")
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: "showDetailPresetsOnReturn")
+        }
+    }
+    
     private init() {}
 }
