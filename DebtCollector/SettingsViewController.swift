@@ -12,7 +12,12 @@ class SettingsViewController : FormViewController {
             row.value = UserSettings.detailPresets
         }
         
-        
+        form +++ Section("show detail presets when")
+        <<< SwitchRow(tagShowDetailPresetsOnBorrow) {
+            row in
+            row.title = "Borrowing"
+            row.value = UserSettings.showDetailPresetsOnBorrow
+        }
     }
     
     @IBAction func done() {
@@ -24,3 +29,4 @@ class SettingsViewController : FormViewController {
 }
 
 let tagDetailPresets = "tagDetailPresets"
+let tagShowDetailPresetsOnBorrow = "showDetailPresetsOnBorrow"
