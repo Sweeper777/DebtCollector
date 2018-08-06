@@ -18,6 +18,11 @@ class SettingsViewController : FormViewController {
             row.title = "Borrowing"
             row.value = UserSettings.showDetailPresetsOnBorrow
         }
+        <<< SwitchRow(tagShowDetailPresetsOnReturn) {
+            row in
+            row.title = "Returning"
+            row.value = UserSettings.showDetailPresetsOnReturn
+        }
     }
     
     @IBAction func done() {
@@ -30,3 +35,4 @@ class SettingsViewController : FormViewController {
 
 let tagDetailPresets = "tagDetailPresets"
 let tagShowDetailPresetsOnBorrow = "showDetailPresetsOnBorrow"
+let tagShowDetailPresetsOnReturn = "showDetailPresetsOnReturn"
