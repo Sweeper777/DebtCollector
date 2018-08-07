@@ -38,8 +38,6 @@ class NewTransactionViewController : FormViewController {
             row.maximumDate = Date()
         }
         
-        let presetsToUse = (form.values()[tagReturnedOrBorrowed] as? String ?? "Borrowed") == "Borrowed" ? UserSettings.detailPresetsForBorrowing : UserSettings.detailPresetsForReturning
-        let filterStrings = presetsToUse.split(separator: "\n").map(String.init)
         for i in 0..<RealmWrapper.shared.people.count {
             form +++ Section()
             <<< PickerInlineRow<String>(tagPerson + "\(i)") {
@@ -81,10 +79,6 @@ class NewTransactionViewController : FormViewController {
                 guard let tf = cell.textField as? SearchTextField else {
                     return
                 }
-                let presetsToUse = (self.form.values()[tagReturnedOrBorrowed] as? String ?? "Borrowed") == "Borrowed" ? UserSettings.detailPresetsForBorrowing : UserSettings.detailPresetsForReturning
-                let filterStrings = presetsToUse.split(separator: "\n").map(String.init)
-                tf.filterStrings(filterStrings)
-                tf.hideResultsList()
             })
         }
     }
