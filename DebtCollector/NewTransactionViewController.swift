@@ -82,6 +82,12 @@ class NewTransactionViewController : FormViewController {
                 guard let tf = cell.textField as? SearchTextField else {
                     return
                 }
+                let mode = self.form.values()[tagReturnedOrBorrowed] as? String ?? "Borrowed"
+                let shouldShowPresets = (mode == "Borrowed" && UserSettings.showDetailPresetsOnBorrow) ||
+                    (mode == "Returned" && UserSettings.showDetailPresetsOnReturn)
+                let filterStrings = shouldShowPresets ?
+                    UserSettings.detailPresets.split(separator: "\n").map(String.init) :
+                    []
             })
         }
     }
