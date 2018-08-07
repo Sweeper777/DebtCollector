@@ -88,6 +88,9 @@ class NewTransactionViewController : FormViewController {
                 let filterStrings = shouldShowPresets ?
                     UserSettings.detailPresets.split(separator: "\n").map(String.init) :
                     []
+                if (tf.filterDataSource.map { $0.title }) != filterStrings {
+                    tf.filterStrings(filterStrings)
+                }
             })
         }
     }
