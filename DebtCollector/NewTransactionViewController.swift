@@ -55,24 +55,27 @@ class NewTransactionViewController : FormViewController {
             }
             
             <<< SearchTextRow(tagDetails + "\(i)") {
+                [weak self]
                 row in
                 
+                guard let `self` = self else { return }
+                
                 row.cell.textField.placeholder = "Details (Optional)"
-            }
-            .cellSetup({ (cell, row) in
-                guard let tf = cell.textField as? SearchTextField else {
+                
+                guard let tf = row.cell.textField as? SearchTextField else {
                     return
                 }
                 
                 tf.itemSelectionHandler = {
                     items, itemIndex in
-                    cell.textField.text = items[itemIndex].title
+                    row.cell.textField.text = items[itemIndex].title
                     row.value = items[itemIndex].title
                 }
                 tf.forceNoFiltering = true
                 tf.startVisible = true
                 tf.theme.bgColor = .white
-            })
+                tf.addTarget(self, action: #selector(didEndEditing), for: UIControlEvents.editingDidEnd)
+            }
             .cellUpdate({
                 [weak self] (cell, row) in
                 guard let `self` = self else { return }
@@ -154,6 +157,10 @@ class NewTransactionViewController : FormViewController {
     func showErrorMessage(_ msg: String) {
         let alert = SCLAlertView()
         alert.showError("Error", subTitle: msg)
+    }
+    
+    @objc func didEndEditing(_ sender: SearchTextField) {
+        sender.hideResultsList()
     }
 }
 
