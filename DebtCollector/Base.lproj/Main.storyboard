@@ -156,6 +156,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="y6Y-2d-tdb" kind="unwind" identifier="unwindForChangePasscode" unwindAction="unwindForChangePasscodeWithSegue:" id="hdH-dR-syE"/>
+                        <segue destination="y6Y-2d-tdb" kind="unwind" identifier="unwindForRemovePasscode" unwindAction="unwindForRemovePasscodeWithSegue:" id="Ion-Jh-8fb"/>
+                        <segue destination="y6Y-2d-tdb" kind="unwind" identifier="unwindForSetPasscode" unwindAction="unwindForSetPasscodeWithSegue:" id="vvM-kp-03w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XHB-U5-ke7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -351,6 +356,7 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ush-WA-b6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="y6Y-2d-tdb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1196" y="-376"/>
         </scene>
