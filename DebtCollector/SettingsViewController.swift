@@ -36,6 +36,15 @@ class SettingsViewController : FormViewController {
                 self?.saveSettings()
                 self?.performSegue(withIdentifier: "unwindForChangePasscode", sender: nil)
             })
+            <<< ButtonRow() {
+                row in
+                row.title = "Remove Passcode"
+                row.cell.tintColor = .red
+            }
+            .onCellSelection({ [weak self] (cell, row) in
+                self?.saveSettings()
+                self?.performSegue(withIdentifier: "unwindForRemovePasscode", sender: nil)
+            })
         } else {
         }
         form +++ passcodeSection
