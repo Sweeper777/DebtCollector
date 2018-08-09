@@ -1,5 +1,6 @@
 import UIKit
 import Eureka
+import LTHPasscodeViewController
 
 class SettingsViewController : FormViewController {
     
@@ -23,6 +24,21 @@ class SettingsViewController : FormViewController {
             row.title = "Returning"
             row.value = UserSettings.showDetailPresetsOnReturn
         }
+        
+        let passcodeSection = Section("passcode")
+        if LTHPasscodeViewController.doesPasscodeExist() {
+            passcodeSection <<< ButtonRow() {
+                row in
+                row.title = "Change Passcode"
+                row.cell.tintColor = UIColor(hex: "3b7b3b")
+            }
+            .onCellSelection({ [weak self] (cell, row) in
+                self?.saveSettings()
+                self?.performSegue(withIdentifier: "unwindForChangePasscode", sender: nil)
+            })
+        } else {
+        }
+        form +++ passcodeSection
     }
     
     private func saveSettings() {
