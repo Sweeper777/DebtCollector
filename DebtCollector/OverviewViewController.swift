@@ -2,6 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxRealm
+import LTHPasscodeViewController
 
 class OverviewViewController: UITableViewController {
     let disposeBag = DisposeBag()
@@ -33,6 +34,18 @@ class OverviewViewController: UITableViewController {
                 formatter.numberStyle = .currency
                 cell.amountLabel.text = formatter.string(from: personAndAmount.value as NSNumber)
             }.disposed(by: disposeBag)
+        
+        LTHPasscodeViewController.sharedUser().navigationBarTintColor = UIColor(hex: "5abb5a")
+        LTHPasscodeViewController.sharedUser().navigationTitleColor = UIColor.white
+        LTHPasscodeViewController.sharedUser().hidesCancelButton = false
+        LTHPasscodeViewController.sharedUser().navigationTintColor = UIColor.white
+        
+        if LTHPasscodeViewController.doesPasscodeExist() {
+            //if LTHPasscodeViewController.didPasscodeTimerEnd() {
+            LTHPasscodeViewController.sharedUser().showLockScreen(withAnimation: true, withLogout: true, andLogoutTitle: nil)
+            //}
+        }
+    }
     }
 }
 
