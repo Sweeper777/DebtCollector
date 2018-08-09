@@ -25,11 +25,15 @@ class SettingsViewController : FormViewController {
         }
     }
     
-    @IBAction func done() {
+    private func saveSettings() {
         let values = form.values()
         UserSettings.detailPresets = (values[tagDetailPresets] as? String) ?? ""
         UserSettings.showDetailPresetsOnBorrow = (values[tagShowDetailPresetsOnBorrow] as? Bool) ?? false
         UserSettings.showDetailPresetsOnReturn = (values[tagShowDetailPresetsOnReturn] as? Bool) ?? false
+    }
+    
+    @IBAction func done() {
+        saveSettings()
         
         self.dismiss(animated: true, completion: nil)
     }
