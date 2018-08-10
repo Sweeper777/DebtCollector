@@ -58,16 +58,22 @@ class PersonViewController : UITableViewController {
         
         tableView.rx.modelSelected(PersonTableViewSection.PersonTableViewRow.self).subscribe { [weak self] model in
             guard let modelNonNil = model.element else { return }
-            guard case .button = modelNonNil else { return }
             guard let `self` = self else { return }
-            let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
-            alert.addButton("Yes", action: {
-                self.deletePerson()
-            })
-            alert.addButton("No", action: {})
-            alert.showWarning("Delete Person", subTitle: "Do you really want to delete this person?")
-            if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
-                self.tableView.deselectRow(at: selectedIndexPath, animated: true)
+            switch modelNonNil {
+            case .button(title: "Delete This Person"):
+                let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
+                alert.addButton("Yes", action: {
+                    self.deletePerson()
+                })
+                alert.addButton("No", action: {})
+                alert.showWarning("Delete Person", subTitle: "Do you really want to delete this person?")
+                if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
+                    self.tableView.deselectRow(at: selectedIndexPath, animated: true)
+                }
+            case .button(title: "Add a Transaction"):
+                self.performSegue(withIdentifier: "newPersonTransaction", sender: nil)
+            default:
+                return
             }
         }.disposed(by: disposeBag)
     }
