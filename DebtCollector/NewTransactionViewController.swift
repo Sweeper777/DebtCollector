@@ -6,6 +6,8 @@ import SearchTextField
 
 class NewTransactionViewController : FormViewController {
     
+    var personNameAlreadyFilledIn: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
