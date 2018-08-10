@@ -61,6 +61,12 @@ class OverviewViewController: UITableViewController {
         }
         
     }
+    
+    @IBAction func unwindForRemovePasscode(segue: UIStoryboardSegue) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000)) {
+            [weak self] in
+            self.map { LTHPasscodeViewController.sharedUser().showForDisablingPasscode(in: $0, asModal: true) }
+        }
     }
 }
 
