@@ -53,6 +53,14 @@ class OverviewViewController: UITableViewController {
             self.map { LTHPasscodeViewController.sharedUser().showForChangingPasscode(in: $0, asModal: true) }
         }
     }
+    
+    @IBAction func unwindForSetPasscode(segue: UIStoryboardSegue) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000)) {
+            [weak self] in
+            self.map { LTHPasscodeViewController.sharedUser().showForEnablingPasscode(in: $0, asModal: true) }
+        }
+        
+    }
     }
 }
 
