@@ -184,7 +184,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="POd-5P-6P6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2985" y="-376"/>
+            <point key="canvasLocation" x="3793" y="296"/>
         </scene>
         <!--New Transaction-->
         <scene sceneID="RJn-ka-3fm">
@@ -213,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4p-3Y-IMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3793" y="-376"/>
+            <point key="canvasLocation" x="4601" y="296"/>
         </scene>
         <!--Transactions-->
         <scene sceneID="sQb-T4-qmb">
@@ -276,10 +276,13 @@
                             <outlet property="delegate" destination="trU-ec-o03" id="Mlb-nE-5gj"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="cyd-Hf-ZZO" kind="presentation" identifier="newPersonTransaction" id="JKN-rj-a2b"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JuP-E7-2mz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3103" y="1034"/>
+            <point key="canvasLocation" x="2985" y="1033"/>
         </scene>
         <!--People-->
         <scene sceneID="u0m-de-edP">
@@ -403,7 +406,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Rq-GW-LKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2985" y="296"/>
+            <point key="canvasLocation" x="2985" y="-376"/>
         </scene>
     </scenes>
     <resources>
@@ -415,4 +418,7 @@
         <image name="transactions" width="25" height="25"/>
         <image name="transactions_filled" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="JKN-rj-a2b"/>
+    </inferredMetricsTieBreakers>
 </document>
