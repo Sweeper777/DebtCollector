@@ -51,6 +51,10 @@ class NewTransactionViewController : FormViewController {
                 row.title = "Person"
                 row.options = [["<Not Selected>"], RealmWrapper.shared.people.map { $0.name }.sorted()].flatMap { $0 }
                 row.value = "<Not Selected>"
+                
+                if i == 0 && personNameAlreadyFilledIn != nil {
+                    row.value = personNameAlreadyFilledIn
+                }
             }
             <<< DecimalRow(tagAmount + "\(i)") {
                 row in
