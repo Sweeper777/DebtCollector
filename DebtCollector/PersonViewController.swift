@@ -117,7 +117,7 @@ enum PersonTableViewSection : SectionModelType {
     typealias Item = PersonTableViewRow
     
     enum PersonTableViewRow {
-        case button(title: String)
+        case button(title: String, tint: UIColor)
         case transaction(Transaction)
     }
 }
