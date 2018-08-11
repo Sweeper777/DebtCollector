@@ -49,7 +49,7 @@ class PersonViewController : UITableViewController {
         
         Observable.collection(from: RealmWrapper.shared.transactions.filter("personName == %@", person.name).sorted(byKeyPath: "date", ascending: true))
             .map { (transactions) -> [PersonTableViewSection] in
-                var sections = [PersonTableViewSection.buttonSection(rows: [.button(title: "Delete This Person")]), PersonTableViewSection.buttonSection(rows: [.button(title: "Add a Transaction")])]
+                var sections = [PersonTableViewSection.buttonSection(rows: [.button(title: "Delete This Person", tint: .red)]), PersonTableViewSection.buttonSection(rows: [.button(title: "Add a Transaction", tint: UIColor(hex: "3b7b3b"))])]
                 sections.append(.transactionSection(rows: transactions.toArray().map { .transaction($0) }))
                 return sections
         }
