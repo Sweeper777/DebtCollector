@@ -21,7 +21,11 @@ class NewTransactionViewController : FormViewController {
         .onChange({ [weak self] (row) in
            if row.value == "Returned" {
                 let row: RowOf<String>? = self?.form.rowBy(tag: tagTitle)!
-                row?.value = "Returned Money"
+                row?.value = "\((self?.personNameAlreadyFilledIn ?? "") + " ")Returned Money"
+                row?.updateCell()
+            } else {
+                let row: RowOf<String>? = self?.form.rowBy(tag: tagTitle)!
+                row?.value = "\((self?.personNameAlreadyFilledIn ?? "") + " ")Borrowed Money"
                 row?.updateCell()
             }
             self?.form.allRows.filter { ($0.tag!.hasPrefix("details")) }.forEach { $0.updateCell() }
