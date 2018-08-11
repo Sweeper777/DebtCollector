@@ -44,7 +44,9 @@ class NewTransactionViewController : FormViewController {
             row.maximumDate = Date()
         }
         
-        for i in 0..<RealmWrapper.shared.people.count {
+        let loopCount = personNameAlreadyFilledIn == nil ? RealmWrapper.shared.people.count : 1
+        
+        for i in 0..<loopCount {
             form +++ Section()
             <<< PickerInlineRow<String>(tagPerson + "\(i)") {
                 row in
