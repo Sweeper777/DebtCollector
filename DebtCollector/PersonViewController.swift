@@ -84,6 +84,12 @@ class PersonViewController : UITableViewController {
         }
         navigationController?.popViewController(animated: true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = (segue.destination as? UINavigationController)?.topViewController as? NewTransactionViewController {
+            vc.personNameAlreadyFilledIn = person.name
+        }
+    }
 }
 
 enum PersonTableViewSection : SectionModelType {
