@@ -61,7 +61,7 @@ class PersonViewController : UITableViewController {
             guard let modelNonNil = model.element else { return }
             guard let `self` = self else { return }
             switch modelNonNil {
-            case .button(title: "Delete This Person"):
+            case .button(title: "Delete This Person", _):
                 let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
                 alert.addButton("Yes", action: {
                     self.deletePerson()
@@ -71,7 +71,7 @@ class PersonViewController : UITableViewController {
                 if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
                     self.tableView.deselectRow(at: selectedIndexPath, animated: true)
                 }
-            case .button(title: "Add a Transaction"):
+            case .button(title: "Add a Transaction", _):
                 self.performSegue(withIdentifier: "newPersonTransaction", sender: nil)
             default:
                 return
