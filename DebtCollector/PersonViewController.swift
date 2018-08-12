@@ -40,9 +40,10 @@ class PersonViewController : UITableViewController {
                 }
                 
                 return cell
-            case .button(title: let title):
+            case .button(title: let title, tint: let tint):
                 let cell = tv.dequeueReusableCell(withIdentifier: "buttonCell")
                 cell!.textLabel!.text = title
+                cell!.textLabel?.textColor = tint
                 return cell!
             }
         })
