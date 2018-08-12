@@ -23,17 +23,20 @@ class NewTransactionViewController : FormViewController {
                 let row: RowOf<String>? = self?.form.rowBy(tag: tagTitle)!
                 row?.value = "\((self?.personNameAlreadyFilledIn ?? "") + " ")Returned Money"
                 row?.updateCell()
-            } else {
+            } else if let personName = self?.personNameAlreadyFilledIn {
                 let row: RowOf<String>? = self?.form.rowBy(tag: tagTitle)!
-                row?.value = "\((self?.personNameAlreadyFilledIn ?? "") + " ")Borrowed Money"
+                row?.value = "\(personName) Borrowed Money"
                 row?.updateCell()
             }
             self?.form.allRows.filter { ($0.tag!.hasPrefix("details")) }.forEach { $0.updateCell() }
         })
             
         <<< TextRow(tagTitle) {
-            row in
+            [weak self] row in
             row.title = "Title"
+            if let personName = self?.personNameAlreadyFilledIn {
+                row.value = "\(personName) Borrowed Money"
+            }
             row.cell.textField.placeholder = "Required"
         }
         
@@ -55,6 +58,8 @@ class NewTransactionViewController : FormViewController {
                 row.value = "<Not Selected>"
                 
                 if i == 0 && personNameAlreadyFilledIn != nil {
+                    row.disabled = true
+                    row.evaluateDisabled()
                     row.value = personNameAlreadyFilledIn
                 }
             }
