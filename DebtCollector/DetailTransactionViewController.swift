@@ -11,17 +11,6 @@ class DetailTransactionViewController : UITableViewController {
     var groupedTransaction: GroupTransaction!
     
     override func viewDidLoad() {
-//        let observer1 = PublishSubject<String>()
-//        let observer2 = PublishSubject<String?>()
-//        
-//        let observable1 = Observable.just("")
-//        let observable2 = observable1.map { $0 }
-        
-//        _ = observable1.subscribe(observer1) // #1. OK
-//        _ = observable1.subscribe(observer2) // #2. Error
-//        _ = observable2.subscribe(observer2) // #3. Error
-//        _ = (observable1.map{ $0 } as Observable<String?>).subscribe(observer2) // #4. OK
-        
         title = groupedTransaction.title
         
         tableView.dataSource = nil
