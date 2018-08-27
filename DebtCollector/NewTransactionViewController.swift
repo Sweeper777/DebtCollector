@@ -27,6 +27,10 @@ class NewTransactionViewController : FormViewController {
                 let row: RowOf<String>? = self?.form.rowBy(tag: tagTitle)
                 row?.value = "\(personName) Borrowed Money"
                 row?.updateCell()
+            } else {
+                let row: RowOf<String>? = self?.form.rowBy(tag: tagTitle)
+                row?.value = ""
+                row?.updateCell()
             }
             self?.form.allRows.filter { ($0.tag!.hasPrefix("details")) }.forEach { $0.updateCell() }
         })
