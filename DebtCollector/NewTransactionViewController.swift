@@ -45,6 +45,9 @@ class NewTransactionViewController : FormViewController {
             if let personName = self?.personNameAlreadyFilledIn {
                 row.value = "\(personName) Borrowed Money"
             }
+            if let transaction = transactionToEdit {
+                row.value = transaction.title
+            }
             row.cell.textField.placeholder = "Required"
         }
         
