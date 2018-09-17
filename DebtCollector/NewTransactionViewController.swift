@@ -82,6 +82,8 @@ class NewTransactionViewController : FormViewController {
                 row.cell.textField.placeholder = "0.00"
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = .currency
+                
+                row.value = (transactionToEdit?.transactions[i].amount).map(abs)
             }
             
             <<< SearchTextRow(tagDetails + "\(i)") {
