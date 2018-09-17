@@ -58,7 +58,7 @@ class NewTransactionViewController : FormViewController {
             row.maximumDate = Date()
         }
         
-        let loopCount = personNameAlreadyFilledIn == nil ? RealmWrapper.shared.people.count : 1
+        let loopCount = transactionToEdit?.transactions.count ?? (personNameAlreadyFilledIn == nil ? RealmWrapper.shared.people.count : 1)
         
         for i in 0..<loopCount {
             form +++ Section()
