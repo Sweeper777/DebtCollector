@@ -67,8 +67,8 @@ class NewTransactionViewController : FormViewController {
             <<< PickerInlineRow<String>(tagPerson + "\(i)") {
                 row in
                 row.title = "Person"
-                row.options = [["<Not Selected>"], RealmWrapper.shared.people.map { $0.name }.sorted()].flatMap { $0 }
-                row.value = "<Not Selected>"
+                row.options = [["<Not Selected>"], personNameOptions].flatMap { $0 }
+                row.value = transactionToEdit?.transactions[i].personName ?? "<Not Selected>"
                 
                 if i == 0 && personNameAlreadyFilledIn != nil {
                     row.disabled = true
