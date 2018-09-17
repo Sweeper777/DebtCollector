@@ -54,7 +54,7 @@ class NewTransactionViewController : FormViewController {
         <<< DateRow(tagDate) {
             row in
             row.title = "Date"
-            row.value = Date()
+            row.value = transactionToEdit?.date ?? Date()
             row.maximumDate = Date()
         }
         
