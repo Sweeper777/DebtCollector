@@ -18,6 +18,9 @@ class NewTransactionViewController : FormViewController {
             row in
             row.options = ["Borrowed", "Returned"]
             row.value = "Borrowed"
+            if let transaction = self.transactionToEdit {
+                row.value = transaction.transactions.first!.amount < 0 ? "Returned" : "Borrowed"
+            }
         }
         .onChange({ [weak self] (row) in
            if row.value == "Returned" {
