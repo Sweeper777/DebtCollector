@@ -59,6 +59,8 @@ class NewTransactionViewController : FormViewController {
         }
         
         let loopCount = transactionToEdit?.transactions.count ?? (personNameAlreadyFilledIn == nil ? RealmWrapper.shared.people.count : 1)
+        let personNameOptions = Array(Set(transactionToEdit?.transactions.map { $0.personName } ?? [])
+            .union(RealmWrapper.shared.people.map { $0.name })).sorted()
         
         for i in 0..<loopCount {
             form +++ Section()
