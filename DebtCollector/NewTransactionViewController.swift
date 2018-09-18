@@ -256,6 +256,16 @@ class NewTransactionViewController : FormViewController {
             RealmWrapper.shared.realm.add(groupedTransaction)
         }
         
+        if let oldTransaction = transactionToEdit, let vc = detailTransactionVC {
+            vc.loadDetailTransaction(groupedTransaction)
+            try! RealmWrapper.shared.realm.write {
+                for subtransaction in oldTransaction.transactions {
+                    RealmWrapper.shared.realm.delete(subtransaction)
+                }
+                RealmWrapper.shared.realm.delete(oldTransaction)
+            }
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
     
