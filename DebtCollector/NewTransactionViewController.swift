@@ -128,6 +128,18 @@ class NewTransactionViewController : FormViewController {
                 }
             })
         }
+        
+        // MARK: new empty rows
+        
+        for i in loopCount..<personNameOptions.count {
+            form +++ Section()
+            <<< PickerInlineRow<String>(tagPerson + "\(i)") {
+                row in
+                row.title = "Person"
+                row.options = [["<Not Selected>"], personNameOptions].flatMap { $0 }
+                row.value = "<Not Selected>"
+            }
+        }
     }
     
     @IBAction func cancel() {
