@@ -94,6 +94,8 @@ class NewTransactionViewController : FormViewController {
                 
                 row.cell.textField.placeholder = "Details (Optional)"
                 
+                row.value = transactionToEdit?.transactions[i].details
+                
                 guard let tf = row.cell.textField as? SearchTextField else {
                     return
                 }
