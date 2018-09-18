@@ -108,6 +108,7 @@ class NewTransactionViewController : FormViewController {
                 tf.forceNoFiltering = true
                 tf.startVisible = true
                 tf.theme.bgColor = .white
+                tf.theme.font = UIFont.systemFont(ofSize: 22)
                 tf.addTarget(self, action: #selector(didEndEditing), for: UIControlEvents.editingDidEnd)
             }
             .cellUpdate({
