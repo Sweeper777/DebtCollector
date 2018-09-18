@@ -204,7 +204,9 @@ class NewTransactionViewController : FormViewController {
             return
         }
         var transactions = [Transaction]()
-        for i in 0..<RealmWrapper.shared.people.count  {
+        let personNameOptions = Array(Set(transactionToEdit?.transactions.map { $0.personName } ?? [])
+            .union(RealmWrapper.shared.people.map { $0.name })).sorted()
+        for i in 0..<personNameOptions.count  {
             guard let name = values[tagPerson + "\(i)"] as? String else {
                 continue
             }
