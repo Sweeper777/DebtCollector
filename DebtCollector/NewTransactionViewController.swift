@@ -139,6 +139,14 @@ class NewTransactionViewController : FormViewController {
                 row.options = [["<Not Selected>"], personNameOptions].flatMap { $0 }
                 row.value = "<Not Selected>"
             }
+            <<< DecimalRow(tagAmount + "\(i)") {
+                row in
+                row.title = "Amount (\(Locale.current.currencySymbol ?? Locale.current.currencyCode ?? "$"))"
+                row.cell.textField.placeholder = "0.00"
+                let numberFormatter = NumberFormatter()
+                numberFormatter.numberStyle = .currency
+            }
+            
         }
     }
     
