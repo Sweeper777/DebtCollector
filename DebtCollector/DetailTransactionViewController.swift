@@ -17,6 +17,32 @@ class DetailTransactionViewController : UITableViewController {
         tableView.delegate = nil
         tableView.register(UINib(nibName: "DetailTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "transactionCell")
         
+        loadDetailTransaction(groupedTransaction)
+        tableView.rx.modelSelected(DetailTransactionTableViewSection.DetailTransactionTableViewRow.self).subscribe { [weak self] model in
+            guard let modelNonNil = model.element else { return }
+            guard case .button(title: let title, color: _) = modelNonNil else { return }
+            guard let `self` = self else { return }
+            if title == "Delete This Transaction" {
+                let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
+                alert.addButton("Yes", action: {
+                    self.deleteTransaction()
+                })
+                alert.addButton("No", action: {})
+                alert.showWarning("Delete Transaction", subTitle: "Do you really want to delete this transaction?")
+            } else if title == "Edit This Transaction" {
+                self.performSegue(withIdentifier: "editTransaction", sender: self)
+            }
+            if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
+                self.tableView.deselectRow(at: selectedIndexPath, animated: true)
+            }
+        }.disposed(by: disposeBag)
+    }
+    
+    func loadDetailTransaction(_ groupedTransaction: GroupTransaction) {
+        self.tableView.delegate = nil
+        self.tableView.dataSource = nil
+        self.groupedTransaction = groupedTransaction
+        title = groupedTransaction.title
         let dataSource = RxTableViewSectionedReloadDataSource<DetailTransactionTableViewSection>(configureCell:  {
             ds, tv, ip, item in
             switch item {
