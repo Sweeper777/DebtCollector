@@ -92,6 +92,13 @@ class DetailTransactionViewController : UITableViewController {
         }
         navigationController?.popViewController(animated: true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = (segue.destination as? UINavigationController)?.topViewController as? NewTransactionViewController {
+            vc.detailTransactionVC = self
+            vc.transactionToEdit = self.groupedTransaction
+        }
+    }
 }
 
 enum DetailTransactionTableViewSection : SectionModelType {
