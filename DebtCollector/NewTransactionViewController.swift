@@ -8,6 +8,7 @@ class NewTransactionViewController : FormViewController {
     
     var personNameAlreadyFilledIn: String?
     var transactionToEdit: GroupTransaction?
+    var detailTransactionVC: DetailTransactionViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
