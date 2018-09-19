@@ -36,9 +36,10 @@ class DetailTransactionViewController : UITableViewController {
                 }
                 
                 return cell
-            case .button(title: let title):
+            case .button(title: let title, color: let color):
                 let cell = tv.dequeueReusableCell(withIdentifier: "buttonCell")
                 cell!.textLabel!.text = title
+                cell?.textLabel?.textColor = color
                 return cell!
             }
         })
@@ -104,7 +105,7 @@ enum DetailTransactionTableViewSection : SectionModelType {
     typealias Item = DetailTransactionTableViewRow
     
     enum DetailTransactionTableViewRow {
-        case button(title: String)
+        case button(title: String, color: UIColor)
         case transaction(Transaction)
     }
 }
