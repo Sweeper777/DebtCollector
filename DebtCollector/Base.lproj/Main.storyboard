@@ -23,6 +23,7 @@
                         <segue destination="qE7-ul-luR" kind="relationship" relationship="viewControllers" id="7Wg-eM-ZgY"/>
                         <segue destination="ZjY-9p-tnD" kind="relationship" relationship="viewControllers" id="IuL-He-dYR"/>
                         <segue destination="XbA-7C-UfO" kind="relationship" relationship="viewControllers" id="q2P-jd-vVN"/>
+                        <segue destination="ToA-du-nQC" kind="relationship" relationship="viewControllers" id="iKQ-w6-JX7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8FB-qN-BHU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -403,6 +404,9 @@
                             <outlet property="delegate" destination="RLI-JK-oi8" id="e5k-dx-w51"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="cyd-Hf-ZZO" kind="presentation" identifier="editTransaction" modalPresentationStyle="formSheet" id="k1H-v0-fl8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Rq-GW-LKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
