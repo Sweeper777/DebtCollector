@@ -72,8 +72,11 @@ class DetailTransactionViewController : UITableViewController {
         
         Observable.collection(from: groupedTransaction.transactions.sorted(byKeyPath: "personName", ascending: true))
             .map { (transactions) -> [DetailTransactionTableViewSection] in
-                var sections = [DetailTransactionTableViewSection.buttonSection(rows: [.button(title: "Delete This Transaction")])]
-                sections.append(.transactionSection(rows: transactions.toArray().map { .transaction($0) }))
+                let sections = [
+                    DetailTransactionTableViewSection.buttonSection(rows: [.button(title: "Delete This Transaction", color: .red)]),
+                    .buttonSection(rows: [.button(title: "Edit This Transaction", color: UIColor(hex: "3b7b3b"))]),
+                    .transactionSection(rows: transactions.toArray().map { .transaction($0) })
+                ]
                 return sections
             }
             .bind(to: tableView.rx.items(dataSource: dataSource))
