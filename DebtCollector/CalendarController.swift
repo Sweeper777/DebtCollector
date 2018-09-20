@@ -26,4 +26,9 @@ class CalendarController: UIViewController {
             })
         }).disposed(by: disposeBag)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        calendar.reloadData()
+    }
+    
 }
