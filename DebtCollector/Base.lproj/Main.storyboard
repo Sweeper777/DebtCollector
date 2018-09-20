@@ -28,7 +28,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8FB-qN-BHU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-988" y="596"/>
+            <point key="canvasLocation" x="-2490" y="2359"/>
         </scene>
         <!--People-->
         <scene sceneID="2rs-1n-vkb">
@@ -76,7 +76,84 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHW-jF-MeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2154" y="1034"/>
+            <point key="canvasLocation" x="2268" y="1404"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="HEO-lM-ZgL">
+            <objects>
+                <navigationController id="ToA-du-nQC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Calendar" image="icons8-calendar" selectedImage="icons8-calendar_filled" id="zyE-VX-qgX"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CN9-so-cZl">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xkb-TD-48k" kind="relationship" relationship="rootViewController" id="M5P-ae-ASc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m47-Rr-ZOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="2131"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="gwy-cq-VAH">
+            <objects>
+                <viewController id="xkb-TD-48k" customClass="CalendarController" customModule="DebtCollector" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KoF-sX-qdr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fj7-eS-yJj" customClass="FSCalendar">
+                                <rect key="frame" x="8" y="72" width="359" height="538"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
+                                        <color key="value" red="0.18484333159999999" green="0.41442197559999999" blue="0.17624093590000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
+                                        <color key="value" red="0.18484333159999999" green="0.41442197559999999" blue="0.17624093590000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleTodayColor">
+                                        <color key="value" red="0.18484333159999999" green="0.41442197559999999" blue="0.17624093590000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titlePlaceholderColor">
+                                        <color key="value" red="1" green="0.0" blue="0.037429042760000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
+                                        <color key="value" red="0.18484333159999999" green="0.41442197559999999" blue="0.17624093590000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
+                                        <color key="value" red="0.79215686269999996" green="1" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderSelectionColor">
+                                        <color key="value" red="0.18484333159999999" green="0.41442197559999999" blue="0.17624093590000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Fj7-eS-yJj" firstAttribute="bottom" secondItem="oON-CI-KnX" secondAttribute="bottom" constant="-8" id="6El-j6-tce"/>
+                            <constraint firstItem="Fj7-eS-yJj" firstAttribute="trailing" secondItem="oON-CI-KnX" secondAttribute="trailing" constant="-8" id="LLd-pP-9dH"/>
+                            <constraint firstItem="Fj7-eS-yJj" firstAttribute="top" secondItem="oON-CI-KnX" secondAttribute="top" constant="8" id="cdi-Iz-Joe"/>
+                            <constraint firstItem="Fj7-eS-yJj" firstAttribute="leading" secondItem="oON-CI-KnX" secondAttribute="leading" constant="8" id="vx2-bT-ahG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oON-CI-KnX"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Calendar" id="gpJ-HJ-Wic"/>
+                    <connections>
+                        <outlet property="calendar" destination="Fj7-eS-yJj" id="Fj3-kH-DHd"/>
+                        <segue destination="lFV-F3-8Ju" kind="show" identifier="showDailyTransactions" id="ehc-bi-kWY"/>
+                        <segue destination="RLI-JK-oi8" kind="show" identifier="showTransaction" id="2cV-wo-7wD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t4d-HB-wuw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1002" y="2131"/>
         </scene>
         <!--All Transactions-->
         <scene sceneID="DwG-Jx-8Th">
@@ -185,7 +262,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="POd-5P-6P6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3793" y="296"/>
+            <point key="canvasLocation" x="4487" y="1157"/>
         </scene>
         <!--New Transaction-->
         <scene sceneID="RJn-ka-3fm">
@@ -214,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4p-3Y-IMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4601" y="296"/>
+            <point key="canvasLocation" x="5294" y="1157"/>
         </scene>
         <!--Transactions-->
         <scene sceneID="sQb-T4-qmb">
@@ -283,7 +360,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JuP-E7-2mz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2985" y="1033"/>
+            <point key="canvasLocation" x="3625" y="1156"/>
         </scene>
         <!--People-->
         <scene sceneID="u0m-de-edP">
@@ -410,10 +487,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Rq-GW-LKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2985" y="-376"/>
+            <point key="canvasLocation" x="3626" y="2286"/>
         </scene>
     </scenes>
     <resources>
+        <image name="icons8-calendar" width="25" height="25"/>
+        <image name="icons8-calendar_filled" width="25" height="25"/>
         <image name="icons8-home" width="25" height="25"/>
         <image name="icons8-home_filled" width="25" height="25"/>
         <image name="icons8-settings_filled" width="25" height="25"/>
@@ -423,6 +502,8 @@
         <image name="transactions_filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="2cV-wo-7wD"/>
         <segue reference="JKN-rj-a2b"/>
+        <segue reference="ehc-bi-kWY"/>
     </inferredMetricsTieBreakers>
 </document>
