@@ -36,3 +36,15 @@ class CalendarController: UIViewController {
         return components.year! * 1000 + components.month! * 100 + components.day!
     }
 }
+
+extension CalendarController : FSCalendarDataSource, FSCalendarDelegateAppearance {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let key = self.key(from: date)
+        let transactionsOnThatDay = transactionsByDay[key] ?? []
+        if transactionsOnThatDay.count == 1 {
+            performSegue(withIdentifier: "showTransaction", sender: transactionsOnThatDay.first!)
+        }
+        
+        calendar.deselect(date)
+    }
+}
