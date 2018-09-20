@@ -31,4 +31,8 @@ class CalendarController: UIViewController {
         calendar.reloadData()
     }
     
+    fileprivate func key(from date: Date) -> Int {
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: date)
+        return components.year! * 1000 + components.month! * 100 + components.day!
+    }
 }
