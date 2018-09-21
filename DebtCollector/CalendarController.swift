@@ -47,4 +47,10 @@ extension CalendarController : FSCalendarDataSource, FSCalendarDelegateAppearanc
         
         calendar.deselect(date)
     }
+    
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        let key = self.key(from: date)
+        return transactionsByDay[key]?.count ?? 0
+    }
+    
 }
