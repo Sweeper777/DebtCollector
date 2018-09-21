@@ -64,4 +64,8 @@ extension CalendarController : FSCalendarDataSource, FSCalendarDelegateAppearanc
         }
         return transactions.map { $0.transactions.first!.amount < 0 ? .blue : .red }
     }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventSelectionColorsFor date: Date) -> [UIColor]? {
+        return self.calendar(calendar, appearance: appearance, eventDefaultColorsFor: date)
+    }
 }
