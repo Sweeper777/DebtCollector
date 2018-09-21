@@ -57,4 +57,11 @@ extension CalendarController : FSCalendarDataSource, FSCalendarDelegateAppearanc
         self.view.setNeedsLayout()
     }
     
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
+        let key = self.key(from: date)
+        guard let transactions = transactionsByDay[key] else  {
+            return nil
+        }
+        return transactions.map { $0.transactions.first!.amount < 0 ? .blue : .red }
+    }
 }
