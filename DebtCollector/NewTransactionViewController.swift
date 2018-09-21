@@ -106,7 +106,7 @@ class NewTransactionViewController : FormViewController {
                     row.cell.textField.text = items[itemIndex].title
                     row.value = items[itemIndex].title
                 }
-                tf.forceNoFiltering = true
+                
                 tf.startVisible = true
                 tf.theme.bgColor = .white
                 tf.theme.font = UIFont.systemFont(ofSize: 22)
@@ -165,7 +165,7 @@ class NewTransactionViewController : FormViewController {
                     row.cell.textField.text = items[itemIndex].title
                     row.value = items[itemIndex].title
                 }
-                tf.forceNoFiltering = true
+                
                 tf.startVisible = true
                 tf.theme.bgColor = .white
                 tf.theme.font = UIFont.systemFont(ofSize: 22)
