@@ -35,6 +35,12 @@ class CalendarController: UIViewController {
         let components = Calendar.current.dateComponents([.year, .month, .day], from: date)
         return components.year! * 1000 + components.month! * 100 + components.day!
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? DetailTransactionViewController {
+            vc.groupedTransaction = sender as! GroupTransaction
+        }
+    }
 }
 
 extension CalendarController : FSCalendarDataSource, FSCalendarDelegateAppearance {
