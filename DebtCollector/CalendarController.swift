@@ -53,4 +53,8 @@ extension CalendarController : FSCalendarDataSource, FSCalendarDelegateAppearanc
         return transactionsByDay[key]?.count ?? 0
     }
     
+    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+        self.view.setNeedsLayout()
+    }
+    
 }
