@@ -20,6 +20,8 @@ PODS:
   - RxSwift (4.1.2)
   - SCLAlertView (0.7.0)
   - SearchTextField (1.2.1)
+  - SuggestionRow (2.1.0):
+    - Eureka (~> 4.0)
   - SwiftyUtils (2.0.0)
 
 DEPENDENCIES:
@@ -33,6 +35,7 @@ DEPENDENCIES:
   - RxSwift
   - SCLAlertView (from `https://github.com/ahmedsafadii/SCLAlertView-Swift.git`)
   - SearchTextField
+  - SuggestionRow
   - SwiftyUtils
 
 SPEC REPOS:
@@ -48,6 +51,7 @@ SPEC REPOS:
     - RxRealm
     - RxSwift
     - SearchTextField
+    - SuggestionRow
     - SwiftyUtils
 
 EXTERNAL SOURCES:
@@ -72,8 +76,9 @@ SPEC CHECKSUMS:
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SearchTextField: 261b0febd49194492f29555fff3c5c0019ca84d2
+  SuggestionRow: f9a4701e7b8010e9fac71ca07df55a21fe09e979
   SwiftyUtils: ae914aa96b5672e9282904771e5e5b44d2e307d6
 
-PODFILE CHECKSUM: d947b005ea72d9773f5c4e65233134af707c75b3
+PODFILE CHECKSUM: 0c3b156721af5375e80538497058f382da81fcfc
 
 COCOAPODS: 1.5.3

@@ -15,4 +15,5 @@ target 'DebtCollector' do
   pod 'SearchTextField'
   pod 'LTHPasscodeViewController'
   pod 'FSCalendar'
+  pod 'SuggestionRow'
 end
