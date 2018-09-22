@@ -222,8 +222,8 @@ class NewTransactionViewController : FormViewController {
                 showErrorMessage("Please enter an amount for \(name)!")
                 return
             }
-            if amount <= 0 {
-                showErrorMessage("Amount cannot be less than or equal to 0!")
+            if amount < 0 {
+                showErrorMessage("Amount cannot be less than to 0!")
                 return
             }
             let transaction = Transaction()
