@@ -3,6 +3,7 @@ import Eureka
 import SCLAlertView
 import RealmSwift
 import SearchTextField
+import SuggestionRow
 
 class NewTransactionViewController : FormViewController {
     
@@ -86,46 +87,33 @@ class NewTransactionViewController : FormViewController {
                 
                 row.value = (transactionToEdit?.transactions[i].amount).map(abs)
             }
-            
-            <<< SearchTextRow(tagDetails + "\(i)") {
+
+            <<< SuggestionAccessoryRow<String>(tagDetails + "\(i)") {
                 [weak self]
                 row in
-                
+
                 guard let `self` = self else { return }
-                
+
                 row.cell.textField.placeholder = "Details (Optional)"
+
+                row.value = self.transactionToEdit?.transactions[i].details
                 
-                row.value = transactionToEdit?.transactions[i].details
-                
-                guard let tf = row.cell.textField as? SearchTextField else {
-                    return
-                }
-                
-                tf.itemSelectionHandler = {
-                    items, itemIndex in
-                    row.cell.textField.text = items[itemIndex].title
-                    row.value = items[itemIndex].title
-                }
-                
-                tf.startVisible = true
-                tf.theme.bgColor = .white
-                tf.theme.font = UIFont.systemFont(ofSize: 22)
-                tf.addTarget(self, action: #selector(didEndEditing), for: UIControlEvents.editingDidEnd)
+
             }
-            .cellUpdate({
-                [weak self] (cell, row) in
-                guard let `self` = self else { return }
-                guard let tf = cell.textField as? SearchTextField else {
-                    return
-                }
-                let mode = self.form.values()[tagReturnedOrBorrowed] as? String ?? "Borrowed"
-                let shouldShowPresets = (mode == "Borrowed" && UserSettings.showDetailPresetsOnBorrow) ||
-                    (mode == "Returned" && UserSettings.showDetailPresetsOnReturn)
-                let filterStrings = shouldShowPresets ?
-                    UserSettings.detailPresets.split(separator: "\n").map(String.init) :
-                    []
-                if (tf.filterDataSource.map { $0.title }) != filterStrings {
-                    tf.filterStrings(filterStrings)
+            .cellUpdate({ (cell, row) in
+                row.filterFunction = {
+                    [weak self]
+                    filterString in
+                    guard let `self` = self else { return [] }
+                    let mode = self.form.values()[tagReturnedOrBorrowed] as? String ?? "Borrowed"
+                    let shouldShowPresets = (mode == "Borrowed" && UserSettings.showDetailPresetsOnBorrow) ||
+                        (mode == "Returned" && UserSettings.showDetailPresetsOnReturn)
+                    let filterStrings = shouldShowPresets ?
+                        UserSettings.detailPresets.split(separator: "\n").map(String.init) :
+                        []
+                    return filterStrings.filter {
+                        $0.lowercased().contains((filterString.split(separator: ",").last ?? "").lowercased())
+                    }
                 }
             })
         }
