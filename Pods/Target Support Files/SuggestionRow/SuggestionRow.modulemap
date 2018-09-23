@@ -1,6 +1,0 @@
-framework module SuggestionRow {
-  umbrella header "SuggestionRow-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5FEA28D7A02BF547666B77B7F407F3C5"
-               BlueprintName = "SuggestionRow"
+               BlueprintIdentifier = "1C5C2FA8662AC29A911B56F526D8B756"
+               BlueprintName = "TagWriteView"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "SuggestionRow.framework">
+               BuildableName = "TagWriteView.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -95,14 +95,14 @@
 			<key>orderHint</key>
 			<integer>12</integer>
 		</dict>
-		<key>SuggestionRow.xcscheme</key>
+		<key>SwiftyUtils.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>13</integer>
 		</dict>
-		<key>SwiftyUtils.xcscheme</key>
+		<key>TagWriteView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

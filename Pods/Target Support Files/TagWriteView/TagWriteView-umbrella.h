@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double SuggestionRowVersionNumber;
-FOUNDATION_EXPORT const unsigned char SuggestionRowVersionString[];
+FOUNDATION_EXPORT double TagWriteViewVersionNumber;
+FOUNDATION_EXPORT const unsigned char TagWriteViewVersionString[];
 
