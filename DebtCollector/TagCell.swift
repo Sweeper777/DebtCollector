@@ -12,4 +12,10 @@ class TagCell: Cell<String>, CellType, TagWriteViewDelegate {
         tagWriteView.placeHolderForInput = NSAttributedString(string: "Tags...")
         tagWriteView.minimumWidthOfTag = 100
     }
+    
+    func tagWriteView(view: TagWriteView!, didMakeTag tag: String!) {
+        row.value = view.tags.joined(separator: ",")
+        row.updateCell()
+    }
+    
 }
