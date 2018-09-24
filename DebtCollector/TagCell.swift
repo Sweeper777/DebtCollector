@@ -18,4 +18,8 @@ class TagCell: Cell<String>, CellType, TagWriteViewDelegate {
         row.updateCell()
     }
     
+    func tagWriteView(view: TagWriteView!, didRemoveTag tag: String!) {
+        row.value = view.tags.joined(separator: ",")
+        row.updateCell()
+    }
 }
