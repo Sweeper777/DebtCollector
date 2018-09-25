@@ -333,7 +333,7 @@ public class TagWriteView : UIView
             return true
         }
         
-        if letter == " " {
+        if letter == "," {
             if allowToUseSingleSpace && readyToFinishMaking == false {
                 readyToFinishMaking = true
                 return false
