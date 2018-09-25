@@ -22,4 +22,9 @@ class TagCell: Cell<String>, CellType, TagWriteViewDelegate {
         row.value = view.tags.joined(separator: ",")
         row.updateCell()
     }
+    
+    func tagWriteView(view: TagWriteView!, didChangeText text: String!) {
+        row.value = view.tags.joined(separator: ",")
+        row.updateCell()
+    }
 }
