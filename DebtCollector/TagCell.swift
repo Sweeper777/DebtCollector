@@ -27,4 +27,9 @@ class TagCell: Cell<String>, CellType, TagWriteViewDelegate {
         row.value = view.tags.joined(separator: ",")
         row.updateCell()
     }
+    
+    override func update() {
+        tagWriteView.clear()
+        tagWriteView.addTags(row.value?.split(separator: ",").map(String.init) ?? [])
+    }
 }
