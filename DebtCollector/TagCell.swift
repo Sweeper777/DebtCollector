@@ -33,3 +33,10 @@ class TagCell: Cell<String>, CellType, TagWriteViewDelegate {
         tagWriteView.addTags(row.value?.split(separator: ",").map(String.init) ?? [])
     }
 }
+
+final class TagRow: Row<TagCell>, RowType {
+    required public init(tag: String?) {
+        super.init(tag: tag)
+        cellProvider = CellProvider<TagCell>(nibName: "TagCell")
+    }
+}
