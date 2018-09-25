@@ -8,6 +8,8 @@ import SwiftyUtils
 class TransactionListViewController: UITableViewController {
     let disposeBag = DisposeBag()
     
+    var date: Date?
+    
     override func viewDidLoad() {
         tableView.delegate = nil
         tableView.dataSource = nil
