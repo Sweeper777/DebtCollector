@@ -87,6 +87,12 @@ class NewTransactionViewController : FormViewController {
                 row.value = (transactionToEdit?.transactions[i].amount).map(abs)
             }
 
+            <<< TagRow(tagDetails + "\(i)") {
+                [weak self]
+                row in
+                guard let `self` = self else { return }
+                row.value = self.transactionToEdit?.transactions[i].details
+            }
 //            <<< SuggestionAccessoryRow<String>(tagDetails + "\(i)") {
 //                [weak self]
 //                row in
