@@ -25,6 +25,8 @@ class CalendarController: UIViewController {
                 return components.year! * 1000 + components.month! * 100 + components.day!
             })
         }).disposed(by: disposeBag)
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     override func viewDidAppear(_ animated: Bool) {
