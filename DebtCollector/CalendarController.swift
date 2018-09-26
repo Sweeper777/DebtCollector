@@ -51,6 +51,8 @@ extension CalendarController : FSCalendarDataSource, FSCalendarDelegateAppearanc
         let transactionsOnThatDay = transactionsByDay[key] ?? []
         if transactionsOnThatDay.count == 1 {
             performSegue(withIdentifier: "showTransaction", sender: transactionsOnThatDay.first!)
+        } else if transactionsOnThatDay.count > 1 {
+            performSegue(withIdentifier: "showDailyTransactions", sender: date)
         }
         
         calendar.deselect(date)
