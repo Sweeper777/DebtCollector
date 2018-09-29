@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D92AAB3B30661153E0883CF43A35EB6"
+               BlueprintIdentifier = "A2D491F85C2F0E31F5BB90876BEEB149"
                BlueprintName = "Eureka"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "Eureka.framework">
