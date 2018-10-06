@@ -192,7 +192,7 @@ public class TagWriteView : UIView
         delegate?.tagWriteView?(view: self, didRemoveTag: tag)
     }
     
-    public func setDeleteButtonBackgroundImage(_ image: UIImage?, state: UIControlState) {
+    public func setDeleteButtonBackgroundImage(_ image: UIImage?, state: UIControl.State) {
         deleteButton.setBackgroundImage(image, for: state)
     }
     
@@ -236,7 +236,7 @@ public class TagWriteView : UIView
         scrollView.scrollsToTop = false
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
-        scrollView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+        scrollView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         addSubview(scrollView)
         scrollView.applyMarginConstraint(margin: UIEdgeInsets.zero)
         
@@ -248,7 +248,7 @@ public class TagWriteView : UIView
         tagInputView.delegate = self
         tagInputView.autocorrectionType = UITextAutocorrectionType.no
         tagInputView.returnKeyType = UIReturnKeyType.done
-        tagInputView.autoresizingMask = UIViewAutoresizing.flexibleWidth
+        tagInputView.autoresizingMask = UIView.AutoresizingMask.flexibleWidth
         inputBaseView.addSubview(tagInputView)
         
         deleteButton = UIButton(frame: CGRect(x: 0, y: 0, width: 17, height: 17))
@@ -296,15 +296,15 @@ public class TagWriteView : UIView
         let tagButton = UIButton()
         tagButton.titleLabel?.font = font
         tagButton.backgroundColor = tagBackgroundColor
-        tagButton.setTitleColor(tagForegroundColor, for: UIControlState.normal)
-        tagButton.setTitle(tag, for: UIControlState.normal)
+        tagButton.setTitleColor(tagForegroundColor, for: UIControl.State.normal)
+        tagButton.setTitle(tag, for: UIControl.State.normal)
         tagButton.addTarget(self, action: #selector(self.tagButtonDidPushed(sender:)), for: .touchUpInside)
         
         var btnFrame: CGRect = tagButton.frame
         btnFrame.origin.x = posx
         
         let temp = tag as NSString
-        btnFrame.size.width = temp.size(withAttributes: [NSAttributedStringKey.font:font]).width + (tagButton.layer.cornerRadius * 2.0) + insetForTag.left + insetForTag.left
+        btnFrame.size.width = temp.size(withAttributes: [NSAttributedString.Key.font:font]).width + (tagButton.layer.cornerRadius * 2.0) + insetForTag.left + insetForTag.left
         //        btnFrame.size.height = self.frame.size.height - 13.0
         
         tagButton.layer.cornerRadius = btnFrame.size.height * 0.5
@@ -427,7 +427,7 @@ public class TagWriteView : UIView
     
     fileprivate func widthForInputView(tagString tag: String) -> CGFloat {
         let temp = tag as NSString
-        return max(minimumWidthOfTag, temp.size(withAttributes: [NSAttributedStringKey.font:font]).width + 25.0)
+        return max(minimumWidthOfTag, temp.size(withAttributes: [NSAttributedString.Key.font:font]).width + 25.0)
     }
     
 }
