@@ -14,49 +14,49 @@ class NewTransactionViewController : FormViewController {
         super.viewDidLoad()
         
         form +++ Section()
-        
-        <<< SegmentedRow<String>(tagReturnedOrBorrowed) {
-            row in
-            row.options = ["Borrowed", "Returned"]
-            row.value = "Borrowed"
-            if let transaction = self.transactionToEdit {
-                row.value = transaction.transactions.first!.amount < 0 ? "Returned" : "Borrowed"
-            }
-        }
-        .onChange({ [weak self] (row) in
-           if row.value == "Returned" {
-                let row: RowOf<String>? = self?.form.rowBy(tag: tagTitle)
-                row?.value = "\((self?.personNameAlreadyFilledIn ?? "") + " ")Returned Money"
-                row?.updateCell()
-            } else if let personName = self?.personNameAlreadyFilledIn {
-                let row: RowOf<String>? = self?.form.rowBy(tag: tagTitle)
-                row?.value = "\(personName) Borrowed Money"
-                row?.updateCell()
-            } else {
-                let row: RowOf<String>? = self?.form.rowBy(tag: tagTitle)
-                row?.value = ""
-                row?.updateCell()
-            }
-            self?.form.allRows.filter { ($0.tag!.hasPrefix("details")) }.forEach { $0.updateCell() }
-        })
             
-        <<< TextRow(tagTitle) {
-            [weak self] row in
-            row.title = "Title"
-            if let personName = self?.personNameAlreadyFilledIn {
-                row.value = "\(personName) Borrowed Money"
+            <<< SegmentedRow<String>(tagReturnedOrBorrowed) {
+                row in
+                row.options = ["Borrowed", "Returned"]
+                row.value = "Borrowed"
+                if let transaction = self.transactionToEdit {
+                    row.value = transaction.transactions.first!.amount < 0 ? "Returned" : "Borrowed"
+                }
+                }
+                .onChange({ [weak self] (row) in
+                    if row.value == "Returned" {
+                        let row: RowOf<String>? = self?.form.rowBy(tag: tagTitle)
+                        row?.value = "\((self?.personNameAlreadyFilledIn ?? "") + " ")Returned Money"
+                        row?.updateCell()
+                    } else if let personName = self?.personNameAlreadyFilledIn {
+                        let row: RowOf<String>? = self?.form.rowBy(tag: tagTitle)
+                        row?.value = "\(personName) Borrowed Money"
+                        row?.updateCell()
+                    } else {
+                        let row: RowOf<String>? = self?.form.rowBy(tag: tagTitle)
+                        row?.value = ""
+                        row?.updateCell()
+                    }
+                    self?.form.allRows.filter { ($0.tag!.hasPrefix("details")) }.forEach { $0.updateCell() }
+                })
+            
+            <<< TextRow(tagTitle) {
+                [weak self] row in
+                row.title = "Title"
+                if let personName = self?.personNameAlreadyFilledIn {
+                    row.value = "\(personName) Borrowed Money"
+                }
+                if let transaction = transactionToEdit {
+                    row.value = transaction.title
+                }
+                row.cell.textField.placeholder = "Required"
             }
-            if let transaction = transactionToEdit {
-                row.value = transaction.title
-            }
-            row.cell.textField.placeholder = "Required"
-        }
-        
-        <<< DateRow(tagDate) {
-            row in
-            row.title = "Date"
-            row.value = transactionToEdit?.date ?? Date()
-            row.maximumDate = Date()
+            
+            <<< DateRow(tagDate) {
+                row in
+                row.title = "Date"
+                row.value = transactionToEdit?.date ?? Date()
+                row.maximumDate = Date()
         }
         
         let loopCount = transactionToEdit?.transactions.count ?? (personNameAlreadyFilledIn == nil ? RealmWrapper.shared.people.count : 1)
@@ -65,121 +65,128 @@ class NewTransactionViewController : FormViewController {
         
         for i in 0..<loopCount {
             form +++ Section()
-            <<< PickerInlineRow<String>(tagPerson + "\(i)") {
-                row in
-                row.title = "Person"
-                row.options = [["<Not Selected>"], personNameOptions].flatMap { $0 }
-                row.value = transactionToEdit?.transactions[i].personName ?? "<Not Selected>"
-                
-                if i == 0 && personNameAlreadyFilledIn != nil {
-                    row.disabled = true
-                    row.evaluateDisabled()
-                    row.value = personNameAlreadyFilledIn
+                <<< PickerInlineRow<String>(tagPerson + "\(i)") {
+                    row in
+                    row.title = "Person"
+                    row.options = [["<Not Selected>"], personNameOptions].flatMap { $0 }
+                    row.value = transactionToEdit?.transactions[i].personName ?? "<Not Selected>"
+                    
+                    if i == 0 && personNameAlreadyFilledIn != nil {
+                        row.disabled = true
+                        row.evaluateDisabled()
+                        row.value = personNameAlreadyFilledIn
+                    }
                 }
-            }
-            <<< DecimalRow(tagAmount + "\(i)") {
-                row in
-                row.title = "Amount (\(Locale.current.currencySymbol ?? Locale.current.currencyCode ?? "$"))"
-                row.cell.textField.placeholder = "0.00"
-                let numberFormatter = NumberFormatter()
-                numberFormatter.numberStyle = .currency
+                <<< DecimalRow(tagAmount + "\(i)") {
+                    row in
+                    row.title = "Amount (\(Locale.current.currencySymbol ?? Locale.current.currencyCode ?? "$"))"
+                    row.cell.textField.placeholder = "0.00"
+                    let numberFormatter = NumberFormatter()
+                    numberFormatter.numberStyle = .currency
+                    
+                    row.value = (transactionToEdit?.transactions[i].amount).map(abs)
+                }
                 
-                row.value = (transactionToEdit?.transactions[i].amount).map(abs)
-            }
-
-            <<< TagRow(tagDetails + "\(i)") {
-                [weak self]
-                row in
-                guard let `self` = self else { return }
-                row.value = self.transactionToEdit?.transactions[i].details
-            }
-//            <<< SuggestionAccessoryRow<String>(tagDetails + "\(i)") {
-//                [weak self]
-//                row in
-//
-//                guard let `self` = self else { return }
-//
-//                row.cell.textField.placeholder = "Details (Optional)"
-//
-//                row.value = self.transactionToEdit?.transactions[i].details
-//
-//
-//            }
-//            .cellUpdate({ (cell, row) in
-//                row.filterFunction = {
-//                    [weak self]
-//                    filterString in
-//                    guard let `self` = self else { return [] }
-//                    let mode = self.form.values()[tagReturnedOrBorrowed] as? String ?? "Borrowed"
-//                    let shouldShowPresets = (mode == "Borrowed" && UserSettings.showDetailPresetsOnBorrow) ||
-//                        (mode == "Returned" && UserSettings.showDetailPresetsOnReturn)
-//                    let filterStrings = shouldShowPresets ?
-//                        UserSettings.detailPresets.split(separator: "\n").map(String.init) :
-//                        []
-//                    return filterStrings.filter {
-//                        $0.lowercased().contains((filterString.split(separator: ",").last ?? "").lowercased())
-//                    }
-//                }
-//            })
+                <<< SearchTextRow(tagDetails + "\(i)") {
+                    [weak self]
+                    row in
+                    
+                    guard let `self` = self else { return }
+                    
+                    row.cell.textField.placeholder = "Details (Optional)"
+                    
+                    row.value = transactionToEdit?.transactions[i].details
+                    
+                    guard let tf = row.cell.textField as? SearchTextField else {
+                        return
+                    }
+                    
+                    tf.itemSelectionHandler = {
+                        items, itemIndex in
+                        row.cell.textField.text = items[itemIndex].title
+                        row.value = items[itemIndex].title
+                    }
+                    
+                    tf.startVisible = true
+                    tf.theme.bgColor = .white
+                    tf.theme.font = UIFont.systemFont(ofSize: 22)
+                    tf.addTarget(self, action: #selector(didEndEditing), for: UIControl.Event.editingDidEnd)
+                    }
+                    .cellUpdate({
+                        [weak self] (cell, row) in
+                        guard let `self` = self else { return }
+                        guard let tf = cell.textField as? SearchTextField else {
+                            return
+                        }
+                        let mode = self.form.values()[tagReturnedOrBorrowed] as? String ?? "Borrowed"
+                        let shouldShowPresets = (mode == "Borrowed" && UserSettings.showDetailPresetsOnBorrow) ||
+                            (mode == "Returned" && UserSettings.showDetailPresetsOnReturn)
+                        let filterStrings = shouldShowPresets ?
+                            UserSettings.detailPresets.split(separator: "\n").map(String.init) :
+                            []
+                        if (tf.filterDataSource.map { $0.title }) != filterStrings {
+                            tf.filterStrings(filterStrings)
+                        }
+                    })
         }
         
         // MARK: new empty rows
         
         for i in loopCount..<personNameOptions.count {
             form +++ Section()
-            <<< PickerInlineRow<String>(tagPerson + "\(i)") {
-                row in
-                row.title = "Person"
-                row.options = [["<Not Selected>"], personNameOptions].flatMap { $0 }
-                row.value = "<Not Selected>"
-            }
-            <<< DecimalRow(tagAmount + "\(i)") {
-                row in
-                row.title = "Amount (\(Locale.current.currencySymbol ?? Locale.current.currencyCode ?? "$"))"
-                row.cell.textField.placeholder = "0.00"
-                let numberFormatter = NumberFormatter()
-                numberFormatter.numberStyle = .currency
-            }
-            
-//            <<< SearchTextRow(tagDetails + "\(i)") {
-//                [weak self]
-//                row in
-//                
-//                guard let `self` = self else { return }
-//                
-//                row.cell.textField.placeholder = "Details (Optional)"
-//                
-//                guard let tf = row.cell.textField as? SearchTextField else {
-//                    return
-//                }
-//                
-//                tf.itemSelectionHandler = {
-//                    items, itemIndex in
-//                    row.cell.textField.text = items[itemIndex].title
-//                    row.value = items[itemIndex].title
-//                }
-//                
-//                tf.startVisible = true
-//                tf.theme.bgColor = .white
-//                tf.theme.font = UIFont.systemFont(ofSize: 22)
-//                tf.addTarget(self, action: #selector(didEndEditing), for: UIControlEvents.editingDidEnd)
-//                }
-//            .cellUpdate({
-//                [weak self] (cell, row) in
-//                guard let `self` = self else { return }
-//                guard let tf = cell.textField as? SearchTextField else {
-//                    return
-//                }
-//                let mode = self.form.values()[tagReturnedOrBorrowed] as? String ?? "Borrowed"
-//                let shouldShowPresets = (mode == "Borrowed" && UserSettings.showDetailPresetsOnBorrow) ||
-//                    (mode == "Returned" && UserSettings.showDetailPresetsOnReturn)
-//                let filterStrings = shouldShowPresets ?
-//                    UserSettings.detailPresets.split(separator: "\n").map(String.init) :
-//                    []
-//                if (tf.filterDataSource.map { $0.title }) != filterStrings {
-//                    tf.filterStrings(filterStrings)
-//                }
-//            })
+                <<< PickerInlineRow<String>(tagPerson + "\(i)") {
+                    row in
+                    row.title = "Person"
+                    row.options = [["<Not Selected>"], personNameOptions].flatMap { $0 }
+                    row.value = "<Not Selected>"
+                }
+                <<< DecimalRow(tagAmount + "\(i)") {
+                    row in
+                    row.title = "Amount (\(Locale.current.currencySymbol ?? Locale.current.currencyCode ?? "$"))"
+                    row.cell.textField.placeholder = "0.00"
+                    let numberFormatter = NumberFormatter()
+                    numberFormatter.numberStyle = .currency
+                }
+                
+                <<< SearchTextRow(tagDetails + "\(i)") {
+                    [weak self]
+                    row in
+                    
+                    guard let `self` = self else { return }
+                    
+                    row.cell.textField.placeholder = "Details (Optional)"
+                    
+                    guard let tf = row.cell.textField as? SearchTextField else {
+                        return
+                    }
+                    
+                    tf.itemSelectionHandler = {
+                        items, itemIndex in
+                        row.cell.textField.text = items[itemIndex].title
+                        row.value = items[itemIndex].title
+                    }
+                    
+                    tf.startVisible = true
+                    tf.theme.bgColor = .white
+                    tf.theme.font = UIFont.systemFont(ofSize: 22)
+                    tf.addTarget(self, action: #selector(didEndEditing), for: UIControl.Event.editingDidEnd)
+                    }
+                    .cellUpdate({
+                        [weak self] (cell, row) in
+                        guard let `self` = self else { return }
+                        guard let tf = cell.textField as? SearchTextField else {
+                            return
+                        }
+                        let mode = self.form.values()[tagReturnedOrBorrowed] as? String ?? "Borrowed"
+                        let shouldShowPresets = (mode == "Borrowed" && UserSettings.showDetailPresetsOnBorrow) ||
+                            (mode == "Returned" && UserSettings.showDetailPresetsOnReturn)
+                        let filterStrings = shouldShowPresets ?
+                            UserSettings.detailPresets.split(separator: "\n").map(String.init) :
+                            []
+                        if (tf.filterDataSource.map { $0.title }) != filterStrings {
+                            tf.filterStrings(filterStrings)
+                        }
+                    })
         }
     }
     
