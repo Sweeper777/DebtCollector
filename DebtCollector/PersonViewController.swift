@@ -31,7 +31,7 @@ class PersonViewController : UITableViewController {
                 formatter2.timeStyle = .none
                 cell.dateLabel.text = formatter2.string(from: transaction.date)
                 cell.transactionLabel.text = transaction.parentTransactions.first!.title
-                cell.selectionStyle = .none
+                cell.selectionStyle = .gray
                 
                 if transaction.details.trimmed() != "" {
                     cell.transactionDetailsLabel.text = transaction.details
@@ -73,6 +73,8 @@ class PersonViewController : UITableViewController {
                 }
             case .button(title: "Add a Transaction", _):
                 self.performSegue(withIdentifier: "newPersonTransaction", sender: nil)
+            case .transaction(let transaction):
+                self.performSegue(withIdentifier: "showWholeTransaction", sender: transaction.parentTransactions.first)
             default:
                 return
             }
@@ -89,6 +91,8 @@ class PersonViewController : UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = (segue.destination as? UINavigationController)?.topViewController as? NewTransactionViewController {
             vc.personNameAlreadyFilledIn = person.name
+        } else if let vc = segue.destination as? DetailTransactionViewController {
+            vc.groupedTransaction = sender as? GroupTransaction
         }
     }
 }
