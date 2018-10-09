@@ -35,7 +35,7 @@ class OverviewViewController: UITableViewController {
                 cell.amountLabel.text = formatter.string(from: personAndAmount.value as NSNumber)
             }.disposed(by: disposeBag)
         
-        LTHPasscodeViewController.sharedUser().navigationBarTintColor = UIColor(hex: "5abb5a")
+        LTHPasscodeViewController.sharedUser().navigationBarTintColor = UIColor(hex: "4f42fd")
         LTHPasscodeViewController.sharedUser().navigationTitleColor = UIColor.white
         LTHPasscodeViewController.sharedUser().hidesCancelButton = false
         LTHPasscodeViewController.sharedUser().navigationTintColor = UIColor.white
