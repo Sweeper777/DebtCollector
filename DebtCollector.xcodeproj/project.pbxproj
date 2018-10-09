@@ -31,6 +31,7 @@
 		5A52DCE721128D2100B4F941 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A52DCE621128D2100B4F941 /* SettingsViewController.swift */; };
 		5A52DCE921128F7700B4F941 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A52DCE821128F7700B4F941 /* UserSettings.swift */; };
 		5A6BF0E320F75D0A0035407A /* RealmWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BF0E220F75D0A0035407A /* RealmWrapper.swift */; };
+		5A7D12E1216BC2DB008F11C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A7D12E0216BC2DB008F11C9 /* GoogleService-Info.plist */; };
 		5A8A05EA20FDD65300D98280 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A05E920FDD65300D98280 /* PersonViewController.swift */; };
 		5A9BC28820F8A12600DAFAC1 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9BC28720F8A12600DAFAC1 /* PeopleViewController.swift */; };
 		C2ED3D93ECF20D208D037617 /* Pods_DebtCollector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E003D07B2AA4C3D8BEE2F21 /* Pods_DebtCollector.framework */; };
@@ -64,6 +65,7 @@
 		5A52DCE621128D2100B4F941 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5A52DCE821128F7700B4F941 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		5A6BF0E220F75D0A0035407A /* RealmWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmWrapper.swift; sourceTree = "<group>"; };
+		5A7D12E0216BC2DB008F11C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A8A05E920FDD65300D98280 /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		5A9BC28720F8A12600DAFAC1 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		976FEA4EE3B23BDF47360425 /* Pods-DebtCollector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DebtCollector.release.xcconfig"; path = "Pods/Target Support Files/Pods-DebtCollector/Pods-DebtCollector.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		5A3ED26420F4AA6700E79CE6 /* DebtCollector */ = {
 			isa = PBXGroup;
 			children = (
+				5A7D12E0216BC2DB008F11C9 /* GoogleService-Info.plist */,
 				5A3ED26520F4AA6700E79CE6 /* AppDelegate.swift */,
 				5A3ED26720F4AA6700E79CE6 /* OverviewViewController.swift */,
 				5A9BC28720F8A12600DAFAC1 /* PeopleViewController.swift */,
@@ -215,6 +218,7 @@
 			files = (
 				5A4DA35B215797B9002DAD8E /* TagCell.xib in Resources */,
 				5A4580AF210A9B92002691FB /* DetailTransactionTableViewCell.xib in Resources */,
+				5A7D12E1216BC2DB008F11C9 /* GoogleService-Info.plist in Resources */,
 				5A4690BC20F600DF00911E04 /* OverviewTableViewCell.xib in Resources */,
 				5A3F33FA2101D7A700B28C14 /* GroupedTransactionTableViewCell.xib in Resources */,
 				5A3ED27020F4AA6A00E79CE6 /* LaunchScreen.storyboard in Resources */,
@@ -237,6 +241,7 @@
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/LTHPasscodeViewController/LTHPasscodeViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -248,12 +253,14 @@
 				"${BUILT_PRODUCTS_DIR}/SearchTextField/SearchTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUtils/SwiftyUtils.framework",
 				"${BUILT_PRODUCTS_DIR}/TagWriteView/TagWriteView.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTHPasscodeViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -265,6 +272,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SearchTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUtils.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagWriteView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
