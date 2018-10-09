@@ -16,4 +16,5 @@ target 'DebtCollector' do
   pod 'LTHPasscodeViewController'
   pod 'FSCalendar'
   pod 'TagWriteView'
+  pod 'Firebase/Core'
 end
