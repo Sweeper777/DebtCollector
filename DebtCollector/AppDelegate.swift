@@ -1,6 +1,7 @@
 import UIKit
 import SwiftyUtils
 import Eureka
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -12,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.tintColor = UIColor(hex: "4f42fd")
         NavigationAccessoryView.appearance().tintColor = UIColor(hex: "3b7b3b")
-        
+        FirebaseApp.configure()
         return true
     }
 
