@@ -46,7 +46,10 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (5.3.0):
     - GoogleUtilities/Logger
+  - ImageRow (3.1.0):
+    - Eureka (~> 4.0)
   - LTHPasscodeViewController (3.9.2)
+  - MGSwipeTableCell (1.6.7)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -76,7 +79,9 @@ DEPENDENCIES:
   - Eureka
   - Firebase/Core
   - FSCalendar
+  - ImageRow (from `https://github.com/EurekaCommunity/ImageRow.git`, branch `master`)
   - LTHPasscodeViewController
+  - MGSwipeTableCell
   - RealmSwift
   - RxCocoa
   - RxDataSources
@@ -99,6 +104,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - LTHPasscodeViewController
+    - MGSwipeTableCell
     - nanopb
     - Realm
     - RealmSwift
@@ -111,10 +117,16 @@ SPEC REPOS:
     - TagWriteView
 
 EXTERNAL SOURCES:
+  ImageRow:
+    :branch: master
+    :git: https://github.com/EurekaCommunity/ImageRow.git
   SCLAlertView:
     :git: https://github.com/ahmedsafadii/SCLAlertView-Swift.git
 
 CHECKOUT OPTIONS:
+  ImageRow:
+    :commit: 6e75b9408bd3393daea467afa73c07cc021a87ae
+    :git: https://github.com/EurekaCommunity/ImageRow.git
   SCLAlertView:
     :commit: 90826ee643e319375aadd6415aaa0e8fce643766
     :git: https://github.com/ahmedsafadii/SCLAlertView-Swift.git
@@ -129,7 +141,9 @@ SPEC CHECKSUMS:
   FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
   GoogleAppMeasurement: 2b3a023a61239c8d002e6e4fcf4abce8eddce0e0
   GoogleUtilities: 760ccb53b7c7f40f9c02d8c241f76f841a7a6162
+  ImageRow: 1ea483078bfa3d880a7fc76fdfcddfd5f29a9e6b
   LTHPasscodeViewController: 9834c9c9eb50a7fa9a996cdd00113ae55840c7c3
+  MGSwipeTableCell: fb20e983988bde2b8d0df29c2d9e1d8ffd10b74a
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Realm: 85ab9e4f779d66f6e9ffeb118dc25b7f130c96ac
   RealmSwift: 69121c8b86d0ae005fb779efdb10e606732e1c74
@@ -142,6 +156,6 @@ SPEC CHECKSUMS:
   SwiftyUtils: ae914aa96b5672e9282904771e5e5b44d2e307d6
   TagWriteView: 2ebc9a3c627e296b12bfebdab5bf5d8438a2da6d
 
-PODFILE CHECKSUM: ad157fe27610425fc941c605982767b50db6006b
+PODFILE CHECKSUM: 95559f828296f599d1705b49b91352f2c956d937
 
 COCOAPODS: 1.5.3

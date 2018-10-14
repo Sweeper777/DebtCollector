@@ -17,4 +17,6 @@ target 'DebtCollector' do
   pod 'FSCalendar'
   pod 'TagWriteView'
   pod 'Firebase/Core'
+  pod 'MGSwipeTableCell'
+  pod 'ImageRow', :git => 'https://github.com/EurekaCommunity/ImageRow.git', :branch => 'master'
 end
