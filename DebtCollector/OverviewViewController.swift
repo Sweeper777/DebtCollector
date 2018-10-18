@@ -32,6 +32,7 @@ class OverviewViewController: UITableViewController {
                 cell.nameLabel.text = personAndAmount.key
                 let formatter = NumberFormatter()
                 formatter.numberStyle = .currency
+                formatter.currencySymbol = UserSettings.currencySymbol
                 cell.amountLabel.text = formatter.string(from: personAndAmount.value as NSNumber)
             }.disposed(by: disposeBag)
         
