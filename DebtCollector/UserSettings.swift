@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 final class UserSettings {
     static var detailPresets: String {
@@ -31,5 +31,18 @@ final class UserSettings {
         }
     }
     
+    static var currencySymbol: String? {
+        get {
+            return UserDefaults.standard.string(forKey: "currencySymbol")
+        }
+        
+        set {
+            if newValue?.trimmed() != "" {
+                UserDefaults.standard.set(newValue, forKey: "currencySymbol")
+            } else {
+                UserDefaults.standard.set(nil, forKey: "currencySymbol")
+            }
+        }
+    }
     private init() {}
 }
