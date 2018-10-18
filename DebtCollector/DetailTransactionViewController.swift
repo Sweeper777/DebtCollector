@@ -48,6 +48,7 @@ class DetailTransactionViewController : UITableViewController {
                 let cell = tv.dequeueReusableCell(withIdentifier: "transactionCell") as! DetailTransactionTableViewCell
                 let formatter1 = NumberFormatter()
                 formatter1.numberStyle = .currency
+                formatter1.currencySymbol = UserSettings.currencySymbol
                 cell.amountLabel.text = formatter1.string(from: abs(transaction.amount) as NSNumber)
                 cell.borrowedReturnedLabel.text = transaction.amount < 0 ? "Returned" : "Borrowed"
                 cell.transactionLabel.text = transaction.personName
