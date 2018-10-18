@@ -81,8 +81,6 @@ class NewTransactionViewController : FormViewController {
                     row in
                     row.title = "Amount (\(UserSettings.currencySymbol ?? Locale.current.currencySymbol ?? "$"))"
                     row.cell.textField.placeholder = "0.00"
-                    let numberFormatter = NumberFormatter()
-                    numberFormatter.numberStyle = .currency
                     
                     row.value = (transactionToEdit?.transactions[i].amount).map(abs)
                 }
@@ -144,8 +142,6 @@ class NewTransactionViewController : FormViewController {
                     row in
                     row.title = "Amount (\(UserSettings.currencySymbol ?? Locale.current.currencySymbol ?? "$"))"
                     row.cell.textField.placeholder = "0.00"
-                    let numberFormatter = NumberFormatter()
-                    numberFormatter.numberStyle = .currency
                 }
                 
                 <<< SearchTextRow(tagDetails + "\(i)") {
