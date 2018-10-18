@@ -44,5 +44,16 @@ final class UserSettings {
             }
         }
     }
+    
+    static var bgImage: UIImage? {
+        get {
+            return UserDefaults.standard.data(forKey: "bgImage").map(UIImage.init) ?? nil
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue?.pngData(), forKey: "bgImage")
+        }
+    }
+    
     private init() {}
 }
