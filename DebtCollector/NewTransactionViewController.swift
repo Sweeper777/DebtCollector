@@ -79,7 +79,7 @@ class NewTransactionViewController : FormViewController {
                 }
                 <<< DecimalRow(tagAmount + "\(i)") {
                     row in
-                    row.title = "Amount (\(Locale.current.currencySymbol ?? Locale.current.currencyCode ?? "$"))"
+                    row.title = "Amount (\(UserSettings.currencySymbol ?? Locale.current.currencySymbol ?? "$"))"
                     row.cell.textField.placeholder = "0.00"
                     let numberFormatter = NumberFormatter()
                     numberFormatter.numberStyle = .currency
@@ -142,7 +142,7 @@ class NewTransactionViewController : FormViewController {
                 }
                 <<< DecimalRow(tagAmount + "\(i)") {
                     row in
-                    row.title = "Amount (\(Locale.current.currencySymbol ?? Locale.current.currencyCode ?? "$"))"
+                    row.title = "Amount (\(UserSettings.currencySymbol ?? Locale.current.currencySymbol ?? "$"))"
                     row.cell.textField.placeholder = "0.00"
                     let numberFormatter = NumberFormatter()
                     numberFormatter.numberStyle = .currency
