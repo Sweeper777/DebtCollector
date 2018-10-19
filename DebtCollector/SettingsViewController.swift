@@ -70,6 +70,7 @@ class SettingsViewController : FormViewController {
         UserSettings.detailPresets = (values[tagDetailPresets] as? String) ?? ""
         UserSettings.showDetailPresetsOnBorrow = (values[tagShowDetailPresetsOnBorrow] as? Bool) ?? false
         UserSettings.showDetailPresetsOnReturn = (values[tagShowDetailPresetsOnReturn] as? Bool) ?? false
+        UserSettings.currencySymbol = values[tagCurrencySymbol] as? String
     }
     
     @IBAction func done() {
