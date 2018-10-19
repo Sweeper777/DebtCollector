@@ -38,6 +38,14 @@ class TransactionListViewController: UITableViewController {
             formatter2.timeStyle = .none
             cell.dateLabel.text = formatter2.string(from: groupTransaction.date)
             cell.transactionNameLabel.text = groupTransaction.title
+            cell.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: .red, callback: {
+                cell in
+                RealmWrapper.shared.realm.beginWrite()
+                RealmWrapper.shared.realm.delete(groupTransaction.transactions)
+                RealmWrapper.shared.realm.delete(groupTransaction)
+                try? RealmWrapper.shared.realm.commitWrite()
+                return true
+            })]
         }
         .disposed(by: disposeBag)
         
