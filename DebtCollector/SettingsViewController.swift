@@ -25,6 +25,12 @@ class SettingsViewController : FormViewController {
             row.value = UserSettings.showDetailPresetsOnReturn
         }
         
+        +++ TextRow(tagCurrencySymbol) {
+            row in
+            row.title = "Currenct Symbol"
+            row.cell.textField.placeholder = "Default"
+            row.value = UserSettings.currencySymbol
+        }
         let passcodeSection = Section("passcode")
         if LTHPasscodeViewController.doesPasscodeExist() {
             passcodeSection <<< ButtonRow() {
@@ -76,3 +82,4 @@ class SettingsViewController : FormViewController {
 let tagDetailPresets = "tagDetailPresets"
 let tagShowDetailPresetsOnBorrow = "showDetailPresetsOnBorrow"
 let tagShowDetailPresetsOnReturn = "showDetailPresetsOnReturn"
+let tagCurrencySymbol = "currencySymbol"
