@@ -30,6 +30,7 @@ class TransactionListViewController: UITableViewController {
             let totalAmount = abs(groupTransaction.transactions.map { $0.amount }.reduce(0, +))
             let formatter1 = NumberFormatter()
             formatter1.numberStyle = .currency
+            formatter1.currencySymbol = UserSettings.currencySymbol
             cell.amountLabel.text = formatter1.string(from: totalAmount as NSNumber)
             
             let formatter2 = DateFormatter()
