@@ -1,6 +1,7 @@
 import UIKit
 import Eureka
 import LTHPasscodeViewController
+import ImageRow
 
 class SettingsViewController : FormViewController {
     
@@ -31,6 +32,13 @@ class SettingsViewController : FormViewController {
             row.cell.textField.placeholder = "Default"
             row.value = UserSettings.currencySymbol
         }
+        
+        +++ ImageRow(tagBgImage) {
+            row in
+            row.value = UserSettings.bgImage
+            row.title = "Background"
+        }
+        
         let passcodeSection = Section("passcode")
         if LTHPasscodeViewController.doesPasscodeExist() {
             passcodeSection <<< ButtonRow() {
@@ -84,3 +92,4 @@ let tagDetailPresets = "tagDetailPresets"
 let tagShowDetailPresetsOnBorrow = "showDetailPresetsOnBorrow"
 let tagShowDetailPresetsOnReturn = "showDetailPresetsOnReturn"
 let tagCurrencySymbol = "currencySymbol"
+let tagBgImage = "bgImage"
