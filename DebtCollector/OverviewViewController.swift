@@ -33,6 +33,7 @@ class OverviewViewController: UITableViewController {
                 let formatter = NumberFormatter()
                 formatter.numberStyle = .currency
                 formatter.currencySymbol = UserSettings.currencySymbol
+                cell.backgroundColor = UIColor.white.withAlphaComponent(0.5)
                 cell.amountLabel.text = formatter.string(from: personAndAmount.value as NSNumber)
             }.disposed(by: disposeBag)
         
