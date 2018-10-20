@@ -57,6 +57,18 @@ class TransactionListViewController: UITableViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if let image = UserSettings.bgImage {
+            let imageView = UIImageView(image: image)
+            tableView.backgroundView = imageView
+            imageView.contentMode = .scaleAspectFill
+        } else {
+            tableView.backgroundView = UIView()
+            tableView.backgroundView?.backgroundColor = .white
+        }
+        tableView.tableFooterView = UIView(frame: .zero)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailTransactionViewController {
             vc.groupedTransaction = sender as! GroupTransaction
