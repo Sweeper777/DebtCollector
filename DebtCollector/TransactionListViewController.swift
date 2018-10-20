@@ -4,6 +4,7 @@ import RxSwift
 import RxRealm
 import RealmSwift
 import SwiftyUtils
+import MGSwipeTableCell
 
 class TransactionListViewController: UITableViewController {
     let disposeBag = DisposeBag()
@@ -46,6 +47,7 @@ class TransactionListViewController: UITableViewController {
                 try? RealmWrapper.shared.realm.commitWrite()
                 return true
             })]
+            cell.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         }
         .disposed(by: disposeBag)
         
