@@ -48,6 +48,18 @@ class OverviewViewController: UITableViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if let image = UserSettings.bgImage {
+            let imageView = UIImageView(image: image)
+            tableView.backgroundView = imageView
+            imageView.contentMode = .scaleAspectFill
+        } else {
+            tableView.backgroundView = UIView()
+            tableView.backgroundView?.backgroundColor = .white
+        }
+        tableView.tableFooterView = UIView(frame: .zero)
+    }
+    
     @IBAction func unwindForChangePasscode(segue: UIStoryboardSegue) {
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000)) {
             [weak self] in
