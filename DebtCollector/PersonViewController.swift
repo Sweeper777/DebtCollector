@@ -33,6 +33,11 @@ class PersonViewController : UITableViewController {
                 cell.dateLabel.text = formatter2.string(from: transaction.date)
                 cell.transactionLabel.text = transaction.parentTransactions.first!.title
                 cell.selectionStyle = .gray
+                if transaction.amount < 0 {
+                    cell.contentView.backgroundColor = UIColor.green.withAlphaComponent(0.5)
+                } else if transaction.amount > 0 {
+                    cell.contentView.backgroundColor = UIColor.red.withAlphaComponent(0.5)
+                }
                 
                 if transaction.details.trimmed() != "" {
                     cell.transactionDetailsLabel.text = transaction.details
