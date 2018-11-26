@@ -48,6 +48,11 @@ class TransactionListViewController: UITableViewController {
                 return true
             })]
             cell.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+            if groupTransaction.transactions.first!.amount < 0 {
+                cell.backgroundColor = UIColor.green.withAlphaComponent(0.5)
+            } else if groupTransaction.transactions.first!.amount > 0 {
+                cell.backgroundColor = UIColor.red.withAlphaComponent(0.5)
+            }
         }
         .disposed(by: disposeBag)
         
