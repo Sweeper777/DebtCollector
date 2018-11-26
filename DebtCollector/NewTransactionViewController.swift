@@ -191,6 +191,9 @@ class NewTransactionViewController : FormViewController {
     }
     
     @IBAction func done() {
+    }
+    
+    func saveTransaction() {
         let values = form.values()
         guard let title = values[tagTitle] as? String else {
             showErrorMessage("Please enter a title!")
