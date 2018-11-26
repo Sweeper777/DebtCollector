@@ -191,6 +191,21 @@ class NewTransactionViewController : FormViewController {
     }
     
     @IBAction func done() {
+        if transactionToEdit == nil {
+            let values = form.values()
+            let date = values[tagDate] as? Date ?? Date()
+            let type = values[tagReturnedOrBorrowed] as? String ?? ""
+            if type == "Returned" && sameDayReturnExists(date: date) {
+                let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
+                alert.addButton("Yes", action: saveTransaction)
+                alert.addButton("No", action: {})
+                alert.showWarning("Warning!", subTitle: "There is a return transaction on the same day. Do you still want to create a new return transaction?")
+            } else {
+                saveTransaction()
+            }
+        } else {
+            saveTransaction()
+        }
     }
     
     func sameDayReturnExists(date: Date) -> Bool {
