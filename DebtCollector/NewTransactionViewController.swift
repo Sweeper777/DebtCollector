@@ -193,6 +193,11 @@ class NewTransactionViewController : FormViewController {
     @IBAction func done() {
     }
     
+    func sameDayReturnExists(date: Date) -> Bool {
+        let queryResult = RealmWrapper.shared.groupTransactions.filter { Calendar.current.isDate($0.date, inSameDayAs: date) && $0.transactions.first!.amount < 0 }
+        return queryResult.count > 0
+    }
+    
     func saveTransaction() {
         let values = form.values()
         guard let title = values[tagTitle] as? String else {
