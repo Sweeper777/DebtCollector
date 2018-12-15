@@ -297,6 +297,12 @@ class NewTransactionViewController : FormViewController {
     @objc func didEndEditing(_ sender: SearchTextField) {
         sender.hideResultsList()
     }
+    
+    private func today() -> Date {
+        let date = Date()
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: date)
+        return Calendar.current.date(from: components)
+    }
 }
 
 // MARK: Form tags
