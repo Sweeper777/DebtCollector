@@ -19,7 +19,10 @@ class TransactionListViewController: UITableViewController {
         var observable: Observable<Results<GroupTransaction>>
         if let date = self.date {
             let start = Calendar.current.startOfDay(for: date)
-            let end = Calendar.current.date(byAdding: .day, value: 1, to: start)
+            let dateComponents = DateComponents()
+            dateComponents.date = 1
+            dateComponents.second = -1
+            let end = Calendar.current.date(byAdding: dateComponents, to: start)
             observable = Observable.collection(from: RealmWrapper.shared.groupTransactions.sorted(byKeyPath: "date", ascending: false)
                 .filter("date BETWEEN %@", [start, end])
             )
