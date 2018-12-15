@@ -55,8 +55,8 @@ class NewTransactionViewController : FormViewController {
             <<< DateRow(tagDate) {
                 row in
                 row.title = "Date"
-                row.value = transactionToEdit?.date ?? Date()
-                row.maximumDate = Date()
+                row.value = transactionToEdit?.date ?? today()
+                row.maximumDate = today()
         }
         
         let loopCount = transactionToEdit?.transactions.count ?? (personNameAlreadyFilledIn == nil ? RealmWrapper.shared.people.count : 1)
@@ -193,7 +193,7 @@ class NewTransactionViewController : FormViewController {
     @IBAction func done() {
         if transactionToEdit == nil {
             let values = form.values()
-            let date = values[tagDate] as? Date ?? Date()
+            let date = values[tagDate] as? Date ?? today()
             let type = values[tagReturnedOrBorrowed] as? String ?? ""
             if type == "Returned" && sameDayReturnExists(date: date) {
                 let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
@@ -248,7 +248,7 @@ class NewTransactionViewController : FormViewController {
             let transaction = Transaction()
             transaction.personName = name
             transaction.details = values[tagDetails + "\(i)"] as? String ?? ""
-            transaction.date = values[tagDate] as? Date ?? Date()
+            transaction.date = values[tagDate] as? Date ?? today()
             if values[tagReturnedOrBorrowed] as? String == "Returned" {
                 transaction.amount = -amount
             } else {
@@ -264,7 +264,7 @@ class NewTransactionViewController : FormViewController {
         
         let groupedTransaction = GroupTransaction()
         groupedTransaction.title = title
-        groupedTransaction.date = values[tagDate] as? Date ?? Date()
+        groupedTransaction.date = values[tagDate] as? Date ?? today()
         transactions.forEach {
             groupedTransaction.transactions.append($0)
         }
