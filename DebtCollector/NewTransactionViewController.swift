@@ -301,7 +301,7 @@ class NewTransactionViewController : FormViewController {
     private func today() -> Date {
         let date = Date()
         let components = Calendar.current.dateComponents([.year, .month, .day], from: date)
-        return Calendar.current.date(from: components)
+        return Calendar.current.date(from: components)!
     }
 }
 
