@@ -48,6 +48,15 @@ class CalendarController: UIViewController {
 }
 
 extension CalendarController : FSCalendarDataSource, FSCalendarDelegateAppearance {
+    func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
+        let key = self.key(from: date)
+        let transactionsOnThatDay = transactionsByDay[key] ?? []
+        if transactionsOnThatDay.count == 0 {
+            return false
+        }
+        return true
+    }
+    
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let key = self.key(from: date)
         let transactionsOnThatDay = transactionsByDay[key] ?? []
