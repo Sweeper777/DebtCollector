@@ -22,7 +22,7 @@ class CalendarController: UIViewController {
             self?.transactionsByDay = [Int: [GroupTransaction]](grouping: Array(results), by: {
                 transaction in
                 let components = Calendar.current.dateComponents([.year, .month, .day], from: transaction.date)
-                return components.year! * 1000 + components.month! * 100 + components.day!
+                return components.year! * 10000 + components.month! * 100 + components.day!
             })
         }).disposed(by: disposeBag)
         
@@ -35,7 +35,7 @@ class CalendarController: UIViewController {
     
     fileprivate func key(from date: Date) -> Int {
         let components = Calendar.current.dateComponents([.year, .month, .day], from: date)
-        return components.year! * 1000 + components.month! * 100 + components.day!
+        return components.year! * 10000 + components.month! * 100 + components.day!
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
