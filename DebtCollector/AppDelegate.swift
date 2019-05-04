@@ -2,6 +2,7 @@ import UIKit
 import SwiftyUtils
 import Eureka
 import Firebase
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.tintColor = UIColor(hex: "4f42fd")
         NavigationAccessoryView.appearance().tintColor = UIColor(hex: "3b7b3b")
         FirebaseApp.configure()
+        
+        let config = Realm.Configuration(
+            schemaVersion: 2,
+            migrationBlock: { migration, oldSchemaVersion in
+                if (oldSchemaVersion < 2) {
+                }
+        })
+        Realm.Configuration.defaultConfiguration = config
+        
         return true
     }
 
