@@ -12,6 +12,9 @@ class GroupTransaction: Object {
     @objc dynamic var title = ""
     @objc dynamic var date = Date()
     let transactions = List<Transaction>()
+    
+    @objc dynamic var desc = ""
+    @objc dynamic var imageName = ""
 }
 
 class Person : Object {
