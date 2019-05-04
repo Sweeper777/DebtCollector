@@ -8,10 +8,15 @@ final class RealmWrapper {
     let realm: Realm!
     
     private init() {
-        realm = try! Realm()
-        transactions = realm.objects(Transaction.self)
-        groupTransactions = realm.objects(GroupTransaction.self)
-        people = realm.objects(Person.self)
+        do {
+            realm = try Realm()
+            transactions = realm.objects(Transaction.self)
+            groupTransactions = realm.objects(GroupTransaction.self)
+            people = realm.objects(Person.self)
+        } catch let error {
+            print(error)
+            fatalError()
+        }
     }
     
     static let shared = RealmWrapper()
