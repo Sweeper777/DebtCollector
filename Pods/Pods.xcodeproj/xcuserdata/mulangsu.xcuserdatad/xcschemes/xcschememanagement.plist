@@ -123,19 +123,26 @@
 			<key>orderHint</key>
 			<integer>17</integer>
 		</dict>
-		<key>SwiftyUtils.xcscheme</key>
+		<key>SimpleImageViewer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>18</integer>
 		</dict>
-		<key>TagWriteView.xcscheme</key>
+		<key>SwiftyUtils.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>19</integer>
+		</dict>
+		<key>TagWriteView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>20</integer>
 		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>
