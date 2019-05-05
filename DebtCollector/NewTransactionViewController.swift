@@ -60,6 +60,14 @@ class NewTransactionViewController : FormViewController {
                 row.title = "Date"
                 row.value = transactionToEdit?.date ?? today()
                 row.maximumDate = today()
+            }
+        
+            <<< ImageRow(tagImage) {
+                row in
+                row.title = "Image (Optional)"
+                if transactionToEdit != nil && transactionToEdit!.imageName != "" {
+                    row.value = transactionToEdit?.image()
+                }
         }
         
         let loopCount = transactionToEdit?.transactions.count ?? (personNameAlreadyFilledIn == nil ? RealmWrapper.shared.people.count : 1)
