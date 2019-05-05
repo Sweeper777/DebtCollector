@@ -53,7 +53,7 @@ class PeopleViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? PersonViewController {
-            vc.person = sender as! Person
+            vc.person = (sender as! Person)
         }
     }
 }

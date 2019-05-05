@@ -41,7 +41,7 @@ class CalendarController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailTransactionViewController {
-            vc.groupedTransaction = sender as! GroupTransaction
+            vc.groupedTransaction = (sender as! GroupTransaction)
         } else if let vc = segue.destination as? TransactionListViewController {
             vc.date = sender as? Date
         }
