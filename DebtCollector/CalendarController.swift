@@ -7,7 +7,7 @@ import RxRealm
 class CalendarController: UIViewController {
     @IBOutlet var calendar: FSCalendar!
     
-    let allTransactions = RealmWrapper.shared.realm.objects(GroupTransaction.self)
+    var allTransactions: Results<GroupTransaction>!
     
     var transactionsByDay: [Int: [GroupTransaction]] = [:]
     
@@ -16,6 +16,7 @@ class CalendarController: UIViewController {
     override func viewDidLoad() {
         calendar.delegate = self
         calendar.dataSource = self
+        allTransactions = RealmWrapper.shared.groupTransactions
         
         Observable.collection(from: allTransactions).bind(onNext: {
             [weak self] results in
