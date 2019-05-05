@@ -278,6 +278,11 @@ class NewTransactionViewController : FormViewController {
         
         if let oldTransaction = transactionToEdit, let vc = detailTransactionVC {
             vc.loadDetailTransaction(groupedTransaction)
+            
+            if oldTransaction.imageName != "" && imageChanged {
+               oldTransaction.deleteImage()
+            }
+            
             try! RealmWrapper.shared.realm.write {
                 for subtransaction in oldTransaction.transactions {
                     RealmWrapper.shared.realm.delete(subtransaction)

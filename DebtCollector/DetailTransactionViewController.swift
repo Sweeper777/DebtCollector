@@ -84,6 +84,7 @@ class DetailTransactionViewController : UITableViewController {
     
     func deleteTransaction() {
         try! RealmWrapper.shared.realm.write {
+            self.groupedTransaction.deleteImage()
             for transaction in self.groupedTransaction.transactions {
                 RealmWrapper.shared.realm.delete(transaction)
             }

@@ -44,6 +44,7 @@ class TransactionListViewController: UITableViewController {
             cell.transactionNameLabel.text = groupTransaction.title
             cell.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: .red, callback: {
                 cell in
+                groupTransaction.deleteImage()
                 RealmWrapper.shared.realm.beginWrite()
                 RealmWrapper.shared.realm.delete(groupTransaction.transactions)
                 RealmWrapper.shared.realm.delete(groupTransaction)
