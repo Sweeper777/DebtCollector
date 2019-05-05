@@ -3,12 +3,15 @@ import Eureka
 import SCLAlertView
 import RealmSwift
 import SearchTextField
+import ImageRow
 
 class NewTransactionViewController : FormViewController {
     
     var personNameAlreadyFilledIn: String?
     var transactionToEdit: GroupTransaction?
     var detailTransactionVC: DetailTransactionViewController?
+    
+    var imageChanged = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
