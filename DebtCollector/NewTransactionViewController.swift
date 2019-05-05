@@ -68,6 +68,11 @@ class NewTransactionViewController : FormViewController {
                 if transactionToEdit != nil && transactionToEdit!.imageName != "" {
                     row.value = transactionToEdit?.image()
                 }
+            }
+            .onChange({ [weak self] (row) in
+                self?.imageChanged = true
+            })
+        
         }
         
         let loopCount = transactionToEdit?.transactions.count ?? (personNameAlreadyFilledIn == nil ? RealmWrapper.shared.people.count : 1)
