@@ -29,4 +29,12 @@ extension GroupTransaction {
         }
         return nil
     }
+    
+    func deleteImage() {
+        if imageName == "" { return }
+        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) else {
+            fatalError()
+        }
+        try? FileManager.default.removeItem(at: directory.appendingPathComponent("\(imageName).png"))
+    }
 }
