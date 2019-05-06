@@ -287,6 +287,16 @@ class NewTransactionViewController : FormViewController {
         let groupedTransaction = GroupTransaction()
         groupedTransaction.title = title
         groupedTransaction.date = values[tagDate] as? Date ?? today()
+        groupedTransaction.desc = (values[tagDescription] as? String) ?? ""
+        
+        if !imageChanged && transactionToEdit != nil {
+            groupedTransaction.imageName = transactionToEdit!.imageName
+        } else if imageChanged {
+            let imageName = "\(Date().timeIntervalSince1970)"
+            (values[tagImage] as? UIImage).map {saveImage(image: $0, imageName: imageName)}
+            groupedTransaction.imageName = imageName
+        }
+        
         transactions.forEach {
             groupedTransaction.transactions.append($0)
         }
