@@ -73,6 +73,12 @@ class NewTransactionViewController : FormViewController {
                 self?.imageChanged = true
             })
         
+        form +++ Section("description (optional)")
+            
+            <<< TextAreaRow(tagDescription) {
+                row in
+                row.title = "Description"
+                row.value = transactionToEdit?.desc ?? ""
         }
         
         let loopCount = transactionToEdit?.transactions.count ?? (personNameAlreadyFilledIn == nil ? RealmWrapper.shared.people.count : 1)
