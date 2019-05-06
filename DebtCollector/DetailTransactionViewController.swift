@@ -104,6 +104,7 @@ class DetailTransactionViewController : UITableViewController {
 enum DetailTransactionTableViewSection : SectionModelType {
     case buttonSection(rows: [DetailTransactionTableViewRow])
     case transactionSection(rows: [DetailTransactionTableViewRow])
+    case infoSection(rows: [DetailTransactionTableViewRow])
     
     var items: [DetailTransactionTableViewSection.DetailTransactionTableViewRow] {
         switch self {
@@ -128,5 +129,7 @@ enum DetailTransactionTableViewSection : SectionModelType {
     enum DetailTransactionTableViewRow {
         case button(title: String, color: UIColor)
         case transaction(Transaction)
+        case image(UIImage)
+        case text(String)
     }
 }
