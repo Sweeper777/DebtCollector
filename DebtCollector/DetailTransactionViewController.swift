@@ -112,6 +112,8 @@ enum DetailTransactionTableViewSection : SectionModelType {
             return rows
         case .transactionSection(rows: let rows):
             return rows
+        case .infoSection(rows: let rows):
+            return rows
         }
     }
     
@@ -121,6 +123,8 @@ enum DetailTransactionTableViewSection : SectionModelType {
             self = .buttonSection(rows: items)
         case .transactionSection(rows: _):
             self = .transactionSection(rows: items)
+        case .infoSection(rows: let items):
+            self = .infoSection(rows: items)
         }
     }
     
