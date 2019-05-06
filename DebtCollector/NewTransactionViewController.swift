@@ -316,6 +316,16 @@ class NewTransactionViewController : FormViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    func saveImage(image: UIImage, imageName: String) {
+        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) else {
+            fatalError()
+        }
+        guard let data = image.pngData() else {
+            fatalError()
+        }
+        try! data.write(to: directory.appendingPathComponent("\(imageName).png"))
+    }
+    
     func showErrorMessage(_ msg: String) {
         let alert = SCLAlertView()
         alert.showError("Error", subTitle: msg)
