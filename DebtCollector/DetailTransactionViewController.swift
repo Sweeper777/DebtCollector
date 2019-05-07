@@ -34,6 +34,16 @@ class DetailTransactionViewController : UITableViewController {
                     self.tableView.deselectRow(at: selectedIndexPath, animated: true)
                 }
             } else if case .image = modelNonNil {
+                guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
+                guard let selectedRow = self.tableView.cellForRow(at: selectedIndexPath) else { return }
+                let imageView = selectedRow.viewWithTag(1) as! UIImageView
+                let configuration = ImageViewerConfiguration { config in
+                    config.imageView = imageView
+                }
+                
+                let imageViewerController = ImageViewerController(configuration: configuration)
+                
+                self.present(imageViewerController, animated: true)
                 self.tableView.deselectRow(at: selectedIndexPath, animated: true)
             }
         }.disposed(by: disposeBag)
