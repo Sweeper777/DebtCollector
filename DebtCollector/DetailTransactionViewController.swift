@@ -66,6 +66,15 @@ class DetailTransactionViewController : UITableViewController {
                 cell!.textLabel!.text = title
                 cell?.textLabel?.textColor = color
                 return cell!
+            case .image(let image):
+                let cell = tv.dequeueReusableCell(withIdentifier: "imageCell")
+                (cell?.viewWithTag(1) as? UIImageView)?.image = image
+                return cell!
+            case .text(let text):
+                let cell = tv.dequeueReusableCell(withIdentifier: "textCell")
+                (cell?.viewWithTag(1) as? UITextView)?.text = text
+                cell?.selectionStyle = .none
+                return cell!
             }
         })
         
