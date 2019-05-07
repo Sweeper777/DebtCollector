@@ -4,6 +4,7 @@ import RxSwift
 import RxRealm
 import RxDataSources
 import SCLAlertView
+import SimpleImageViewer
 
 class DetailTransactionViewController : UITableViewController {
     let disposeBag = DisposeBag()
@@ -93,11 +94,23 @@ class DetailTransactionViewController : UITableViewController {
         
         Observable.collection(from: groupedTransaction.transactions.sorted(byKeyPath: "personName", ascending: true))
             .map { (transactions) -> [DetailTransactionTableViewSection] in
-                let sections = [
+                var sections = [
                     DetailTransactionTableViewSection.buttonSection(rows: [.button(title: "Delete This Transaction", color: .red)]),
                     .buttonSection(rows: [.button(title: "Edit This Transaction", color: UIColor(hex: "3b7b3b"))]),
                     .transactionSection(rows: transactions.toArray().map { .transaction($0) })
                 ]
+                let image = groupedTransaction.image()
+                let desc = groupedTransaction.desc
+                if image != nil  || desc != "" {
+                    var rows = [DetailTransactionTableViewSection.DetailTransactionTableViewRow]()
+                    if image != nil {
+                        rows.append(.image(image!))
+                    }
+                    if desc != "" {
+                        rows.append(.text(desc))
+                    }
+                    sections.insert(.infoSection(rows: rows), at: 2)
+                }
                 return sections
             }
             .bind(to: tableView.rx.items(dataSource: dataSource))
