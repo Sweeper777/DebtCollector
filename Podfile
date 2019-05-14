@@ -13,11 +13,9 @@ target 'DebtCollector' do
   pod 'RxRealm'
   pod 'RxDataSources'
   pod 'SearchTextField'
-  pod 'LTHPasscodeViewController'
+  pod 'LTHPasscodeViewController'ß
   pod 'FSCalendar'
-  pod 'TagWriteView'
   pod 'Firebase/Core'
   pod 'MGSwipeTableCell'
   pod 'ImageRow', :git => 'https://github.com/EurekaCommunity/ImageRow.git', :branch => 'master'
-  pod 'SimpleImageViewer'
 end

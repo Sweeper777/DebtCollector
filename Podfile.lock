@@ -72,9 +72,7 @@ PODS:
   - RxSwift (4.3.1)
   - SCLAlertView (0.7.0)
   - SearchTextField (1.2.2)
-  - SimpleImageViewer (1.1.1)
   - SwiftyUtils (2.0.0)
-  - TagWriteView (1.3.1)
 
 DEPENDENCIES:
   - Eureka
@@ -90,9 +88,7 @@ DEPENDENCIES:
   - RxSwift
   - SCLAlertView (from `https://github.com/ahmedsafadii/SCLAlertView-Swift.git`)
   - SearchTextField
-  - SimpleImageViewer
   - SwiftyUtils
-  - TagWriteView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -115,9 +111,7 @@ SPEC REPOS:
     - RxRealm
     - RxSwift
     - SearchTextField
-    - SimpleImageViewer
     - SwiftyUtils
-    - TagWriteView
 
 EXTERNAL SOURCES:
   ImageRow:
@@ -156,10 +150,8 @@ SPEC CHECKSUMS:
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SearchTextField: a0992739d4b05dcbb40fb3a5cc6526bd991bdd23
-  SimpleImageViewer: 34c3a2cde2d9ac022146772cefc27fca14b0c8b1
   SwiftyUtils: ae914aa96b5672e9282904771e5e5b44d2e307d6
-  TagWriteView: 2ebc9a3c627e296b12bfebdab5bf5d8438a2da6d
 
-PODFILE CHECKSUM: a1494e5c525e3053516bffc390ca3cc2a59c7ad9
+PODFILE CHECKSUM: 3887bb7d16882ef1acdd74788ac769d151257d01
 
 COCOAPODS: 1.5.3
