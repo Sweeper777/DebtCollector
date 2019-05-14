@@ -14,7 +14,6 @@ class GroupTransaction: Object {
     let transactions = List<Transaction>()
     
     @objc dynamic var desc = ""
-    @objc dynamic var imageName = ""
 }
 
 class Person : Object {
