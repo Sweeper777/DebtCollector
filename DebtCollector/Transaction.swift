@@ -19,21 +19,3 @@ class GroupTransaction: Object {
 class Person : Object {
     @objc dynamic var name = ""
 }
-
-extension GroupTransaction {
-    func image() -> UIImage? {
-        if imageName == "" { return nil }
-        if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
-            return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent("\(imageName).png").path)
-        }
-        return nil
-    }
-    
-    func deleteImage() {
-        if imageName == "" { return }
-        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) else {
-            fatalError()
-        }
-        try? FileManager.default.removeItem(at: directory.appendingPathComponent("\(imageName).png"))
-    }
-}
