@@ -4,7 +4,6 @@ import RxSwift
 import RxRealm
 import RxDataSources
 import SCLAlertView
-import SimpleImageViewer
 
 class DetailTransactionViewController : UITableViewController {
     let disposeBag = DisposeBag()
@@ -34,18 +33,6 @@ class DetailTransactionViewController : UITableViewController {
                 if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
                     self.tableView.deselectRow(at: selectedIndexPath, animated: true)
                 }
-            } else if case .image = modelNonNil {
-                guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
-                guard let selectedRow = self.tableView.cellForRow(at: selectedIndexPath) else { return }
-                let imageView = selectedRow.viewWithTag(1) as! UIImageView
-                let configuration = ImageViewerConfiguration { config in
-                    config.imageView = imageView
-                }
-                
-                let imageViewerController = ImageViewerController(configuration: configuration)
-                
-                self.present(imageViewerController, animated: true)
-                self.tableView.deselectRow(at: selectedIndexPath, animated: true)
             }
         }.disposed(by: disposeBag)
     }
@@ -80,10 +67,6 @@ class DetailTransactionViewController : UITableViewController {
                 cell!.textLabel!.text = title
                 cell?.textLabel?.textColor = color
                 return cell!
-            case .image(let image):
-                let cell = tv.dequeueReusableCell(withIdentifier: "imageCell")
-                (cell?.viewWithTag(1) as? UIImageView)?.image = image
-                return cell!
             case .text(let text):
                 let cell = tv.dequeueReusableCell(withIdentifier: "textCell")
                 (cell?.viewWithTag(1) as? UITextView)?.text = text
@@ -99,16 +82,6 @@ class DetailTransactionViewController : UITableViewController {
                     .buttonSection(rows: [.button(title: "Edit This Transaction", color: UIColor(hex: "3b7b3b"))]),
                     .transactionSection(rows: transactions.toArray().map { .transaction($0) })
                 ]
-                let image = groupedTransaction.image()
-                let desc = groupedTransaction.desc
-                if image != nil  || desc != "" {
-                    var rows = [DetailTransactionTableViewSection.DetailTransactionTableViewRow]()
-                    if image != nil {
-                        rows.append(.image(image!))
-                    }
-                    if desc != "" {
-                        rows.append(.text(desc))
-                    }
                     sections.insert(.infoSection(rows: rows), at: 2)
                 }
                 return sections
@@ -119,7 +92,6 @@ class DetailTransactionViewController : UITableViewController {
     
     func deleteTransaction() {
         try! RealmWrapper.shared.realm.write {
-            self.groupedTransaction.deleteImage()
             for transaction in self.groupedTransaction.transactions {
                 RealmWrapper.shared.realm.delete(transaction)
             }
@@ -168,7 +140,6 @@ enum DetailTransactionTableViewSection : SectionModelType {
     enum DetailTransactionTableViewRow {
         case button(title: String, color: UIColor)
         case transaction(Transaction)
-        case image(UIImage)
         case text(String)
     }
 }
