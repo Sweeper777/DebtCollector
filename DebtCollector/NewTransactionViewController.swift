@@ -11,8 +11,6 @@ class NewTransactionViewController : FormViewController {
     var transactionToEdit: GroupTransaction?
     var detailTransactionVC: DetailTransactionViewController?
     
-    var imageChanged = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,17 +59,6 @@ class NewTransactionViewController : FormViewController {
                 row.value = transactionToEdit?.date ?? today()
                 row.maximumDate = today()
             }
-        
-            <<< ImageRow(tagImage) {
-                row in
-                row.title = "Image (Optional)"
-                if transactionToEdit != nil && transactionToEdit!.imageName != "" {
-                    row.value = transactionToEdit?.image()
-                }
-            }
-            .onChange({ [weak self] (row) in
-                self?.imageChanged = true
-            })
         
         form +++ Section("description (optional)")
             
@@ -289,14 +276,6 @@ class NewTransactionViewController : FormViewController {
         groupedTransaction.date = values[tagDate] as? Date ?? today()
         groupedTransaction.desc = (values[tagDescription] as? String) ?? ""
         
-        if !imageChanged && transactionToEdit != nil {
-            groupedTransaction.imageName = transactionToEdit!.imageName
-        } else if imageChanged {
-            let imageName = "\(Date().timeIntervalSince1970)"
-            (values[tagImage] as? UIImage).map {saveImage(image: $0, imageName: imageName)}
-            groupedTransaction.imageName = imageName
-        }
-        
         transactions.forEach {
             groupedTransaction.transactions.append($0)
         }
@@ -311,10 +290,6 @@ class NewTransactionViewController : FormViewController {
         if let oldTransaction = transactionToEdit, let vc = detailTransactionVC {
             vc.loadDetailTransaction(groupedTransaction)
             
-            if oldTransaction.imageName != "" && imageChanged {
-               oldTransaction.deleteImage()
-            }
-            
             try! RealmWrapper.shared.realm.write {
                 for subtransaction in oldTransaction.transactions {
                     RealmWrapper.shared.realm.delete(subtransaction)
@@ -325,17 +300,7 @@ class NewTransactionViewController : FormViewController {
         
         self.dismiss(animated: true, completion: nil)
     }
-    
-    func saveImage(image: UIImage, imageName: String) {
-        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) else {
-            fatalError()
-        }
-        guard let data = image.pngData() else {
-            fatalError()
-        }
-        try! data.write(to: directory.appendingPathComponent("\(imageName).png"))
-    }
-    
+
     func showErrorMessage(_ msg: String) {
         let alert = SCLAlertView()
         alert.showError("Error", subTitle: msg)
