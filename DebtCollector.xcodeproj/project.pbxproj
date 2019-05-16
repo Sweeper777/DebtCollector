@@ -26,8 +26,8 @@
 		5A4690BA20F5FE4400911E04 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4690B920F5FE4400911E04 /* Transaction.swift */; };
 		5A4690BC20F600DF00911E04 /* OverviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4690BB20F600DF00911E04 /* OverviewTableViewCell.xib */; };
 		5A4690BE20F6017200911E04 /* OverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4690BD20F6017200911E04 /* OverviewTableViewCell.swift */; };
-		5A4DA359215797A3002DAD8E /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4DA358215797A3002DAD8E /* TagCell.swift */; };
-		5A4DA35B215797B9002DAD8E /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4DA35A215797B9002DAD8E /* TagCell.xib */; };
+		5A4E3E2D2285EB170016AF2A /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4E3E2C2285EB170016AF2A /* DescriptionCell.xib */; };
+		5A4E3E2F2285EBA90016AF2A /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4E3E2E2285EBA90016AF2A /* DescriptionCell.swift */; };
 		5A52DCE721128D2100B4F941 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A52DCE621128D2100B4F941 /* SettingsViewController.swift */; };
 		5A52DCE921128F7700B4F941 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A52DCE821128F7700B4F941 /* UserSettings.swift */; };
 		5A6BF0E320F75D0A0035407A /* RealmWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BF0E220F75D0A0035407A /* RealmWrapper.swift */; };
@@ -60,8 +60,8 @@
 		5A4690B920F5FE4400911E04 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		5A4690BB20F600DF00911E04 /* OverviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverviewTableViewCell.xib; sourceTree = "<group>"; };
 		5A4690BD20F6017200911E04 /* OverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTableViewCell.swift; sourceTree = "<group>"; };
-		5A4DA358215797A3002DAD8E /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
-		5A4DA35A215797B9002DAD8E /* TagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
+		5A4E3E2C2285EB170016AF2A /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
+		5A4E3E2E2285EBA90016AF2A /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		5A52DCE621128D2100B4F941 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5A52DCE821128F7700B4F941 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		5A6BF0E220F75D0A0035407A /* RealmWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmWrapper.swift; sourceTree = "<group>"; };
@@ -137,8 +137,8 @@
 				5A3F33FB2101D7B800B28C14 /* GroupedTransactionTableViewCell.swift */,
 				5A4580AE210A9B92002691FB /* DetailTransactionTableViewCell.xib */,
 				5A4580B0210A9BE8002691FB /* DetailTransactionTableViewCell.swift */,
-				5A4DA358215797A3002DAD8E /* TagCell.swift */,
-				5A4DA35A215797B9002DAD8E /* TagCell.xib */,
+				5A4E3E2C2285EB170016AF2A /* DescriptionCell.xib */,
+				5A4E3E2E2285EBA90016AF2A /* DescriptionCell.swift */,
 				5A433E802161078000F10F67 /* SearchTextFieldCell.swift */,
 				5A3ED27120F4AA6A00E79CE6 /* Info.plist */,
 			);
@@ -216,12 +216,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A4DA35B215797B9002DAD8E /* TagCell.xib in Resources */,
 				5A4580AF210A9B92002691FB /* DetailTransactionTableViewCell.xib in Resources */,
 				5A7D12E1216BC2DB008F11C9 /* GoogleService-Info.plist in Resources */,
 				5A4690BC20F600DF00911E04 /* OverviewTableViewCell.xib in Resources */,
 				5A3F33FA2101D7A700B28C14 /* GroupedTransactionTableViewCell.xib in Resources */,
 				5A3ED27020F4AA6A00E79CE6 /* LaunchScreen.storyboard in Resources */,
+				5A4E3E2D2285EB170016AF2A /* DescriptionCell.xib in Resources */,
 				5A3ED26D20F4AA6A00E79CE6 /* Assets.xcassets in Resources */,
 				5A3EE36320FC93E100756EC8 /* BriefTransactionTableViewCell.xib in Resources */,
 				5A3ED26B20F4AA6700E79CE6 /* Main.storyboard in Resources */,
@@ -253,9 +253,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/SearchTextField/SearchTextField.framework",
-				"${BUILT_PRODUCTS_DIR}/SimpleImageViewer/SimpleImageViewer.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUtils/SwiftyUtils.framework",
-				"${BUILT_PRODUCTS_DIR}/TagWriteView/TagWriteView.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -275,9 +273,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SearchTextField.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimpleImageViewer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUtils.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagWriteView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,11 +313,11 @@
 				5A6BF0E320F75D0A0035407A /* RealmWrapper.swift in Sources */,
 				5A8A05EA20FDD65300D98280 /* PersonViewController.swift in Sources */,
 				5A3ED26620F4AA6700E79CE6 /* AppDelegate.swift in Sources */,
+				5A4E3E2F2285EBA90016AF2A /* DescriptionCell.swift in Sources */,
 				5A4580B3210A9CA3002691FB /* DetailTransactionViewController.swift in Sources */,
 				5A52DCE721128D2100B4F941 /* SettingsViewController.swift in Sources */,
 				5A3F33FC2101D7B800B28C14 /* GroupedTransactionTableViewCell.swift in Sources */,
 				5A4690BA20F5FE4400911E04 /* Transaction.swift in Sources */,
-				5A4DA359215797A3002DAD8E /* TagCell.swift in Sources */,
 				5A3EE36520FC950B00756EC8 /* BriefTransactionTableViewCell.swift in Sources */,
 				5A52DCE921128F7700B4F941 /* UserSettings.swift in Sources */,
 				5A3F33F82101D5B300B28C14 /* TransactionListViewController.swift in Sources */,
