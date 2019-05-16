@@ -14,6 +14,7 @@ class DetailTransactionViewController : UITableViewController {
         title = groupedTransaction.title
         
         tableView.register(UINib(nibName: "DetailTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "transactionCell")
+        tableView.register(UINib(nibName: "DescriptionCell", bundle: nil), forCellReuseIdentifier: "textCell")
         
         loadDetailTransaction(groupedTransaction)
         tableView.rx.modelSelected(DetailTransactionTableViewSection.DetailTransactionTableViewRow.self).subscribe { [weak self] model in
@@ -39,6 +40,7 @@ class DetailTransactionViewController : UITableViewController {
     
     func loadDetailTransaction(_ groupedTransaction: GroupTransaction) {
         self.tableView.delegate = nil
+        self.tableView.delegate = self
         self.tableView.dataSource = nil
         self.groupedTransaction = groupedTransaction
         title = groupedTransaction.title
@@ -68,10 +70,10 @@ class DetailTransactionViewController : UITableViewController {
                 cell?.textLabel?.textColor = color
                 return cell!
             case .text(let text):
-                let cell = tv.dequeueReusableCell(withIdentifier: "textCell")
-                (cell?.viewWithTag(1) as? UITextView)?.text = text
-                cell?.selectionStyle = .none
-                return cell!
+                let cell = tv.dequeueReusableCell(withIdentifier: "textCell") as! DescriptionCell
+                cell.descriptionTextView.text = text
+                cell.selectionStyle = .none
+                return cell
             }
         })
         
@@ -82,6 +84,8 @@ class DetailTransactionViewController : UITableViewController {
                     .buttonSection(rows: [.button(title: "Edit This Transaction", color: UIColor(hex: "3b7b3b"))]),
                     .transactionSection(rows: transactions.toArray().map { .transaction($0) })
                 ]
+                if !groupedTransaction.isInvalidated && groupedTransaction.desc != "" {
+                    let rows = [DetailTransactionTableViewSection.DetailTransactionTableViewRow.text(groupedTransaction.desc)]
                     sections.insert(.infoSection(rows: rows), at: 2)
                 }
                 return sections
