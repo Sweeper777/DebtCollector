@@ -473,49 +473,12 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="textCell" rowHeight="143" id="JFp-0Q-vMs">
-                                <rect key="frame" x="0.0" y="180.5" width="375" height="143"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="textCell" rowHeight="144" id="JFp-0Q-vMs" customClass="DescriptionCell" customModule="DebtCollector" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="180.5" width="375" height="144"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JFp-0Q-vMs" id="Fd1-vF-dJl">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="142.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="143.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="njJ-Jh-9fG">
-                                            <rect key="frame" x="16" y="7" width="343" height="128"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
-                                        </textView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="njJ-Jh-9fG" secondAttribute="bottom" constant="7.5" id="Ooe-CG-Yyb"/>
-                                        <constraint firstItem="njJ-Jh-9fG" firstAttribute="top" secondItem="Fd1-vF-dJl" secondAttribute="top" constant="7" id="hvo-tQ-rMs"/>
-                                        <constraint firstItem="njJ-Jh-9fG" firstAttribute="leading" secondItem="Fd1-vF-dJl" secondAttribute="leading" constant="16" id="isB-bF-FIL"/>
-                                        <constraint firstAttribute="trailing" secondItem="njJ-Jh-9fG" secondAttribute="trailing" constant="16" id="nfe-7N-yWh"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="143" id="Bye-Kk-Nwo">
-                                <rect key="frame" x="0.0" y="323.5" width="375" height="143"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bye-Kk-Nwo" id="ouQ-0J-PUJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="142.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XnQ-Kr-q5Q">
-                                            <rect key="frame" x="16" y="7" width="343" height="128"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="128" id="GpO-g8-sUr"/>
-                                            </constraints>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="XnQ-Kr-q5Q" secondAttribute="trailing" constant="16" id="8dY-le-q5J"/>
-                                        <constraint firstItem="XnQ-Kr-q5Q" firstAttribute="leading" secondItem="ouQ-0J-PUJ" secondAttribute="leading" constant="16" id="8nN-h6-Lc3"/>
-                                        <constraint firstItem="XnQ-Kr-q5Q" firstAttribute="top" secondItem="ouQ-0J-PUJ" secondAttribute="top" constant="7" id="WDj-uQ-1Fx"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
