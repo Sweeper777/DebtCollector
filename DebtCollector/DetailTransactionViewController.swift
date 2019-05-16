@@ -147,3 +147,12 @@ enum DetailTransactionTableViewSection : SectionModelType {
         case text(String)
     }
 }
+
+extension DetailTransactionViewController {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if !groupedTransaction.isInvalidated && groupedTransaction.desc != "" && indexPath.section == 2 {
+            return 144
+        }
+        return super.tableView(tableView, heightForRowAt: indexPath)
+    }
+}
