@@ -89,3 +89,17 @@ class TransactionListViewController: UITableViewController {
         performSegue(withIdentifier: "newTransaction", sender: nil)
     }
 }
+
+struct GroupedTransactionSection: SectionModelType {
+    typealias Item = GroupTransaction
+    var items: [Item]
+    
+    init(original: GroupedTransactionSection, items: [Item]) {
+        self = original
+        self.items = items
+    }
+    
+    init(items: [Item]) {
+        self.items = items
+    }
+}
