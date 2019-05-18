@@ -29,8 +29,10 @@ class TransactionListViewController: UITableViewController {
         } else {
             observable = Observable.collection(from: RealmWrapper.shared.groupTransactions.sorted(byKeyPath: "date", ascending: false))
         }
-        observable.bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: GroupedTransactionTableViewCell.self)) {
-            index, groupTransaction, cell in
+        
+        let dataSource = RxTableViewSectionedReloadDataSource<GroupedTransactionSection>(configureCell:  {
+            _, tableView, index, groupTransaction in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! GroupedTransactionTableViewCell
             let totalAmount = abs(groupTransaction.transactions.map { $0.amount }.reduce(0, +))
             let formatter1 = NumberFormatter()
             formatter1.numberStyle = .currency
@@ -56,6 +58,9 @@ class TransactionListViewController: UITableViewController {
             } else if groupTransaction.transactions.first!.amount > 0 {
                 cell.backgroundColor = UIColor.red.withAlphaComponent(0.5)
             }
+            return cell
+        })
+        observable.map { results -> [GroupedTransactionSection] in
         }
         .disposed(by: disposeBag)
         
