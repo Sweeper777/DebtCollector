@@ -5,6 +5,7 @@ import RxRealm
 import RealmSwift
 import SwiftyUtils
 import MGSwipeTableCell
+import RxDataSources
 
 class TransactionListViewController: UITableViewController {
     let disposeBag = DisposeBag()
@@ -61,8 +62,15 @@ class TransactionListViewController: UITableViewController {
             return cell
         })
         observable.map { results -> [GroupedTransactionSection] in
+            let transactionByDay =  [Date: [GroupTransaction]](grouping: Array(results), by: {
+                transaction in
+                let components = Calendar.current.dateComponents([.year, .month, .day], from: transaction.date)
+                return Calendar.current.date(from: components)!
+            })
+            return transactionByDay.sorted(by: { $0.key > $1.key }).map { GroupedTransactionSection(items: $0.value) }
         }
-        .disposed(by: disposeBag)
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
         
         tableView.rx.modelSelected(GroupTransaction.self).subscribe(onNext: {
             [weak self] groupTransaction in
