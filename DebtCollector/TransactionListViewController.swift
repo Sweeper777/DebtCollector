@@ -129,8 +129,16 @@ struct GroupedTransactionSection: AnimatableSectionModelType {
         self = original
         self.items = items
     }
-    
+
     init(items: [Item]) {
         self.items = items
+        if let date = items.first?.date {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .short
+            formatter.timeStyle = .none
+            header = formatter.string(from: date)
+        } else {
+            header = ""
+        }
     }
 }
