@@ -114,10 +114,17 @@ class TransactionListViewController: UITableViewController {
     }
 }
 
-struct GroupedTransactionSection: SectionModelType {
+struct GroupedTransactionSection: AnimatableSectionModelType {
+    typealias Identity = String
+
     typealias Item = GroupTransaction
     var items: [Item]
-    
+    var header: String
+
+    var identity: String {
+        return header
+    }
+
     init(original: GroupedTransactionSection, items: [Item]) {
         self = original
         self.items = items
