@@ -7,6 +7,7 @@ import SwiftyUtils
 import MGSwipeTableCell
 import RxDataSources
 
+
 class TransactionListViewController: UITableViewController {
     let disposeBag = DisposeBag()
     
@@ -16,7 +17,6 @@ class TransactionListViewController: UITableViewController {
         tableView.delegate = nil
         tableView.dataSource = nil
         tableView.register(UINib(nibName: "GroupedTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        
         var observable: Observable<Results<GroupTransaction>>
         if let date = self.date {
             let start = Calendar.current.startOfDay(for: date)
@@ -27,6 +27,12 @@ class TransactionListViewController: UITableViewController {
             observable = Observable.collection(from: RealmWrapper.shared.groupTransactions.sorted(byKeyPath: "date", ascending: false)
                 .filter("date BETWEEN %@", [start, end])
             )
+            
+            let formatter = DateFormatter()
+            formatter.dateStyle = .short
+            formatter.timeStyle = .none
+            navigationItem.rightBarButtonItems = []
+            navigationItem.title = formatter.string(from: date)
         } else {
             observable = Observable.collection(from: RealmWrapper.shared.groupTransactions.sorted(byKeyPath: "date", ascending: false))
         }
