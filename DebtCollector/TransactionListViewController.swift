@@ -142,3 +142,11 @@ struct GroupedTransactionSection: AnimatableSectionModelType {
         }
     }
 }
+
+extension GroupTransaction : IdentifiableType {
+    typealias Identity = Int
+
+    var identity: Int {
+        return hash
+    }
+}
