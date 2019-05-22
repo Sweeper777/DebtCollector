@@ -11,6 +11,16 @@ final class UserSettings {
         }
     }
     
+    static var titlePresets: String {
+        get {
+            return UserDefaults.standard.string(forKey: "titlePresets") ?? ""
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: "titlePresets")
+        }
+    }
+    
     static var showDetailPresetsOnReturn: Bool {
         get {
             return UserDefaults.standard.bool(forKey: "showDetailPresetsOnReturn")
