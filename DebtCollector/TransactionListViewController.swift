@@ -47,10 +47,12 @@ class TransactionListViewController: UITableViewController {
             cell.transactionNameLabel.text = groupTransaction.title
             cell.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: .red, callback: {
                 cell in
-                RealmWrapper.shared.realm.beginWrite()
-                RealmWrapper.shared.realm.delete(groupTransaction.transactions)
-                RealmWrapper.shared.realm.delete(groupTransaction)
-                try? RealmWrapper.shared.realm.commitWrite()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4, execute: {
+                    RealmWrapper.shared.realm.beginWrite()
+                    RealmWrapper.shared.realm.delete(groupTransaction.transactions)
+                    RealmWrapper.shared.realm.delete(groupTransaction)
+                    try? RealmWrapper.shared.realm.commitWrite()
+                })
                 return true
             })]
             cell.backgroundColor = UIColor.white.withAlphaComponent(0.5)
