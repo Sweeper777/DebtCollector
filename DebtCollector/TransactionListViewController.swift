@@ -63,13 +63,7 @@ class TransactionListViewController: UITableViewController {
         })
         dataSource.titleForHeaderInSection = {
             dataSource, index in
-            guard let date = dataSource.sectionModels[index].items.first?.date else {
-                return ""
-            }
-            let formatter = DateFormatter()
-            formatter.dateStyle = .short
-            formatter.timeStyle = .none
-            return formatter.string(from: date)
+            return dataSource.sectionModels[index].header
         }
         
         observable.map { results -> [GroupedTransactionSection] in
