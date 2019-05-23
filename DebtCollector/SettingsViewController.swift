@@ -14,6 +14,12 @@ class SettingsViewController : FormViewController {
             row.value = UserSettings.detailPresets
         }
         
+        form +++ Section(header: "transaction title presets", footer: "These are preset options that will show up when you start typing in the \"Title\" field. Write one on each line.")
+            <<< TextAreaRow(tagTitlePresets) {
+                row in
+                row.value = UserSettings.titlePresets
+        }
+        
         form +++ Section("show detail presets when")
         <<< SwitchRow(tagShowDetailPresetsOnBorrow) {
             row in
