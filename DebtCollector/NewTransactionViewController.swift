@@ -69,6 +69,19 @@ class NewTransactionViewController : FormViewController {
                 tf.theme.font = UIFont.systemFont(ofSize: 22)
                 tf.addTarget(self, action: #selector(didEndEditing), for: UIControl.Event.editingDidEnd)
                 }
+                .cellUpdate({
+                    (cell, row) in
+                    guard let tf = cell.textField as? SearchTextField else {
+                        return
+                    }
+                    let shouldShowPresets = UserSettings.titlePresets != ""
+                    let filterStrings = shouldShowPresets ?
+                        UserSettings.titlePresets.split(separator: "\n").map(String.init) :
+                        []
+                    if (tf.filterDataSource.map { $0.title }) != filterStrings {
+                        tf.filterStrings(filterStrings)
+                    }
+                })
             
             <<< DateRow(tagDate) {
                 row in
