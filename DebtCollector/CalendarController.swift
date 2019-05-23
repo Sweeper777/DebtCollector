@@ -22,8 +22,7 @@ class CalendarController: UIViewController {
             [weak self] results in
             self?.transactionsByDay = [Int: [GroupTransaction]](grouping: Array(results), by: {
                 transaction in
-                let components = Calendar.current.dateComponents([.year, .month, .day], from: transaction.date)
-                return components.year! * 10000 + components.month! * 100 + components.day!
+                return self!.key(from: transaction.date)
             })
         }).disposed(by: disposeBag)
         
