@@ -41,17 +41,34 @@ class NewTransactionViewController : FormViewController {
                     self?.form.allRows.filter { ($0.tag!.hasPrefix("details")) }.forEach { $0.updateCell() }
                 })
             
-            <<< TextRow(tagTitle) {
-                [weak self] row in
+            <<< SearchTextRow(tagTitle) {
+                [weak self]
+                row in
+                guard let `self` = self else { return }
+                row.cell.textField.placeholder = "Required"
                 row.title = "Title"
-                if let personName = self?.personNameAlreadyFilledIn {
+                if let personName = self.personNameAlreadyFilledIn {
                     row.value = "\(personName) Borrowed Money"
                 }
                 if let transaction = transactionToEdit {
                     row.value = transaction.title
                 }
-                row.cell.textField.placeholder = "Required"
-            }
+                
+                guard let tf = row.cell.textField as? SearchTextField else {
+                    return
+                }
+                
+                tf.itemSelectionHandler = {
+                    items, itemIndex in
+                    row.cell.textField.text = items[itemIndex].title
+                    row.value = items[itemIndex].title
+                }
+                
+                tf.startVisible = true
+                tf.theme.bgColor = .white
+                tf.theme.font = UIFont.systemFont(ofSize: 22)
+                tf.addTarget(self, action: #selector(didEndEditing), for: UIControl.Event.editingDidEnd)
+                }
             
             <<< DateRow(tagDate) {
                 row in
