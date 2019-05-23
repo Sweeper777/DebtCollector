@@ -94,3 +94,5 @@ let tagShowDetailPresetsOnBorrow = "showDetailPresetsOnBorrow"
 let tagShowDetailPresetsOnReturn = "showDetailPresetsOnReturn"
 let tagCurrencySymbol = "currencySymbol"
 let tagBgImage = "bgImage"
+
+let tagTitlePresets = "titlePresets"
