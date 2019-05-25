@@ -14,7 +14,6 @@ class TransactionListViewController: UITableViewController {
     var date: Date?
     
     override func viewDidLoad() {
-        tableView.delegate = nil
         tableView.dataSource = nil
         tableView.register(UINib(nibName: "GroupedTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         var observable: Observable<Results<GroupTransaction>>
@@ -113,6 +112,16 @@ class TransactionListViewController: UITableViewController {
     
     @IBAction func addTransaction() {
         performSegue(withIdentifier: "newTransaction", sender: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = dataSource.sectionModels[section].header
+        label.backgroundColor = .black
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
+        return label
     }
 }
 
