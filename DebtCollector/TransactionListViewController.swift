@@ -12,6 +12,7 @@ class TransactionListViewController: UITableViewController {
     let disposeBag = DisposeBag()
     
     var date: Date?
+    var dataSource: RxTableViewSectionedAnimatedDataSource<GroupedTransactionSection>!
     
     override func viewDidLoad() {
         tableView.dataSource = nil
@@ -36,7 +37,7 @@ class TransactionListViewController: UITableViewController {
             observable = Observable.collection(from: RealmWrapper.shared.groupTransactions.sorted(byKeyPath: "date", ascending: false))
         }
         
-        let dataSource = RxTableViewSectionedAnimatedDataSource<GroupedTransactionSection>(configureCell:  {
+        dataSource = RxTableViewSectionedAnimatedDataSource<GroupedTransactionSection>(configureCell:  {
             _, tableView, index, groupTransaction in
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! GroupedTransactionTableViewCell
             let totalAmount = abs(groupTransaction.transactions.map { $0.amount }.reduce(0, +))
