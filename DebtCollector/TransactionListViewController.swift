@@ -41,15 +41,11 @@ class TransactionListViewController: UITableViewController {
             _, tableView, index, groupTransaction in
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! GroupedTransactionTableViewCell
             let totalAmount = abs(groupTransaction.transactions.map { $0.amount }.reduce(0, +))
-            let formatter1 = NumberFormatter()
-            formatter1.numberStyle = .currency
-            formatter1.currencySymbol = UserSettings.currencySymbol
-            cell.amountLabel.text = formatter1.string(from: totalAmount as NSNumber)
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            formatter.currencySymbol = UserSettings.currencySymbol
+            cell.amountLabel.text = formatter.string(from: totalAmount as NSNumber)
             
-            let formatter2 = DateFormatter()
-            formatter2.dateStyle = .short
-            formatter2.timeStyle = .none
-            cell.dateLabel.text = formatter2.string(from: groupTransaction.date)
             cell.transactionNameLabel.text = groupTransaction.title
             cell.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: .red, callback: {
                 cell in
