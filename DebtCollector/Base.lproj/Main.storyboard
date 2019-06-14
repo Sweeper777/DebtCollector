@@ -185,8 +185,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="cyd-Hf-ZZO" kind="presentation" identifier="newTransaction" modalPresentationStyle="formSheet" id="0qO-dI-KcN"/>
                         <segue destination="RLI-JK-oi8" kind="show" identifier="showDetailTransaction" id="LYA-iW-NO5"/>
+                        <segue destination="luM-kL-67H" kind="presentation" identifier="newTransaction" id="0eW-vx-jWK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XFL-oL-LpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -240,6 +240,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XHB-U5-ke7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3793" y="-1152"/>
+        </scene>
+        <!--Select People-->
+        <scene sceneID="5Fs-p3-hQc">
+            <objects>
+                <tableViewController id="sLI-bi-am7" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RYq-58-qCv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gJP-tY-KkG">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gJP-tY-KkG" id="Dd2-kF-fPV">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sLI-bi-am7" id="c2K-Ip-s7Z"/>
+                            <outlet property="delegate" destination="sLI-bi-am7" id="cSE-IA-sky"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Select People" id="LTx-oW-1zJ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xjK-ZC-9Vc">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="Hfx-Oi-iXB">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="Nl4-4M-a9L" kind="show" id="KYb-g9-9vi"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bPQ-1G-1jG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4486" y="349"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="M5b-84-g2n">
+            <objects>
+                <navigationController id="luM-kL-67H" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZnG-7U-adO">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.30980392159999998" green="0.25882352939999997" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="sLI-bi-am7" kind="relationship" relationship="rootViewController" id="1Xt-kd-MtH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IAo-lr-p1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3625" y="349"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fdK-8D-QdD">
@@ -508,8 +567,9 @@
         <image name="transactions_filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2cV-wo-7wD"/>
-        <segue reference="k1H-v0-fl8"/>
+        <segue reference="LYA-iW-NO5"/>
+        <segue reference="KYb-g9-9vi"/>
+        <segue reference="JKN-rj-a2b"/>
         <segue reference="ehc-bi-kWY"/>
     </inferredMetricsTieBreakers>
 </document>
