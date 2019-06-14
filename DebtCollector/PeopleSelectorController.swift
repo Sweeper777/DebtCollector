@@ -29,4 +29,14 @@ class PeopleSelectorController : UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let index = selectedPeople.firstIndex(of: people[indexPath.row].name) {
+            _ = selectedPeople.remove(at: index)
+            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+        } else {
+            selectedPeople.append(people[indexPath.row].name)
+            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
