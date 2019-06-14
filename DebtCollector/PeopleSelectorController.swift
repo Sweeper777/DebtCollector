@@ -18,4 +18,15 @@ class PeopleSelectorController : UITableViewController {
         return people.count
     }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        if selectedPeople.contains(people[indexPath.row].name) {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+        cell.textLabel?.text = people[indexPath.row].name
+        return cell
+    }
+    
 }
