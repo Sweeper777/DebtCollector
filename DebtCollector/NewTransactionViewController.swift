@@ -14,6 +14,10 @@ class NewTransactionViewController : FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if navigationController!.topViewController == self && navigationController!.viewControllers.count > 1 {
+            navigationItem.leftBarButtonItems = []
+        }
+        
         form +++ Section()
             
             <<< SegmentedRow<String>(tagReturnedOrBorrowed) {
