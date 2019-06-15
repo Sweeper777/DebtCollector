@@ -309,6 +309,7 @@ class NewTransactionViewController : FormViewController {
         groupedTransaction.title = title
         groupedTransaction.date = values[tagDate] as? Date ?? today()
         groupedTransaction.desc = (values[tagDescription] as? String) ?? ""
+        transactions.sort { $0.personName < $1.personName }
         
         transactions.forEach {
             groupedTransaction.transactions.append($0)
