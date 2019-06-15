@@ -39,4 +39,12 @@ class PeopleSelectorController : UITableViewController {
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    @IBAction func cancel() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func next() {
+        performSegue(withIdentifier: "showNewTransaction", sender: selectedPeople)
+    }
 }
