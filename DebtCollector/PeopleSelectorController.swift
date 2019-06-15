@@ -8,6 +8,7 @@ class PeopleSelectorController : UITableViewController {
     
     override func viewDidLoad() {
         people = RealmWrapper.shared.people.sorted(byKeyPath: "name")
+        navigationController?.navigationBar.tintColor = .white
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
