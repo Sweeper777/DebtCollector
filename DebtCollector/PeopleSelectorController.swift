@@ -47,4 +47,11 @@ class PeopleSelectorController : UITableViewController {
     @IBAction func next() {
         performSegue(withIdentifier: "showNewTransaction", sender: selectedPeople)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? NewTransactionViewController,
+            let selectedPeople = sender as? [String] {
+            vc.personNamesAlreadyFilledIn = selectedPeople.sorted()
+        }
+    }
 }
