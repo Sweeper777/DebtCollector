@@ -1,7 +1,7 @@
 import RealmSwift
 
 class Transaction: Object {
-    @objc dynamic var amount: Double = 0.0
+    let amount = RealmOptional<Double>()
     @objc dynamic var personName = ""
     @objc dynamic var details = ""
     @objc dynamic var date = Date()
