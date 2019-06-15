@@ -177,12 +177,17 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="All Transactions" id="utv-0m-0Tc">
                         <barButtonItem key="backBarButtonItem" title=" " id="iUY-ei-7YM"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ln1-4E-ODY">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="addTransaction" destination="lFV-F3-8Ju" id="2aY-dl-hi2"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="Ln1-4E-ODY">
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="addTransaction" destination="lFV-F3-8Ju" id="2aY-dl-hi2"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Drafts" id="bZD-y4-HVM">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <segue destination="RLI-JK-oi8" kind="show" identifier="showDetailTransaction" id="LYA-iW-NO5"/>
@@ -276,13 +281,19 @@
                     <navigationItem key="navigationItem" title="Select People" id="LTx-oW-1zJ">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xjK-ZC-9Vc">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancel" destination="sLI-bi-am7" id="KMv-3D-cXq"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="Hfx-Oi-iXB">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="next" destination="sLI-bi-am7" id="2vz-uZ-Fkx"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="Nl4-4M-a9L" kind="show" id="KYb-g9-9vi"/>
+                        <segue destination="Nl4-4M-a9L" kind="show" identifier="showNewTransaction" id="KYb-g9-9vi"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPQ-1G-1jG" userLabel="First Responder" sceneMemberID="firstResponder"/>
