@@ -4,6 +4,7 @@ import RxSwift
 final class RealmWrapper {
     let transactions: Results<Transaction>
     let groupTransactions: Results<GroupTransaction>
+    let draftTransactions: Results<GroupTransaction>
     let people: Results<Person>
     let realm: Realm!
     
@@ -12,6 +13,7 @@ final class RealmWrapper {
             realm = try Realm()
             transactions = realm.objects(Transaction.self)
             groupTransactions = realm.objects(GroupTransaction.self)
+            draftTransactions = realm.objects(GroupTransaction.self).filter("SUBQUERY(transactions, $t, $t.amount == NULL) .@count > 0")
             people = realm.objects(Person.self)
         } catch let error {
             print(error)
