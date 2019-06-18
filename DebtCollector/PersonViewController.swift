@@ -25,17 +25,17 @@ class PersonViewController : UITableViewController {
                 let formatter1 = NumberFormatter()
                 formatter1.numberStyle = .currency
                 formatter1.currencySymbol = UserSettings.currencySymbol
-                cell.amountLabel.text = formatter1.string(from: abs(transaction.amount) as NSNumber)
-                cell.borrowedReturnedLabel.text = transaction.amount < 0 ? "Returned" : "Borrowed"
+                cell.amountLabel.text = formatter1.string(from: abs(transaction.amount.value ?? 0) as NSNumber)
+                cell.borrowedReturnedLabel.text = transaction.amount.value ?? 0 < 0 ? "Returned" : "Borrowed"
                 let formatter2 = DateFormatter()
                 formatter2.dateStyle = .short
                 formatter2.timeStyle = .none
                 cell.dateLabel.text = formatter2.string(from: transaction.date)
                 cell.transactionLabel.text = transaction.parentTransactions.first!.title
                 cell.selectionStyle = .gray
-                if transaction.amount < 0 {
+                if transaction.amount.value ?? 0 < 0 {
                     cell.contentView.backgroundColor = UIColor.green.withAlphaComponent(0.5)
-                } else if transaction.amount > 0 {
+                } else if transaction.amount.value ?? 0 > 0 {
                     cell.contentView.backgroundColor = UIColor.red.withAlphaComponent(0.5)
                 }
                 
