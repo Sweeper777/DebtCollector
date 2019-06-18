@@ -13,7 +13,7 @@ target 'DebtCollector' do
   pod 'RxRealm'
   pod 'RxDataSources'
   pod 'SearchTextField'
-  pod 'LTHPasscodeViewController'ß
+  pod 'LTHPasscodeViewController'
   pod 'FSCalendar'
   pod 'Firebase/Core'
   pod 'MGSwipeTableCell'
