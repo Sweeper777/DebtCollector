@@ -11,8 +11,8 @@ final class RealmWrapper {
     private init() {
         do {
             realm = try Realm()
-            transactions = realm.objects(Transaction.self)
-            groupTransactions = realm.objects(GroupTransaction.self)
+            transactions = realm.objects(Transaction.self).filter("amount != NULL")
+            groupTransactions = realm.objects(GroupTransaction.self).filter("SUBQUERY(transactions, $t, $t.amount == NULL) .@count == 0")
             draftTransactions = realm.objects(GroupTransaction.self).filter("SUBQUERY(transactions, $t, $t.amount == NULL) .@count > 0")
             people = realm.objects(Person.self)
         } catch let error {
