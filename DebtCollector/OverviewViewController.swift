@@ -19,7 +19,7 @@ class OverviewViewController: UITableViewController {
                 var peopleDict = RealmWrapper.shared.people.reduce(into: [String: Double](), { $0[$1.name] = 0 })
                 for transaction in transactions {
                     if peopleDict[transaction.personName] != nil {
-                        peopleDict[transaction.personName]! += transaction.amount
+                        peopleDict[transaction.personName]! += transaction.amount.value ?? 0
                     }
                 }
                 let mapped = peopleDict.map({ (x) in
