@@ -272,6 +272,8 @@ class NewTransactionViewController : FormViewController {
         var transactions = [Transaction]()
         let personNameOptions = Array(Set(transactionToEdit?.transactions.map { $0.personName } ?? [])
             .union(RealmWrapper.shared.people.map { $0.name })).sorted()
+        
+        var isDraft = false
         for i in 0..<personNameOptions.count  {
             guard let name = values[tagPerson + "\(i)"] as? String else {
                 continue
@@ -283,11 +285,10 @@ class NewTransactionViewController : FormViewController {
                 showErrorMessage("There are duplicate names in the transaction!")
                 return
             }
-            guard let amount = values[tagAmount + "\(i)"] as? Double else {
-                showErrorMessage("Please enter an amount for \(name)!")
-                return
-            }
-            if amount < 0 {
+            let amount = values[tagAmount + "\(i)"] as? Double
+            if amount == nil {
+                isDraft = true
+            } else if amount! < 0 {
                 showErrorMessage("Amount cannot be less than to 0!")
                 return
             }
