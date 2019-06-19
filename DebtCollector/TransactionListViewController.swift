@@ -40,7 +40,7 @@ class TransactionListViewController: UITableViewController {
         dataSource = RxTableViewSectionedAnimatedDataSource<GroupedTransactionSection>(configureCell:  {
             _, tableView, index, groupTransaction in
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! GroupedTransactionTableViewCell
-            let totalAmount = abs(groupTransaction.transactions.map { $0.amount }.reduce(0, +))
+            let totalAmount = abs(groupTransaction.transactions.map { $0.amount.value ?? 0 }.reduce(0, +))
             let formatter = NumberFormatter()
             formatter.numberStyle = .currency
             formatter.currencySymbol = UserSettings.currencySymbol
@@ -58,9 +58,9 @@ class TransactionListViewController: UITableViewController {
                 return true
             })]
             cell.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-            if groupTransaction.transactions.first!.amount < 0 {
+            if groupTransaction.transactions.first!.amount.value ?? 0 < 0 {
                 cell.backgroundColor = UIColor.green.withAlphaComponent(0.5)
-            } else if groupTransaction.transactions.first!.amount > 0 {
+            } else if groupTransaction.transactions.first!.amount.value ?? 0 > 0 {
                 cell.backgroundColor = UIColor.red.withAlphaComponent(0.5)
             }
             return cell
