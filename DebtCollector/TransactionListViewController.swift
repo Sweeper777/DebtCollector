@@ -11,6 +11,7 @@ import RxDataSources
 class TransactionListViewController: UITableViewController {
     let disposeBag = DisposeBag()
     
+    var customResults: Results<GroupTransaction>?
     var date: Date?
     var dataSource: RxTableViewSectionedAnimatedDataSource<GroupedTransactionSection>!
     
@@ -33,6 +34,10 @@ class TransactionListViewController: UITableViewController {
             formatter.timeStyle = .none
             navigationItem.rightBarButtonItems = []
             navigationItem.title = formatter.string(from: date)
+        } else if let customResults = self.customResults {
+            observable = Observable.collection(from: customResults)
+            navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))]
+            navigationItem.leftBarButtonItems = []
         } else {
             observable = Observable.collection(from: RealmWrapper.shared.groupTransactions.sorted(byKeyPath: "date", ascending: false))
         }
