@@ -7,6 +7,7 @@ import ImageRow
 
 class NewTransactionViewController : FormViewController {
     
+    var personNamesAlreadyFilledIn: [String]?
     var personNameAlreadyFilledIn: String?
     var transactionToEdit: GroupTransaction?
     var detailTransactionVC: DetailTransactionViewController?
@@ -118,6 +119,8 @@ class NewTransactionViewController : FormViewController {
                         row.disabled = true
                         row.evaluateDisabled()
                         row.value = personNameAlreadyFilledIn
+                    } else if personNamesAlreadyFilledIn != nil && i < personNamesAlreadyFilledIn!.count {
+                        row.value = personNamesAlreadyFilledIn![i]
                     }
                 }
                 <<< DecimalRow(tagAmount + "\(i)") {
