@@ -25,7 +25,7 @@ class NewTransactionViewController : FormViewController {
                 row.options = ["Borrowed", "Returned"]
                 row.value = "Borrowed"
                 if let transaction = self.transactionToEdit {
-                    row.value = transaction.transactions.first!.amount < 0 ? "Returned" : "Borrowed"
+                    row.value = transaction.transactions.first!.amount.value ?? 0 < 0 ? "Returned" : "Borrowed"
                 }
                 }
                 .onChange({ [weak self] (row) in
@@ -125,7 +125,7 @@ class NewTransactionViewController : FormViewController {
                     row.title = "Amount (\(UserSettings.currencySymbol ?? Locale.current.currencySymbol ?? "$"))"
                     row.cell.textField.placeholder = "0.00"
                     
-                    row.value = (transactionToEdit?.transactions[i].amount).map(abs)
+                    row.value = (transactionToEdit?.transactions[i].amount.value).map(abs)
                 }
                 
                 <<< SearchTextRow(tagDetails + "\(i)") {
@@ -252,7 +252,7 @@ class NewTransactionViewController : FormViewController {
     }
     
     func sameDayReturnExists(date: Date) -> Bool {
-        let queryResult = RealmWrapper.shared.groupTransactions.filter { Calendar.current.isDate($0.date, inSameDayAs: date) && $0.transactions.first!.amount < 0 }
+        let queryResult = RealmWrapper.shared.groupTransactions.filter { Calendar.current.isDate($0.date, inSameDayAs: date) && $0.transactions.first!.amount.value ?? 1 < 0 }
         return queryResult.count > 0
     }
     
@@ -293,9 +293,9 @@ class NewTransactionViewController : FormViewController {
             transaction.details = values[tagDetails + "\(i)"] as? String ?? ""
             transaction.date = values[tagDate] as? Date ?? today()
             if values[tagReturnedOrBorrowed] as? String == "Returned" {
-                transaction.amount = -amount
+                transaction.amount.value = amount.map(-)
             } else {
-                transaction.amount = amount
+                transaction.amount.value = amount
             }
             transactions.append(transaction)
         }
