@@ -319,6 +319,20 @@ class NewTransactionViewController : FormViewController {
             groupedTransaction.transactions.append($0)
         }
         
+        if isDraft {
+            let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
+            alert.addButton("Save as draft", action: {
+                [weak self] in
+                self?.saveTransaction(transactions: transactions, groupedTransaction: groupedTransaction)
+            })
+            alert.addButton("Continue editing", action: {})
+            alert.showWarning("Save as Draft?", subTitle: "You have left some amounts as blank. Do you want to save this as draft, or continue editing?")
+        } else {
+            saveTransaction(transactions: transactions, groupedTransaction: groupedTransaction)
+        }
+    }
+    
+    private func saveTransaction(transactions: [Transaction], groupedTransaction: GroupTransaction) {
         try! RealmWrapper.shared.realm.write {
             transactions.forEach {
                 RealmWrapper.shared.realm.add($0)
