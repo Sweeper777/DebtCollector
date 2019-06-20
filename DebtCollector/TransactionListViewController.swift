@@ -109,6 +109,10 @@ class TransactionListViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailTransactionViewController {
             vc.groupedTransaction = (sender as! GroupTransaction)
+        } else if segue.identifier == "showDrafts" {
+            let vc = (segue.destination as! UINavigationController).topViewController as! TransactionListViewController
+            vc.customResults = RealmWrapper.shared.draftTransactions
+            vc.title = "Drafts"
         }
     }
     
