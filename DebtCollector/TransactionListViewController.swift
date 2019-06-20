@@ -116,6 +116,10 @@ class TransactionListViewController: UITableViewController {
         performSegue(withIdentifier: "newTransaction", sender: nil)
     }
     
+    @IBAction func showDrafts() {
+        performSegue(withIdentifier: "showDrafts", sender: nil)
+    }
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
         label.text = dataSource.sectionModels[section].header

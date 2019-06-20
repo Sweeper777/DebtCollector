@@ -186,17 +186,21 @@
                             </barButtonItem>
                             <barButtonItem title="Drafts" id="bZD-y4-HVM">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="showDrafts" destination="lFV-F3-8Ju" id="4Eu-81-eL5"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <segue destination="RLI-JK-oi8" kind="show" identifier="showDetailTransaction" id="LYA-iW-NO5"/>
                         <segue destination="luM-kL-67H" kind="presentation" identifier="newTransaction" id="0eW-vx-jWK"/>
+                        <segue destination="ZjY-9p-tnD" kind="presentation" identifier="showDrafts" id="sdR-Cu-sjk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XFL-oL-LpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2145" y="296"/>
+            <point key="canvasLocation" x="2268" y="368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qUd-h6-M27">
@@ -216,7 +220,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KxM-Wr-MgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2985" y="-1151"/>
+            <point key="canvasLocation" x="2906" y="-376"/>
         </scene>
         <!--Settings-->
         <scene sceneID="oTg-Bx-DsO">
@@ -244,7 +248,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XHB-U5-ke7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3793" y="-1152"/>
+            <point key="canvasLocation" x="3714" y="-377"/>
         </scene>
         <!--Select People-->
         <scene sceneID="5Fs-p3-hQc">
@@ -388,7 +392,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="js4-Cd-jzy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1193" y="296"/>
+            <point key="canvasLocation" x="1153" y="734"/>
         </scene>
         <!--Person View Controller-->
         <scene sceneID="KbG-Tr-rS8">
@@ -458,7 +462,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Si9-Kl-xdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1196" y="1034"/>
+            <point key="canvasLocation" x="1153" y="1441"/>
         </scene>
         <!--Overview View Controller-->
         <scene sceneID="7db-lP-Gkx">
@@ -516,7 +520,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ush-WA-b6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="y6Y-2d-tdb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1196" y="-376"/>
+            <point key="canvasLocation" x="1153" y="-77"/>
         </scene>
         <!--Detail Transaction View Controller-->
         <scene sceneID="D9h-Sw-xnR">
@@ -588,8 +592,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LYA-iW-NO5"/>
+        <segue reference="sdR-Cu-sjk"/>
         <segue reference="KYb-g9-9vi"/>
         <segue reference="JKN-rj-a2b"/>
-        <segue reference="ehc-bi-kWY"/>
+        <segue reference="Vm3-V9-pGH"/>
     </inferredMetricsTieBreakers>
 </document>
