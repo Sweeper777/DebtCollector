@@ -34,7 +34,7 @@ class SettingsViewController : FormViewController {
         
         +++ TextRow(tagCurrencySymbol) {
             row in
-            row.title = "Currenct Symbol"
+            row.title = "Currency Symbol"
             row.cell.textField.placeholder = "Default"
             row.value = UserSettings.currencySymbol
         }
