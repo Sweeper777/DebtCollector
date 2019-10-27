@@ -31,12 +31,40 @@
 		5A4E3E2F2285EBA90016AF2A /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4E3E2E2285EBA90016AF2A /* DescriptionCell.swift */; };
 		5A52DCE721128D2100B4F941 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A52DCE621128D2100B4F941 /* SettingsViewController.swift */; };
 		5A52DCE921128F7700B4F941 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A52DCE821128F7700B4F941 /* UserSettings.swift */; };
+		5A5BAA3723644DE6004A2755 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5BAA3623644DE6004A2755 /* NotificationCenter.framework */; };
+		5A5BAA3A23644DE6004A2755 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5BAA3923644DE6004A2755 /* TodayViewController.swift */; };
+		5A5BAA3D23644DE6004A2755 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5BAA3B23644DE6004A2755 /* MainInterface.storyboard */; };
+		5A5BAA4123644DE6004A2755 /* Debtors.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5A5BAA3523644DE5004A2755 /* Debtors.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5A6BF0E320F75D0A0035407A /* RealmWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BF0E220F75D0A0035407A /* RealmWrapper.swift */; };
 		5A7D12E1216BC2DB008F11C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A7D12E0216BC2DB008F11C9 /* GoogleService-Info.plist */; };
 		5A8A05EA20FDD65300D98280 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A05E920FDD65300D98280 /* PersonViewController.swift */; };
 		5A9BC28820F8A12600DAFAC1 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9BC28720F8A12600DAFAC1 /* PeopleViewController.swift */; };
 		C2ED3D93ECF20D208D037617 /* Pods_DebtCollector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E003D07B2AA4C3D8BEE2F21 /* Pods_DebtCollector.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5A5BAA3F23644DE6004A2755 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A3ED25A20F4AA6700E79CE6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A5BAA3423644DE5004A2755;
+			remoteInfo = Debtors;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5A5BAA4523644DE6004A2755 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5A5BAA4123644DE6004A2755 /* Debtors.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		280BCFAF28ED4605356A222F /* Pods-DebtCollector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DebtCollector.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DebtCollector/Pods-DebtCollector.debug.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +94,13 @@
 		5A4E3E2E2285EBA90016AF2A /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		5A52DCE621128D2100B4F941 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5A52DCE821128F7700B4F941 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		5A5BAA3023644CCA004A2755 /* DebtCollector.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DebtCollector.entitlements; sourceTree = "<group>"; };
+		5A5BAA3523644DE5004A2755 /* Debtors.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Debtors.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A5BAA3623644DE6004A2755 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		5A5BAA3923644DE6004A2755 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		5A5BAA3C23644DE6004A2755 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		5A5BAA3E23644DE6004A2755 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A5BAA4623644DF1004A2755 /* Debtors.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Debtors.entitlements; sourceTree = "<group>"; };
 		5A6BF0E220F75D0A0035407A /* RealmWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmWrapper.swift; sourceTree = "<group>"; };
 		5A7D12E0216BC2DB008F11C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A8A05E920FDD65300D98280 /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +118,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5A5BAA3223644DE5004A2755 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A5BAA3723644DE6004A2755 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -90,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				9E003D07B2AA4C3D8BEE2F21 /* Pods_DebtCollector.framework */,
+				5A5BAA3623644DE6004A2755 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -98,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				5A3ED26420F4AA6700E79CE6 /* DebtCollector */,
+				5A5BAA3823644DE6004A2755 /* Debtors */,
 				5A3ED26320F4AA6700E79CE6 /* Products */,
 				EE7C594B368C39A6B777292C /* Pods */,
 				4D55AA88D850CB7152394DAF /* Frameworks */,
@@ -108,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				5A3ED26220F4AA6700E79CE6 /* DebtCollector.app */,
+				5A5BAA3523644DE5004A2755 /* Debtors.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,6 +161,7 @@
 		5A3ED26420F4AA6700E79CE6 /* DebtCollector */ = {
 			isa = PBXGroup;
 			children = (
+				5A5BAA3023644CCA004A2755 /* DebtCollector.entitlements */,
 				5A7D12E0216BC2DB008F11C9 /* GoogleService-Info.plist */,
 				5A3ED26520F4AA6700E79CE6 /* AppDelegate.swift */,
 				5A3ED26720F4AA6700E79CE6 /* OverviewViewController.swift */,
@@ -148,6 +195,17 @@
 			path = DebtCollector;
 			sourceTree = "<group>";
 		};
+		5A5BAA3823644DE6004A2755 /* Debtors */ = {
+			isa = PBXGroup;
+			children = (
+				5A5BAA4623644DF1004A2755 /* Debtors.entitlements */,
+				5A5BAA3923644DE6004A2755 /* TodayViewController.swift */,
+				5A5BAA3B23644DE6004A2755 /* MainInterface.storyboard */,
+				5A5BAA3E23644DE6004A2755 /* Info.plist */,
+			);
+			path = Debtors;
+			sourceTree = "<group>";
+		};
 		EE7C594B368C39A6B777292C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,15 +227,34 @@
 				5A3ED25F20F4AA6700E79CE6 /* Frameworks */,
 				5A3ED26020F4AA6700E79CE6 /* Resources */,
 				2CA8962F86CB29853F63FAB0 /* [CP] Embed Pods Frameworks */,
+				5A5BAA4523644DE6004A2755 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5A5BAA4023644DE6004A2755 /* PBXTargetDependency */,
 			);
 			name = DebtCollector;
 			productName = DebtCollector;
 			productReference = 5A3ED26220F4AA6700E79CE6 /* DebtCollector.app */;
 			productType = "com.apple.product-type.application";
+		};
+		5A5BAA3423644DE5004A2755 /* Debtors */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A5BAA4223644DE6004A2755 /* Build configuration list for PBXNativeTarget "Debtors" */;
+			buildPhases = (
+				5A5BAA3123644DE5004A2755 /* Sources */,
+				5A5BAA3223644DE5004A2755 /* Frameworks */,
+				5A5BAA3323644DE5004A2755 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Debtors;
+			productName = Debtors;
+			productReference = 5A5BAA3523644DE5004A2755 /* Debtors.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -185,7 +262,7 @@
 		5A3ED25A20F4AA6700E79CE6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Mulang Su";
 				TargetAttributes = {
@@ -193,6 +270,20 @@
 						CreatedOnToolsVersion = 9.3.1;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					5A5BAA3423644DE5004A2755 = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -210,6 +301,7 @@
 			projectRoot = "";
 			targets = (
 				5A3ED26120F4AA6700E79CE6 /* DebtCollector */,
+				5A5BAA3423644DE5004A2755 /* Debtors */,
 			);
 		};
 /* End PBXProject section */
@@ -228,6 +320,14 @@
 				5A3ED26D20F4AA6A00E79CE6 /* Assets.xcassets in Resources */,
 				5A3EE36320FC93E100756EC8 /* BriefTransactionTableViewCell.xib in Resources */,
 				5A3ED26B20F4AA6700E79CE6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A5BAA3323644DE5004A2755 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A5BAA3D23644DE6004A2755 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +431,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5A5BAA3123644DE5004A2755 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A5BAA3A23644DE6004A2755 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5A5BAA4023644DE6004A2755 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A5BAA3423644DE5004A2755 /* Debtors */;
+			targetProxy = 5A5BAA3F23644DE6004A2755 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5A3ED26920F4AA6700E79CE6 /* Main.storyboard */ = {
@@ -348,6 +464,14 @@
 				5A3ED26F20F4AA6A00E79CE6 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5A5BAA3B23644DE6004A2755 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A5BAA3C23644DE6004A2755 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -470,7 +594,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 280BCFAF28ED4605356A222F /* Pods-DebtCollector.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DebtCollector/DebtCollector.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E9MW74DJ4Y;
 				INFOPLIST_FILE = DebtCollector/Info.plist;
@@ -487,7 +613,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 976FEA4EE3B23BDF47360425 /* Pods-DebtCollector.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DebtCollector/DebtCollector.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E9MW74DJ4Y;
 				INFOPLIST_FILE = DebtCollector/Info.plist;
@@ -497,6 +625,43 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		5A5BAA4323644DE6004A2755 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Debtors/Debtors.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E9MW74DJ4Y;
+				INFOPLIST_FILE = Debtors/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.sweeper777.DebtCollector.Debtors;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5A5BAA4423644DE6004A2755 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Debtors/Debtors.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E9MW74DJ4Y;
+				INFOPLIST_FILE = Debtors/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.sweeper777.DebtCollector.Debtors;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -517,6 +682,15 @@
 			buildConfigurations = (
 				5A3ED27520F4AA6A00E79CE6 /* Debug */,
 				5A3ED27620F4AA6A00E79CE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A5BAA4223644DE6004A2755 /* Build configuration list for PBXNativeTarget "Debtors" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A5BAA4323644DE6004A2755 /* Debug */,
+				5A5BAA4423644DE6004A2755 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
