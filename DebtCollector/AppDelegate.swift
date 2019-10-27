@@ -16,7 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NavigationAccessoryView.appearance().tintColor = UIColor(hex: "3b7b3b")
         FirebaseApp.configure()
         
+        let fileManager = FileManager.default
+        
+        //Cache original realm path (documents directory)
+        guard let originalDefaultRealmPath = Realm.Configuration.defaultConfiguration.fileURL?.path else {
+            return true
+        }
+        
+        //Generate new realm path based on app group
+        let appGroupURL: URL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.io.github.sweeper777.DebtCollectorGroup")!
+        let realmPath = appGroupURL.appendingPathComponent("default.realm").path
+        
+        //Moves the realm to the new location if it hasn't been done previously
+        if (fileManager.fileExists(atPath: originalDefaultRealmPath) && !fileManager.fileExists(atPath: realmPath)) {
+            do {
+                try fileManager.moveItem(atPath: originalDefaultRealmPath, toPath: realmPath)
+            } catch {
+                print(error)
+            }
+        }
+        
+        //Set the realm path to the new directory
         let config = Realm.Configuration(
+            fileURL: URL(string: realmPath),
             schemaVersion: 4,
             migrationBlock: { migration, oldSchemaVersion in
                 if (oldSchemaVersion < 4) {
