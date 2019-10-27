@@ -1,16 +1,13 @@
-//
-//  TodayViewController.swift
-//  Debtors
-//
-//  Created by Mulang Su on 26/10/2019.
-//  Copyright © 2019 Mulang Su. All rights reserved.
-//
-
 import UIKit
 import NotificationCenter
+import RealmSwift
 
 class TodayViewController: UIViewController, NCWidgetProviding {
-        
+    
+    @IBOutlet var tableView: UITableView!
+    var peopleAndAmounts: [(key: String, value: Double)] = []
+    var displayedItemCount = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
