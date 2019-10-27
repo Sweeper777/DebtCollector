@@ -18,4 +18,7 @@ target 'DebtCollector' do
   pod 'Firebase/Core'
   pod 'MGSwipeTableCell'
   pod 'ImageRow', :git => 'https://github.com/EurekaCommunity/ImageRow.git', :branch => 'master'
+  target 'Debtors' do
+      inherit! :search_paths
+  end
 end
