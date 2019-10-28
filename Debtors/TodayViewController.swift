@@ -19,6 +19,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         self.extensionContext?.widgetLargestAvailableDisplayMode = NCWidgetDisplayMode.expanded
         reload()
     }
+    
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        if activeDisplayMode == .expanded {
+            displayedItemCount = 3
+            preferredContentSize = CGSize(width: 0, height: 243)
+        } else {
+            displayedItemCount = 1
+            preferredContentSize = CGSize(width: 0, height: 81)
+        }
+    }
+    
     func reload() {
         peopleAndAmounts = aggregateTransactionAndPeople(
             transactions: RealmWrapper.shared.transactions, people: RealmWrapper.shared.people)
