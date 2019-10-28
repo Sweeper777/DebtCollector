@@ -31,6 +31,10 @@
 		5A4E3E2F2285EBA90016AF2A /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4E3E2E2285EBA90016AF2A /* DescriptionCell.swift */; };
 		5A52DCE721128D2100B4F941 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A52DCE621128D2100B4F941 /* SettingsViewController.swift */; };
 		5A52DCE921128F7700B4F941 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A52DCE821128F7700B4F941 /* UserSettings.swift */; };
+		5A52FEAA23659EC700A388FA /* OverviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4690BB20F600DF00911E04 /* OverviewTableViewCell.xib */; };
+		5A52FEAB23659ED300A388FA /* RealmWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BF0E220F75D0A0035407A /* RealmWrapper.swift */; };
+		5A52FEAC23659ED700A388FA /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4690B920F5FE4400911E04 /* Transaction.swift */; };
+		5A52FEB22365A5EC00A388FA /* OverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4690BD20F6017200911E04 /* OverviewTableViewCell.swift */; };
 		5A5BAA3723644DE6004A2755 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5BAA3623644DE6004A2755 /* NotificationCenter.framework */; };
 		5A5BAA3A23644DE6004A2755 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5BAA3923644DE6004A2755 /* TodayViewController.swift */; };
 		5A5BAA3D23644DE6004A2755 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5BAA3B23644DE6004A2755 /* MainInterface.storyboard */; };
@@ -39,6 +43,7 @@
 		5A7D12E1216BC2DB008F11C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A7D12E0216BC2DB008F11C9 /* GoogleService-Info.plist */; };
 		5A8A05EA20FDD65300D98280 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A05E920FDD65300D98280 /* PersonViewController.swift */; };
 		5A9BC28820F8A12600DAFAC1 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9BC28720F8A12600DAFAC1 /* PeopleViewController.swift */; };
+		B3CF014CE2BB6490181E3866 /* Pods_Debtors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1251D4F1FEDDE152FF3D67C5 /* Pods_Debtors.framework */; };
 		C2ED3D93ECF20D208D037617 /* Pods_DebtCollector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E003D07B2AA4C3D8BEE2F21 /* Pods_DebtCollector.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +72,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1251D4F1FEDDE152FF3D67C5 /* Pods_Debtors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Debtors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		280BCFAF28ED4605356A222F /* Pods-DebtCollector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DebtCollector.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DebtCollector/Pods-DebtCollector.debug.xcconfig"; sourceTree = "<group>"; };
+		324A93EBEB4C3B4244C566CD /* Pods-Debtors.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Debtors.release.xcconfig"; path = "Pods/Target Support Files/Pods-Debtors/Pods-Debtors.release.xcconfig"; sourceTree = "<group>"; };
 		5A3ED26220F4AA6700E79CE6 /* DebtCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DebtCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A3ED26520F4AA6700E79CE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A3ED26720F4AA6700E79CE6 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +101,8 @@
 		5A4E3E2E2285EBA90016AF2A /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		5A52DCE621128D2100B4F941 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5A52DCE821128F7700B4F941 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		5A52FEAD2365A2CB00A388FA /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A52FEAF2365A2CB00A388FA /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5BAA3023644CCA004A2755 /* DebtCollector.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DebtCollector.entitlements; sourceTree = "<group>"; };
 		5A5BAA3523644DE5004A2755 /* Debtors.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Debtors.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5BAA3623644DE6004A2755 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -107,6 +116,7 @@
 		5A9BC28720F8A12600DAFAC1 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		976FEA4EE3B23BDF47360425 /* Pods-DebtCollector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DebtCollector.release.xcconfig"; path = "Pods/Target Support Files/Pods-DebtCollector/Pods-DebtCollector.release.xcconfig"; sourceTree = "<group>"; };
 		9E003D07B2AA4C3D8BEE2F21 /* Pods_DebtCollector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DebtCollector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0658C1B739D9E131225DF1E /* Pods-Debtors.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Debtors.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Debtors/Pods-Debtors.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A5BAA3723644DE6004A2755 /* NotificationCenter.framework in Frameworks */,
+				B3CF014CE2BB6490181E3866 /* Pods_Debtors.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,8 +143,11 @@
 		4D55AA88D850CB7152394DAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A52FEAD2365A2CB00A388FA /* Realm.framework */,
+				5A52FEAF2365A2CB00A388FA /* RealmSwift.framework */,
 				9E003D07B2AA4C3D8BEE2F21 /* Pods_DebtCollector.framework */,
 				5A5BAA3623644DE6004A2755 /* NotificationCenter.framework */,
+				1251D4F1FEDDE152FF3D67C5 /* Pods_Debtors.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -211,6 +225,8 @@
 			children = (
 				280BCFAF28ED4605356A222F /* Pods-DebtCollector.debug.xcconfig */,
 				976FEA4EE3B23BDF47360425 /* Pods-DebtCollector.release.xcconfig */,
+				D0658C1B739D9E131225DF1E /* Pods-Debtors.debug.xcconfig */,
+				324A93EBEB4C3B4244C566CD /* Pods-Debtors.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -243,6 +259,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A5BAA4223644DE6004A2755 /* Build configuration list for PBXNativeTarget "Debtors" */;
 			buildPhases = (
+				6EC27E7F3CFD188E654BD15E /* [CP] Check Pods Manifest.lock */,
 				5A5BAA3123644DE5004A2755 /* Sources */,
 				5A5BAA3223644DE5004A2755 /* Frameworks */,
 				5A5BAA3323644DE5004A2755 /* Resources */,
@@ -327,6 +344,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A52FEAA23659EC700A388FA /* OverviewTableViewCell.xib in Resources */,
 				5A5BAA3D23644DE6004A2755 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,7 +358,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DebtCollector/Pods-DebtCollector-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DebtCollector/Pods-DebtCollector-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
@@ -381,7 +399,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DebtCollector/Pods-DebtCollector-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DebtCollector/Pods-DebtCollector-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6EC27E7F3CFD188E654BD15E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Debtors-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F0EC886737A8248A71806CAD /* [CP] Check Pods Manifest.lock */ = {
@@ -435,7 +475,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A52FEB22365A5EC00A388FA /* OverviewTableViewCell.swift in Sources */,
 				5A5BAA3A23644DE6004A2755 /* TodayViewController.swift in Sources */,
+				5A52FEAB23659ED300A388FA /* RealmWrapper.swift in Sources */,
+				5A52FEAC23659ED700A388FA /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +673,7 @@
 		};
 		5A5BAA4323644DE6004A2755 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0658C1B739D9E131225DF1E /* Pods-Debtors.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Debtors/Debtors.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -649,6 +693,7 @@
 		};
 		5A5BAA4423644DE6004A2755 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 324A93EBEB4C3B4244C566CD /* Pods-Debtors.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Debtors/Debtors.entitlements;
 				CODE_SIGN_STYLE = Automatic;
