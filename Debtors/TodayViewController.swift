@@ -28,6 +28,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             displayedItemCount = 1
             preferredContentSize = CGSize(width: 0, height: 81)
         }
+        reload()
     }
     
     func reload() {
@@ -50,12 +51,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-        
+        reload()
         completionHandler(NCUpdateResult.newData)
     }
     
