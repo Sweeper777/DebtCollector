@@ -56,3 +56,24 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
 }
+
+extension TodayViewController : UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return displayedItemCount
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! OverviewTableViewCell
+        let personAndAmount = peopleAndAmounts[indexPath.row]
+        cell.nameLabel.text = personAndAmount.key
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        cell.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        cell.amountLabel.text = formatter.string(from: personAndAmount.value as NSNumber)
+        return cell
+    }
+}
