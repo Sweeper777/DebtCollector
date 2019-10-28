@@ -20,6 +20,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         reload()
     }
     func reload() {
+        peopleAndAmounts = aggregateTransactionAndPeople(
+            transactions: RealmWrapper.shared.transactions, people: RealmWrapper.shared.people)
+        tableView.reloadData()
     }
     
     func aggregateTransactionAndPeople(transactions: Results<Transaction>, people: Results<Person>) -> [(key: String, value: Double)] {
