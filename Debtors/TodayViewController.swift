@@ -12,6 +12,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(UINib(nibName: "TodayTableCell", bundle: nil), forCellReuseIdentifier: "cell")
+        tableView.allowsSelection = false
         var config = Realm.Configuration()
         config.schemaVersion = 4
         config.fileURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.io.github.sweeper777.DebtCollectorGroup")!.appendingPathComponent("default.realm")
