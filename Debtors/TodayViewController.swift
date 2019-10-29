@@ -67,7 +67,7 @@ extension TodayViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! OverviewTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TodayTableCell
         let personAndAmount = peopleAndAmounts[indexPath.row]
         cell.nameLabel.text = personAndAmount.key
         let formatter = NumberFormatter()
