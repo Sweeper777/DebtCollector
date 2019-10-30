@@ -20,5 +20,6 @@ target 'DebtCollector' do
   pod 'ImageRow', :git => 'https://github.com/EurekaCommunity/ImageRow.git', :branch => 'master'
   target 'Debtors' do
       inherit! :search_paths
+      pod 'EmptyDataSet-Swift', '4.2.0'
   end
 end
