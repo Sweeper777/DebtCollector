@@ -15,6 +15,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "TodayTableCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.allowsSelection = false
+        tableView.separatorStyle = .none
         
         tableView.emptyDataSetView { (view) in
             view.titleLabelString(NSAttributedString(string: "You have no debtors!"))
