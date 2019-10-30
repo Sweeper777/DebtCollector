@@ -53,7 +53,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 peopleDict[transaction.personName]! += transaction.amount.value ?? 0
             }
         }
-        let mapped = peopleDict.map({ (x) in
+        let mapped = peopleDict.filter { $0.value > 0 }.map({ (x) in
             return x
         })
         return mapped.sorted(by: { ($0.value, $1.key) > ($1.value, $0.key) })
