@@ -6,6 +6,7 @@ import EmptyDataSet_Swift
 class TodayViewController: UIViewController, NCWidgetProviding {
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var blur: UIVisualEffectView!
     var peopleAndAmounts: [(key: String, value: Double)] = []
     static let collapsedStateItemCount = 1
     static let expandedStateItemCount = 3
@@ -23,6 +24,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             view.titleLabelString(NSAttributedString(string: "You have no debtors!"))
             view.shouldDisplay(true)
         }
+        
+        blur.effect = UIVibrancyEffect.widgetPrimary()
         
         var config = Realm.Configuration()
         config.schemaVersion = 4
