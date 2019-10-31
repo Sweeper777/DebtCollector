@@ -7,7 +7,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     @IBOutlet var tableView: UITableView!
     var peopleAndAmounts: [(key: String, value: Double)] = []
-    var displayedItemCount = 1
+    static let collapsedStateItemCount = 1
+    static let expandedStateItemCount = 3
+    var displayedItemCount = collapsedStateItemCount
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +34,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == .expanded {
-            displayedItemCount = 3
+            displayedItemCount = TodayViewController.expandedStateItemCount
             preferredContentSize = CGSize(width: 0, height: 243)
         } else {
-            displayedItemCount = 1
+            displayedItemCount = TodayViewController.collapsedStateItemCount
             preferredContentSize = CGSize(width: 0, height: 81)
         }
         reload()
