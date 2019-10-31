@@ -31,7 +31,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         config.schemaVersion = 4
         config.fileURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.io.github.sweeper777.DebtCollectorGroup")!.appendingPathComponent("default.realm")
         Realm.Configuration.defaultConfiguration = config
-        self.extensionContext?.widgetLargestAvailableDisplayMode = NCWidgetDisplayMode.expanded
         reload()
     }
     
@@ -50,6 +49,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         peopleAndAmounts = aggregateTransactionAndPeople(
             transactions: RealmWrapper.shared.transactions, people: RealmWrapper.shared.people)
         tableView.reloadData()
+        if peopleAndAmounts.count > TodayViewController.collapsedStateItemCount {
+            self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        } else {
+            self.extensionContext?.widgetLargestAvailableDisplayMode = .compact
+        }
     }
     
     func aggregateTransactionAndPeople(transactions: Results<Transaction>, people: Results<Person>) -> [(key: String, value: Double)] {
