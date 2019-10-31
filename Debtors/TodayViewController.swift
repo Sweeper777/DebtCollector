@@ -8,8 +8,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var blur: UIVisualEffectView!
     var peopleAndAmounts: [(key: String, value: Double)] = []
-    static let collapsedStateItemCount = 1
-    static let expandedStateItemCount = 3
+    static let collapsedStateItemCount = 3
+    static let expandedStateItemCount = 6
     var displayedItemCount = collapsedStateItemCount
     
     override func viewDidLoad() {
