@@ -90,6 +90,7 @@ extension TodayViewController : UITableViewDelegate, UITableViewDataSource {
         cell.nameLabel.text = personAndAmount.key
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
+        formatter.currencySymbol = UserDefaults(suiteName: "group.io.github.sweeper777.DebtCollectorGroup")?.string(forKey: "currencySymbol")
         cell.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         cell.amountLabel.text = formatter.string(from: personAndAmount.value as NSNumber)
         return cell
