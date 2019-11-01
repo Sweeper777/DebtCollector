@@ -17,7 +17,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "TodayTableCell", bundle: nil), forCellReuseIdentifier: "cell")
-        tableView.allowsSelection = false
+        tableView.allowsSelection = true
         tableView.separatorStyle = .none
         
         tableView.emptyDataSetView { (view) in
@@ -93,6 +93,7 @@ extension TodayViewController : UITableViewDelegate, UITableViewDataSource {
         formatter.currencySymbol = UserDefaults(suiteName: "group.io.github.sweeper777.DebtCollectorGroup")?.string(forKey: "currencySymbol")
         cell.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         cell.amountLabel.text = formatter.string(from: personAndAmount.value as NSNumber)
+        cell.selectionStyle = .none
         return cell
     }
 }
