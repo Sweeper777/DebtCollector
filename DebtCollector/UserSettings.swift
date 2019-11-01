@@ -1,6 +1,8 @@
 import UIKit
 
 final class UserSettings {
+    static let sharedDefaults = UserDefaults.init(suiteName: "group.io.github.sweeper777.DebtCollectorGroup")!
+    
     static var detailPresets: String {
         get {
             return UserDefaults.standard.string(forKey: "detailPresets") ?? ""
@@ -43,14 +45,14 @@ final class UserSettings {
     
     static var currencySymbol: String? {
         get {
-            return UserDefaults.standard.string(forKey: "currencySymbol")
+            return sharedDefaults.string(forKey: "currencySymbol")
         }
         
         set {
             if newValue?.trimmed() != "" {
-                UserDefaults.standard.set(newValue, forKey: "currencySymbol")
+                sharedDefaults.set(newValue, forKey: "currencySymbol")
             } else {
-                UserDefaults.standard.set(nil, forKey: "currencySymbol")
+                sharedDefaults.set(nil, forKey: "currencySymbol")
             }
         }
     }
