@@ -36,9 +36,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == .expanded {
-            displayedItemCount = TodayViewController.expandedStateItemCount
+            displayedItemCount = min(TodayViewController.expandedStateItemCount, peopleAndAmounts.count)
         } else {
-            displayedItemCount = TodayViewController.collapsedStateItemCount
+            displayedItemCount = min(TodayViewController.collapsedStateItemCount, peopleAndAmounts.count)
         }
         reload()
         preferredContentSize = CGSize(width: 0, height: 44 * displayedItemCount)
