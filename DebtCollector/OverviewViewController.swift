@@ -47,10 +47,6 @@ class OverviewViewController: UITableViewController {
             LTHPasscodeViewController.sharedUser().showLockScreen(withAnimation: true, withLogout: true, andLogoutTitle: nil)
             //}
         }
-        
-        let o1 = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
-        let o2 = o1.map { $0 * 10 }
-        Observable.combineLatest(o1, o2).subscribe(onNext: { print($0) }).disposed(by: disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
