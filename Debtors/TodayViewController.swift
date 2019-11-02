@@ -91,7 +91,7 @@ extension TodayViewController : UITableViewDelegate, UITableViewDataSource {
         formatter.numberStyle = .currency
         formatter.currencySymbol = UserDefaults(suiteName: "group.io.github.sweeper777.DebtCollectorGroup")?.string(forKey: "currencySymbol")
         cell.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        cell.amountLabel.text = "owes you \(formatter.string(from: personAndAmount.value as NSNumber))"
+        cell.amountLabel.text = "owes you \(formatter.string(from: personAndAmount.value as NSNumber)!)"
         cell.selectionStyle = .none
         return cell
     }
