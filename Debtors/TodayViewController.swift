@@ -25,7 +25,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             view.shouldDisplay(true)
         }
         
-        blur.effect = UIVibrancyEffect.widgetPrimary()
+        if #available(iOSApplicationExtension 13.0, *) {
+            blur.effect = UIVibrancyEffect.widgetEffect(forVibrancyStyle: .label)
+        } else {
+            blur.effect = UIVibrancyEffect.widgetPrimary()
+        }
         
         var config = Realm.Configuration()
         config.schemaVersion = 4
@@ -90,7 +94,6 @@ extension TodayViewController : UITableViewDelegate, UITableViewDataSource {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.currencySymbol = UserDefaults(suiteName: "group.io.github.sweeper777.DebtCollectorGroup")?.string(forKey: "currencySymbol")
-        cell.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         cell.amountLabel.text = "owes you \(formatter.string(from: personAndAmount.value as NSNumber)!)"
         cell.selectionStyle = .none
         return cell
