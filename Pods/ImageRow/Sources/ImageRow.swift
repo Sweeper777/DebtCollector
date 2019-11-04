@@ -42,7 +42,7 @@ public extension ImageRowSourceTypes {
     var localizedString: String {
         switch self {
         case ImageRowSourceTypes.Camera:
-            return NSLocalizedString("Take photo", comment: "") 
+            return NSLocalizedString("Take Photo", comment: "") 
         case ImageRowSourceTypes.PhotoLibrary:
             return NSLocalizedString("Photo Library", comment: "") 
         case ImageRowSourceTypes.SavedPhotosAlbum:
@@ -58,13 +58,13 @@ public enum ImageClearAction {
     case yes(style: UIAlertAction.Style)
 }
 
-protocol ImageRowProtocol {
+public protocol ImageRowProtocol {
     var placeholderImage: UIImage? { get }
 }
 
 //MARK: Row
 
-open class _ImageRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType, ImageRowProtocol where Cell: BaseCell, Cell.Value == UIImage {
+open class _ImageRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType, ImageRowProtocol, ImagePickerProtocol where Cell: BaseCell, Cell.Value == UIImage {
   public typealias PresenterRow = ImagePickerController
 
   /// Defines how the view controller will be presented, pushed, etc.

@@ -48,7 +48,7 @@ SCLAlertView().showTitle(
     subTitle: "Operation successfully completed.", // String of view
     duration: 2.0, // Duration to show before closing automatically, default: 0.0
     completeText: "Done", // Optional button value, default: ""
-    style: .Success, // Styles - see below.
+    style: .success, // Styles - see below.
     colorStyle: 0xA429FF,
     colorTextButton: 0xFFFFFF
 )
@@ -130,11 +130,12 @@ alertView.showInfo("Custom icon", subTitle: "This is a nice alert with a custom 
 ```swift
 // Add a text field
 let alert = SCLAlertView()
-let txt = alert.addTextField(title:"Enter your name")
+let txt = alert.addTextField("Enter your name")
 alert.addButton("Show Name") {
-    println("Text value: \(txt.text)")
+    print("Text value: \(txt.text)")
 }
 alert.showEdit("Edit View", subTitle: "This alert view shows a text box")
+
 ```
 
 #### Use a custom subview instead of a subtitle

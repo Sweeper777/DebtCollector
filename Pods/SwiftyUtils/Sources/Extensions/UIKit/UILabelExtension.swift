@@ -14,9 +14,10 @@ extension UILabel {
         paragraphStyle.lineSpacing = 1.0
         paragraphStyle.lineHeightMultiple = lineHeight
         paragraphStyle.alignment = textAlignment
+        paragraphStyle.lineBreakMode = lineBreakMode
 
         let attrString = NSMutableAttributedString(string: text!)
-        attrString.addAttribute(NSAttributedString.Key.font, value: font, range: NSRange(location: 0, length: attrString.length))
+        attrString.addAttribute(NSAttributedString.Key.font, value: font!, range: NSRange(location: 0, length: attrString.length))
         attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attrString.length))
         attributedText = attrString
     }
@@ -50,7 +51,7 @@ extension UILabel {
         let rectSize = CGSize(width: self.width, height: .greatestFiniteMagnitude)
         let size: CGSize = (string as NSString).boundingRect(with: rectSize,
                                                              options: .usesLineFragmentOrigin,
-                                                             attributes: [NSAttributedString.Key.font: font],
+                                                             attributes: [NSAttributedString.Key.font: font!],
                                                              context: nil).size
         return (size.height > self.bounds.size.height)
     }

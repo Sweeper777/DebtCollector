@@ -118,8 +118,8 @@ open class SearchTextField: UITextField {
     /// Force no filtering (display the entire filtered data source)
     open var forceNoFiltering: Bool = false
     
-    /// If startFilteringAfter is set, and startSuggestingInmediately is true, the list of suggestions appear inmediately
-    open var startSuggestingInmediately = false
+    /// If startFilteringAfter is set, and startSuggestingImmediately is true, the list of suggestions appear immediately
+    open var startSuggestingImmediately = false
     
     /// Allow to decide the comparision options
     open var comparisonOptions: NSString.CompareOptions = [.caseInsensitive]
@@ -205,27 +205,29 @@ open class SearchTextField: UITextField {
     
     // Create the filter table and shadow view
     fileprivate func buildSearchTableView() {
-        if let tableView = tableView, let shadowView = shadowView {
-            tableView.layer.masksToBounds = true
-            tableView.layer.borderWidth = theme.borderWidth > 0 ? theme.borderWidth : 0.5
-            tableView.dataSource = self
-            tableView.delegate = self
-            tableView.separatorInset = UIEdgeInsets.zero
-            tableView.tableHeaderView = resultsListHeader
-            if forceRightToLeft {
-                tableView.semanticContentAttribute = .forceRightToLeft
-            }
-            
-            shadowView.backgroundColor = UIColor.lightText
-            shadowView.layer.shadowColor = UIColor.black.cgColor
-            shadowView.layer.shadowOffset = CGSize.zero
-            shadowView.layer.shadowOpacity = 1
-            
-            self.window?.addSubview(tableView)
-        } else {
-            tableView = UITableView(frame: CGRect.zero)
-            shadowView = UIView(frame: CGRect.zero)
+        guard let tableView = tableView, let shadowView = shadowView else {
+            self.tableView = UITableView(frame: CGRect.zero)
+            self.shadowView = UIView(frame: CGRect.zero)
+            buildSearchTableView()
+            return
         }
+        
+        tableView.layer.masksToBounds = true
+        tableView.layer.borderWidth = theme.borderWidth > 0 ? theme.borderWidth : 0.5
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.separatorInset = UIEdgeInsets.zero
+        tableView.tableHeaderView = resultsListHeader
+        if forceRightToLeft {
+            tableView.semanticContentAttribute = .forceRightToLeft
+        }
+        
+        shadowView.backgroundColor = UIColor.lightText
+        shadowView.layer.shadowColor = UIColor.black.cgColor
+        shadowView.layer.shadowOffset = CGSize.zero
+        shadowView.layer.shadowOpacity = 1
+        
+        self.window?.addSubview(tableView)
         
         redrawSearchTableView()
     }
@@ -299,6 +301,7 @@ open class SearchTextField: UITextField {
                 tableViewFrame.origin = self.convert(tableViewFrame.origin, to: nil)
                 tableViewFrame.origin.x += 2 + tableXOffset
                 tableViewFrame.origin.y += frame.size.height + 2 + tableYOffset
+                self.tableView?.frame.origin = tableViewFrame.origin // Avoid animating from (0, 0) when displaying at launch
                 UIView.animate(withDuration: 0.2, animations: { [weak self] in
                     self?.tableView?.frame = tableViewFrame
                 })
@@ -461,7 +464,7 @@ open class SearchTextField: UITextField {
                 var textToFilter = text!.lowercased()
                 
                 if inlineMode, let filterAfter = startFilteringAfter {
-                    if let suffixToFilter = textToFilter.components(separatedBy: filterAfter).last, (suffixToFilter != "" || startSuggestingInmediately == true), textToFilter != suffixToFilter {
+                    if let suffixToFilter = textToFilter.components(separatedBy: filterAfter).last, (suffixToFilter != "" || startSuggestingImmediately == true), textToFilter != suffixToFilter {
                         textToFilter = suffixToFilter
                     } else {
                         placeholderLabel?.text = ""

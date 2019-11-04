@@ -1,7 +1,7 @@
 <p align="left">
 <a href="https://travis-ci.org/EurekaCommunity/ImageRow"><img src="https://travis-ci.org/EurekaCommunity/ImageRow.svg?branch=master" alt="Build status" /></a>
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
-<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift4-compatible-4BC51D.svg?style=flat" alt="Swift 4 compatible" /></a>
+<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift5-compatible-4BC51D.svg?style=flat" alt="Swift 4 compatible" /></a>
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible" /></a>
 <a href="https://cocoapods.org/pods/ImageRow"><img src="https://img.shields.io/cocoapods/v/ImageRow.svg" alt="CocoaPods compatible" /></a>
 <a href="https://raw.githubusercontent.com/EurekaCommunity/ImageRow/master/LICENSE"><img src="http://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License: MIT" /></a>
@@ -31,10 +31,10 @@ class ViewController: FormViewController {
                 <<< ImageRow() { row in
                     row.title = "Image Row 1"
                     row.sourceTypes = [.PhotoLibrary, .SavedPhotosAlbum]
-                    row.clearAction = .yes(style: UIAlertActionStyle.destructive)
+                    row.clearAction = .yes(style: UIAlertAction.Style.destructive)
                 }
              +++
-                 Section()
+                Section()
                 <<< ImageRow() {
                     $0.title = "Image Row 2"
                     $0.sourceTypes = .PhotoLibrary
@@ -60,9 +60,9 @@ You must add the **NSPhotoLibraryUsageDescription**  and **NSCameraUsageDescript
 
 ## Requirements
 
-* iOS 9.0+
-* Xcode 9.0+
-* Eureka ~> 4.0
+* iOS 9.3+
+* Xcode 10.2+
+* Eureka ~> 5.0
 
 ## Getting involved
 
@@ -89,7 +89,7 @@ You can also experiment and learn with the *ImageRow Playground* which is contai
 To install ImageRow, simply add the following line to your Podfile:
 
 ```ruby
-pod 'ImageRow', '~> 3.0'
+pod 'ImageRow', '~> 4.0'
 ```
 
 #### Carthage
@@ -99,7 +99,7 @@ pod 'ImageRow', '~> 3.0'
 To install ImageRow, simply add the following line to your Cartfile:
 
 ```ogdl
-github "EurekaCommunity/ImageRow" ~> 3.0
+github "EurekaCommunity/ImageRow" ~> 4.0
 ```
 
 ## Customization
@@ -117,10 +117,6 @@ To localize the Actionsheet strings just add the keys `"Take photo", "Photo Libr
 ## Author
 
 * [Xmartlabs SRL](https://github.com/xmartlabs) ([@xmartlabs](https://twitter.com/xmartlabs))
-
-## FAQ
-
-no content yet
 
 # Change Log
 

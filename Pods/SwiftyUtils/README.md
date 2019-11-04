@@ -1,7 +1,7 @@
 # SwiftyUtils
 
 [![CI Status](https://travis-ci.org/tbaranes/SwiftyUtils.svg)](https://travis-ci.org/tbaranes/SwiftyUtils)
-![Language](https://img.shields.io/badge/language-Swift%204.0-orange.svg)
+![Language](https://img.shields.io/badge/language-Swift%205.0-orange.svg)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SwiftyUtils.svg)](https://img.shields.io/cocoapods/v/SwiftyUtils.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftyUtils.svg?style=flat)](http://cocoadocs.org/docsets/SwiftyUtils)
@@ -46,7 +46,6 @@ Check out the repository to find examples / tests for each feature.
 - [UserDefaults](#userdefaults-extension)
 - **Protocols:**
  - [Injectable](#injectable)
- - [Iteratable](#iteratable)
  - [Occupiable](#occupiable)
  - [Then](#then)
 
@@ -68,6 +67,7 @@ Check out the repository to find examples / tests for each feature.
 **Available for macOS:**
 
 - [NSView](#nsview-extension)
+- [SystemUtility - Shell](#system-utility)
 
 ## Available for iOS, macOS, tvOS and watchOS
 
@@ -79,13 +79,6 @@ Safely access to an element:
 var array = [1, 2, 3]
 print(array[safe: 0]) // Optional(1)
 print(array[safe: 10]) // nil
-```
-
-Access to a random element:
-
-``` swift
-var array = [1, 2, 3]
-print(array.random()) // 1, 2 or 3
 ```
 
 Find all the index of an object:
@@ -173,27 +166,6 @@ Split into chunk of a specific size:
 ``` swift
 var array = [1, 2, 3, 4]
 print(array.split(intoChunksOf: 2)) // [[1, 2], [3, 4]]
-```
-
-Shuffle array's elements:
-
-``` swift
-var array = [1, 2, 3, 5, 6]
-array.shuffle()
-print(array) // [3, 6, 1, 2, 5]
-
-let arrayShuffled = array.shuffled()
-print(arrayShuffled) // [2, 1, 6, 3, 5]
-```
-
-Test all elements of an array against a closure:
-
-``` swift
-var array = [1, 2, 3]
-let result = array.testAll {
-	$0 == 1
-}
-print(result) // false
 ```
 
 ### Bundle extension
@@ -356,6 +328,30 @@ let darker = color.darker(amount: 0.5)
 let darker = color.darker()
 ```
 
+### Data Extension
+
+Initialize from hex string:
+
+```swift
+let hexString = "6261736520313020697320736F2062617369632E206261736520313620697320776865726520697427732061742C20796F2E"
+let data = Data(hexString: hexString)
+```
+
+Get hex string from data:
+
+```swift
+let data = Data(...)
+let string = data.toHexString()
+// string = "6261736520313020697320736F2062617369632E206261736520313620697320776865726520697427732061742C20796F2E" if using previous example value
+```
+
+Get UInt8 Array from data:
+
+```swift
+let data = Data(...)
+let array = data.bytesArray
+```
+
 ## Date extension
 
 Initialize from string:
@@ -402,13 +398,6 @@ Check if a key exists in the dictionary:
 let dic = ["one": 1, "two": 2]
 print(dic.has(key: "one")) // True
 print(dic.has(key: "1")) // False
-```
-
-Access a random element:
-
-``` swift
-let dic= ["one": 1, "two": 2]
-print(dic.random()) // 1 or something else
 ```
 
 Easily get union of two dictionaries:
@@ -460,16 +449,6 @@ let dic2 = ["three": 3, "four": 4]
 var finalDic = [String: Int]()
 finalDic.merge(with: dic1, dic2)
 print(finalDic) // ["one": 1, "two": 2, "three": 3, "four": 4]
-```
-
-Test each element against a closure:
-
-``` swift
-var dic = ["abc": "abc, "ab": "a", "b": "b"]
-let result = dic.testAll { key, _ in 
-    key.length < 3 
-}
-print(result) // false
 ```
 
 ### Double extension
@@ -776,6 +755,26 @@ var string = "test@"
 print(string.isEmail) // false
 ```
 
+Check if it's a valid IP address:
+
+```swift
+let ip4 = "1.2.3.4"
+let ip6 = "fc00::"
+let notIPAtAll = "i'll bribe you to say i'm an ip address!"
+
+ip4.isIP4Address //true
+ip4.isIP6Address //false
+ip4.isIPAddress //true
+
+ip6.isIP4Address //false
+ip6.isIP6Address //true
+ip6.isIPAddress //true
+
+notIPAtAll.isIP4Address //false
+notIPAtAll.isIP6Address //false
+notIPAtAll.isIPAddress //false
+```
+
 Uncamelize a string:
 
 ```swift
@@ -983,19 +982,6 @@ override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 }
 ```
 
-### Iteratable
-
-Make your enums iteratable:
-
-```swift
-enum Alphabet: Iteratable {
-    case a, b, c, d
-}
-
-let values = iterateEnum(Alphabet.self).map { $0 }
-print(values) // [Alphabet.a, Alphabet.b, Alphabet.c, Alphabet.d]
-```
-
 ### Occupiable
 
 The following use cases works for String Array, Dictionary, and Set
@@ -1195,7 +1181,7 @@ print(label.text) // I wi.
 Get the screen orientation:
 
 ```swift
-if UIInterfaceOrientationIsPortrait(UIScreen.screenOrientation) {
+if UIInterfaceOrientationIsPortrait(UIScreen.currentOrientation) {
 	// Portrait
 } else {
 	// Landscape
@@ -1327,6 +1313,28 @@ aView.convertLocalizables()
 
 It will iterate on all the subviews of the view, and use the text / placeholder as key in `NSLocalizedString`.
 By settings your localizable key in your xib / storyboard, all yours string will be automatically translated just by calling the above method.
+
+### Shell Utility 
+(macOS only)
+
+Runs a command on a system shell and provides the return code for success, STDOUT, and STDERR.
+
+**STDOUT as one continuous String**
+```
+let (rCode, stdOut, stdErr) = SystemUtility.shell(["ls", "-l", "/"])
+// rCode = 0 (which is "true" in shell)
+// stdOut = "total 13\ndrwxrwxr-x+ 91 root  admin  2912 Feb 11 01:24 Applications" ...  etc
+// stdErr = [""]
+```
+
+**STDOUT as array of Strings separated by newlines**
+```
+let (rCode, stdOut, stdErr) = SystemUtility.shellArrayOut(["ls", "-l", "/"])
+// rCode = 0 (which is "true" in shell)
+// stdOut = ["total 13", "drwxrwxr-x+ 91 root  admin  2912 Feb 11 01:24 Applications" ...  etc]
+// stdErr = [""]
+```
+
 
 ## Installation
 

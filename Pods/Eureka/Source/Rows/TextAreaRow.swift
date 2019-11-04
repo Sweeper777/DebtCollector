@@ -23,6 +23,7 @@
 // THE SOFTWARE.
 
 import Foundation
+import UIKit
 
 // TODO: Temporary workaround for Xcode 10 beta
 #if swift(>=4.2)
@@ -45,6 +46,7 @@ public enum TextAreaMode {
 protocol TextAreaConformance: FormatterConformance {
     var placeholder: String? { get set }
     var textAreaHeight: TextAreaHeight { get set }
+    var titlePercentage: CGFloat? { get set}
 }
 
 /**
@@ -78,13 +80,18 @@ open class _TextAreaCell<T> : Cell<T>, UITextViewDelegate, AreaCell where T: Equ
         textView.font = .preferredFont(forTextStyle: .body)
         textView.textContainer.lineFragmentPadding = 0
         textView.textContainerInset = UIEdgeInsets.zero
+        textView.backgroundColor = .clear
         contentView.addSubview(textView)
 
         let placeholderLabel = UILabel()
         self.placeholderLabel = placeholderLabel
         placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
         placeholderLabel.numberOfLines = 0
-        placeholderLabel.textColor = UIColor(white: 0, alpha: 0.22)
+        if #available(iOS 13.0, *) {
+            placeholderLabel.textColor = UIColor.tertiaryLabel
+        } else {
+            placeholderLabel.textColor = UIColor(white: 0, alpha: 0.22)
+        }
         placeholderLabel.font = textView.font
         contentView.addSubview(placeholderLabel)
     }
@@ -131,7 +138,11 @@ open class _TextAreaCell<T> : Cell<T>, UITextViewDelegate, AreaCell where T: Equ
         textLabel?.text = nil
         detailTextLabel?.text = nil
         textView.isEditable = !row.isDisabled
-        textView.textColor = row.isDisabled ? .gray : .black
+        if #available(iOS 13.0, *) {
+            textView.textColor = row.isDisabled ? .tertiaryLabel : .label
+        } else {
+            textView.textColor = row.isDisabled ? .gray : .black
+        }
         textView.text = row.displayValueFor?(row.value)
         placeholderLabel?.text = (row as? TextAreaConformance)?.placeholder
         placeholderLabel?.isHidden = textView.text.count != 0
@@ -195,10 +206,10 @@ open class _TextAreaCell<T> : Cell<T>, UITextViewDelegate, AreaCell where T: Equ
 
         if let textAreaConformance = row as? TextAreaConformance, case .dynamic = textAreaConformance.textAreaHeight, let tableView = formViewController()?.tableView {
             let currentOffset = tableView.contentOffset
-            UIView.setAnimationsEnabled(false)
-            tableView.beginUpdates()
-            tableView.endUpdates()
-            UIView.setAnimationsEnabled(true)
+            UIView.performWithoutAnimation {
+                tableView.beginUpdates()
+                tableView.endUpdates()
+            }
             tableView.setContentOffset(currentOffset, animated: false)
         }
         placeholderLabel?.isHidden = textView.text.count != 0
@@ -206,11 +217,11 @@ open class _TextAreaCell<T> : Cell<T>, UITextViewDelegate, AreaCell where T: Equ
             row.value = nil
             return
         }
-        guard let fieldRow = row as? FieldRowConformance, let formatter = fieldRow.formatter else {
+        guard let formatterRow = row as? FormatterConformance, let formatter = formatterRow.formatter else {
             row.value = textValue.isEmpty ? nil : (T.init(string: textValue) ?? row.value)
             return
         }
-        if fieldRow.useFormatterDuringInput {
+        if formatterRow.useFormatterDuringInput {
             let value: AutoreleasingUnsafeMutablePointer<AnyObject?> = AutoreleasingUnsafeMutablePointer<AnyObject?>.init(UnsafeMutablePointer<T>.allocate(capacity: 1))
             let errorDesc: AutoreleasingUnsafeMutablePointer<NSString?>? = nil
             if formatter.getObjectValue(value, for: textValue, errorDescription: errorDesc) {
@@ -267,6 +278,17 @@ open class _TextAreaCell<T> : Cell<T>, UITextViewDelegate, AreaCell where T: Equ
             views["imageView"] = imageView
             dynamicConstraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "H:[imageView]-(15)-[textView]-|", options: [], metrics: nil, views: views))
             dynamicConstraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "H:[imageView]-(15)-[label]-|", options: [], metrics: nil, views: views))
+        } else if let titlePercentage = (row as? TextAreaConformance)?.titlePercentage, titlePercentage > 0.0 {
+            textView.textAlignment = .right
+            dynamicConstraints += NSLayoutConstraint.constraints(withVisualFormat: "H:[textView]-|", options: [], metrics: nil, views: views)
+            let sideSpaces = (layoutMargins.right + layoutMargins.left)
+            dynamicConstraints.append(NSLayoutConstraint(item: textView!,
+                                                         attribute: .width,
+                                                         relatedBy: .equal,
+                                                         toItem: contentView,
+                                                         attribute: .width,
+                                                         multiplier: 1 - titlePercentage,
+                                                         constant: -sideSpaces))
         } else {
             dynamicConstraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "H:|-[textView]-|", options: [], metrics: nil, views: views))
             dynamicConstraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "H:|-[label]-|", options: [], metrics: nil, views: views))
@@ -292,7 +314,9 @@ open class AreaRow<Cell: CellType>: FormatteableRow<Cell>, TextAreaConformance w
     open var placeholder: String?
     open var textAreaHeight = TextAreaHeight.fixed(cellHeight: 110)
     open var textAreaMode = TextAreaMode.normal
-    
+    /// The percentage of the cell that should be occupied by the remaining space to the left of the textArea. This is equivalent to the space occupied by a title in FieldRow, making the textArea aligned to fieldRows using the same titlePercentage. This behavior works only if the cell does not contain an image, due to its automatically set constraints in the cell.
+    open var titlePercentage: CGFloat?
+
     public required init(tag: String?) {
         super.init(tag: tag)
     }
