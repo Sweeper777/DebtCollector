@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Set the realm path to the new directory
         let config = Realm.Configuration(
             fileURL: URL(string: realmPath),
-            schemaVersion: 4,
+            schemaVersion: 5,
             migrationBlock: { migration, oldSchemaVersion in
                 if (oldSchemaVersion < 4) {
                 }

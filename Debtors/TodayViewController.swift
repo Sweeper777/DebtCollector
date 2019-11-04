@@ -32,7 +32,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
         
         var config = Realm.Configuration()
-        config.schemaVersion = 4
+        config.schemaVersion = 5
         config.fileURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.io.github.sweeper777.DebtCollectorGroup")!.appendingPathComponent("default.realm")
         Realm.Configuration.defaultConfiguration = config
         reload()
