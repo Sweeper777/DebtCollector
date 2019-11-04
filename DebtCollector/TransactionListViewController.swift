@@ -62,7 +62,11 @@ class TransactionListViewController: UITableViewController {
                 })
                 return true
             })]
-            cell.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+            if #available(iOS 13.0, *) {
+                cell.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
+            } else {
+                cell.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+            }
             if groupTransaction.transactions.first!.amount.value ?? 0 < 0 {
                 cell.backgroundColor = UIColor.green.withAlphaComponent(0.5)
             } else if groupTransaction.transactions.first!.amount.value ?? 0 > 0 {
@@ -101,7 +105,11 @@ class TransactionListViewController: UITableViewController {
             imageView.contentMode = .scaleAspectFill
         } else {
             tableView.backgroundView = UIView()
-            tableView.backgroundView?.backgroundColor = .white
+            if #available(iOS 13.0, *) {
+                tableView.backgroundView?.backgroundColor = .systemBackground
+            } else {
+                tableView.backgroundView?.backgroundColor = .white
+            }
         }
         tableView.tableFooterView = UIView(frame: .zero)
     }
