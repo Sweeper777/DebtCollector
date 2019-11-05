@@ -33,7 +33,11 @@ class OverviewViewController: UITableViewController {
                 let formatter = NumberFormatter()
                 formatter.numberStyle = .currency
                 formatter.currencySymbol = UserSettings.currencySymbol
-                cell.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+                if #available(iOS 13, *) {
+                    cell.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
+                } else {
+                    cell.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+                }
                 cell.amountLabel.text = formatter.string(from: personAndAmount.value as NSNumber)
             }.disposed(by: disposeBag)
         
@@ -56,7 +60,11 @@ class OverviewViewController: UITableViewController {
             imageView.contentMode = .scaleAspectFill
         } else {
             tableView.backgroundView = UIView()
-            tableView.backgroundView?.backgroundColor = .white
+            if #available(iOS 13.0, *) {
+                tableView.backgroundView?.backgroundColor = .systemBackground
+            } else {
+                tableView.backgroundView?.backgroundColor = .white
+            }
         }
         tableView.tableFooterView = UIView(frame: .zero)
     }
