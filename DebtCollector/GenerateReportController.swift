@@ -32,6 +32,10 @@ class GenerateReportController: FormViewController {
         }
         
         form +++ section
+        form +++ ButtonRow() {
+            row in
+            row.title = "Generate Report"
+        }
     }
 
 // MARK: Date Range Options
