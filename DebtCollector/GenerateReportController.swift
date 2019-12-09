@@ -24,6 +24,14 @@ class GenerateReportController: FormViewController {
             row.hidden = .function([tagRange], { ($0.rowBy(tag: tagRange) as! RowOf<String>).value != custom })
         }
         
+        section <<< DateInlineRow(tagEndDate) {
+            row in
+            row.title = "To"
+            row.value = Date()
+            row.hidden = .function([tagRange], { ($0.rowBy(tag: tagRange) as! RowOf<String>).value != custom })
+        }
+        
+        form +++ section
     }
 
 // MARK: Date Range Options
