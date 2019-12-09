@@ -9,6 +9,14 @@ class GenerateReportController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let section = Section("select range")
+        section <<< PickerInlineRow<String>(tagRange) {
+            row in
+            row.title = "Range"
+            row.options = [last7Days, last14Days, last30Days, last90Days, last365Days, allTime, custom]
+            row.value = last7Days
+        }
+        
     }
 
 // MARK: Date Range Options
