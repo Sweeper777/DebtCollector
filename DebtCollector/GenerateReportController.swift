@@ -21,3 +21,8 @@ fileprivate let last365Days = "Last 365 Days"
 fileprivate let allTime = "All Time"
 fileprivate let custom = "Custom"
 
+// MARK: Form Tags
+
+fileprivate let tagRange = "range"
+fileprivate let tagStartDate = "startDate"
+fileprivate let tagEndDate = "endDate"
