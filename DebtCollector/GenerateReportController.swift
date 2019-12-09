@@ -17,6 +17,13 @@ class GenerateReportController: FormViewController {
             row.value = last7Days
         }
         
+        section <<< DateInlineRow(tagStartDate) {
+            row in
+            row.title = "From"
+            row.value = Date().addingTimeInterval(-86400 * 7)
+            row.hidden = .function([tagRange], { ($0.rowBy(tag: tagRange) as! RowOf<String>).value != custom })
+        }
+        
     }
 
 // MARK: Date Range Options
