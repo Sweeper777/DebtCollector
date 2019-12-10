@@ -35,6 +35,12 @@ class GenerateReportController: FormViewController {
         form +++ ButtonRow() {
             row in
             row.title = "Generate Report"
+            row.disabled = .function([tagRange, tagStartDate, tagEndDate], { (form) -> Bool in
+                guard let range = (form.rowBy(tag: tagRange) as! RowOf<String>).value else { return true }
+                guard let start = (form.rowBy(tag: tagStartDate) as! RowOf<Date>).value else { return true }
+                guard let end = (form.rowBy(tag: tagEndDate) as! RowOf<Date>).value else { return true }
+                return range == custom && start >= end
+            })
         }
     }
 
