@@ -66,6 +66,7 @@ class GenerateReportController: FormViewController {
             }
         })
         
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
 
 // MARK: Date Range Options
