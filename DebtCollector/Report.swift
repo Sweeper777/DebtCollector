@@ -9,4 +9,20 @@ struct Report {
     let borrowsByPerson: [(String, Double)]
     let returnsByPerson: [(String, Double)]
     
+    init(transactions: [Transaction]) {
+        var partitioned = transactions
+        let index = partitioned.partition(by: { ($0.amount.value ?? 0) > 0 })
+        let returns = partitioned[..<index]
+        let borrows = partitioned[index...]
+        totalBorrows = borrows.map({ $0.amount.value ?? 0 }).reduce(0, +)
+        totalReturns = abs(returns.map({ $0.amount.value ?? 0 }).reduce(0, +))
+        netBalance = totalBorrows - totalReturns
+        
+        let borrowsDict = Dictionary(grouping: borrows, by: { $0.personName })
+            .mapValues { $0.map({ $0.amount.value ?? 0 }).reduce(0, +) }
+        borrowsByPerson = Array(borrowsDict.sorted(by: { $0.value > $1.value }).prefix(5))
+        let returnsDict = Dictionary(grouping: returns, by: { $0.personName })
+            .mapValues { abs($0.map({ $0.amount.value ?? 0 }).reduce(0, +)) }
+        returnsByPerson = Array(returnsDict.sorted(by: { $0.value > $1.value }).prefix(5))
+    }
 }
