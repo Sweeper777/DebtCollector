@@ -53,6 +53,16 @@ class GenerateReportController: FormViewController {
             } else if row.value == allTime {
                 self.performSegue(withIdentifier: "showReport", sender: nil)
             } else {
+                let dict = [
+                    last7Days: 7,
+                    last14Days: 14,
+                    last30Days: 30,
+                    last90Days: 90,
+                    last365Days: 365
+                ]
+                let end = Date()
+                let start = end.addingTimeInterval(-86400 * Double(dict[row.value!]!))
+                self.performSegue(withIdentifier: "showReport", sender: (start, end))
             }
         })
         
