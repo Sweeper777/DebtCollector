@@ -42,6 +42,20 @@ class GenerateReportController: FormViewController {
                 return range == custom && start >= end
             })
         }
+        .onCellSelection({ [unowned self] (cell, row) in
+            let row = self.form.rowBy(tag: tagRange) as! RowOf<String>
+            if row.value == custom {
+                let start = (self.form.rowBy(tag: tagStartDate) as! RowOf<Date>).value!
+                let end = (self.form.rowBy(tag: tagEndDate) as! RowOf<Date>).value!
+                if start < end {
+                    self.performSegue(withIdentifier: "showReport", sender: (start, end))
+                }
+            } else if row.value == allTime {
+                self.performSegue(withIdentifier: "showReport", sender: nil)
+            } else {
+            }
+        })
+        
     }
 
 // MARK: Date Range Options
