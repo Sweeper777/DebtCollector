@@ -68,6 +68,20 @@ class GenerateReportController: FormViewController {
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ReportController {
+            let results: Results<Transaction>
+            if let (start, end) = sender as? (Date, Date) {
+                results = RealmWrapper.shared.transactions.filter("date BETWEEN {%@, %@}", start, end)
+            } else {
+                results = RealmWrapper.shared.transactions
+            }
+            let report = Report(transactions: Array(results))
+            vc.report = report
+        }
+    }
+}
 
 // MARK: Date Range Options
 
