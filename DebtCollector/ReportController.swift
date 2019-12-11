@@ -24,6 +24,12 @@ class ReportController : UITableViewController {
         netBalanceLabel.text = formatter.string(from: abs(report.netBalance) as NSNumber)
         netBalanceTextLabel.text = report.netBalance > 0 ? "Net Borrowings" : "Net Returns"
         
+        let topBorrowersEntries = report.borrowsByPerson.enumerated().map { BarChartDataEntry(x: Double($0.offset), y: $0.element.1) }
+        let topBorrowersDataSet = BarChartDataSet(entries: topBorrowersEntries)
+        let topBorrowersChartData = BarChartData(dataSet: topBorrowersDataSet)
+        topBorrowersChartData.barWidth = 0.3
+        
+        topBorrowersBarChart.data = topBorrowersChartData
     }
 }
 
