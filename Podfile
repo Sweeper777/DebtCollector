@@ -18,6 +18,7 @@ target 'DebtCollector' do
   pod 'Firebase/Core'
   pod 'MGSwipeTableCell'
   pod 'ImageRow', '4.0.0'
+  pod 'Charts'
   target 'Debtors' do
       inherit! :search_paths
       pod 'EmptyDataSet-Swift'

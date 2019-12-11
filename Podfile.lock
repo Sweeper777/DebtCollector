@@ -1,4 +1,7 @@
 PODS:
+  - Charts (3.4.0):
+    - Charts/Core (= 3.4.0)
+  - Charts/Core (3.4.0)
   - Differentiator (4.0.1)
   - EmptyDataSet-Swift (5.0.0)
   - Eureka (5.1.0)
@@ -93,6 +96,7 @@ PODS:
   - SwiftyUtils (4.0.0)
 
 DEPENDENCIES:
+  - Charts
   - EmptyDataSet-Swift
   - Eureka (= 5.1.0)
   - Firebase/Core
@@ -111,6 +115,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Charts
     - Differentiator
     - EmptyDataSet-Swift
     - Eureka
@@ -154,6 +159,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/tbaranes/SwiftyUtils.git
 
 SPEC CHECKSUMS:
+  Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   Eureka: 18a5076dcf0c41f9cd9748aa1c42f4d11434bdae
@@ -183,6 +189,6 @@ SPEC CHECKSUMS:
   SearchTextField: 40dc3cc57def5a211f263cac263622c163bbc25a
   SwiftyUtils: e2c0b1fd674684e1083c894f6a71a64bb9617402
 
-PODFILE CHECKSUM: c04e19ea3ce6ab0924f9c31815af9f319e36a5e5
+PODFILE CHECKSUM: c7103042e9db6a815ce70886c3edba47baf97b8b
 
 COCOAPODS: 1.7.5
