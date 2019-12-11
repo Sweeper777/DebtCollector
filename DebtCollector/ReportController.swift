@@ -12,5 +12,18 @@ class ReportController : UITableViewController {
     @IBOutlet var topBorrowersBarChart: BarChartView!
     @IBOutlet var topReturnersBarChart: BarChartView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let formatter = NumberFormatter()
+        formatter.currencySymbol = UserSettings.currencySymbol
+        formatter.numberStyle = .currency
+        
+        totalBorrowingsLabel.text = formatter.string(from: report.totalBorrows as NSNumber)
+        totalReturnsLabel.text = formatter.string(from: report.totalReturns as NSNumber)
+        netBalanceLabel.text = formatter.string(from: abs(report.netBalance) as NSNumber)
+        netBalanceTextLabel.text = report.netBalance > 0 ? "Net Borrowings" : "Net Returns"
+        
+    }
 }
 
