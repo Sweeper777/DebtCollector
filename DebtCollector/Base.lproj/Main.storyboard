@@ -167,7 +167,7 @@
                                                     <rect key="frame" x="352.33333333333331" y="11.999999999999998" width="41.666666666666664" height="20.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -191,7 +191,7 @@
                                                     <rect key="frame" x="351.33333333333331" y="11.999999999999998" width="42.666666666666664" height="20.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -215,7 +215,7 @@
                                                     <rect key="frame" x="350" y="11.999999999999998" width="44" height="20.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -231,6 +231,18 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mRb-dC-U2O" id="2kH-Yg-L2l">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="205"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bWj-w9-87r" customClass="BarChartView" customModule="Charts">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="205"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="bWj-w9-87r" secondAttribute="trailing" id="8mG-Sl-KDI"/>
+                                                <constraint firstAttribute="bottom" secondItem="bWj-w9-87r" secondAttribute="bottom" id="9Kx-2I-wT8"/>
+                                                <constraint firstItem="bWj-w9-87r" firstAttribute="leading" secondItem="2kH-Yg-L2l" secondAttribute="leading" id="IK5-3t-uMH"/>
+                                                <constraint firstItem="bWj-w9-87r" firstAttribute="top" secondItem="2kH-Yg-L2l" secondAttribute="top" id="UDS-OR-Prt"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -243,6 +255,18 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0ah-N9-mrJ" id="BFu-k9-rDD">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="205"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ltt-TN-tbH" customClass="BarChartView" customModule="Charts">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="205"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="ltt-TN-tbH" secondAttribute="bottom" id="KGq-DE-g6M"/>
+                                                <constraint firstAttribute="trailing" secondItem="ltt-TN-tbH" secondAttribute="trailing" id="Kjj-GW-bGG"/>
+                                                <constraint firstItem="ltt-TN-tbH" firstAttribute="leading" secondItem="BFu-k9-rDD" secondAttribute="leading" id="Uzk-bm-1W8"/>
+                                                <constraint firstItem="ltt-TN-tbH" firstAttribute="top" secondItem="BFu-k9-rDD" secondAttribute="top" id="wGv-JF-9Il"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -254,6 +278,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Report" id="2Gu-aY-CTy"/>
+                    <connections>
+                        <outlet property="netBalanceLabel" destination="OrO-ig-ec7" id="Kp5-x0-0Xj"/>
+                        <outlet property="netBalanceTextLabel" destination="sVQ-Jm-dcV" id="wY4-OB-EQM"/>
+                        <outlet property="topBorrowersBarChart" destination="bWj-w9-87r" id="9NI-re-I4r"/>
+                        <outlet property="topReturnersBarChart" destination="ltt-TN-tbH" id="w7A-Vu-l5C"/>
+                        <outlet property="totalBorrowingsLabel" destination="gLF-aI-sMq" id="7YX-7y-LaT"/>
+                        <outlet property="totalReturnsLabel" destination="Dsy-rp-cPe" id="PUO-eC-npF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YGl-Nb-ix4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
