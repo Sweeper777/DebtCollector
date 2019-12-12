@@ -42,6 +42,13 @@ class ReportController : UITableViewController {
         topBorrowersBarChart.xAxis.granularityEnabled = true
         topBorrowersBarChart.xAxis.granularity = 1
         
+        let topReturnersEntries = report.returnsByPerson.enumerated().map { BarChartDataEntry(x: Double($0.offset), y: $0.element.1) }
+        let topReturnersDataSet = BarChartDataSet(entries: topReturnersEntries)
+        let topReturnersChartData = BarChartData(dataSet: topReturnersDataSet)
+        topReturnersChartData.barWidth = 0.3
+        
+        topReturnersBarChart.data = topReturnersChartData
+        
     }
 }
 
