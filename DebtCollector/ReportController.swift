@@ -62,3 +62,15 @@ class ReportController : UITableViewController {
     }
 }
 
+class BarChartXAxisLabelFormatter : IAxisValueFormatter {
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        print(value)
+        return labels[Int(value)]
+    }
+    
+    let labels: [String]
+    
+    init(labels: [String]) {
+        self.labels = labels
+    }
+}
