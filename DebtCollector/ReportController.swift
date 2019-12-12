@@ -49,6 +49,16 @@ class ReportController : UITableViewController {
         
         topReturnersBarChart.data = topReturnersChartData
         
+        topReturnersBarChart.drawValueAboveBarEnabled = false
+        topReturnersBarChart.xAxis.setLabelCount(report.returnsByPerson.count, force: true)
+        topReturnersBarChart.xAxis.valueFormatter = BarChartXAxisLabelFormatter(labels: report.returnsByPerson.map { $0.0 })
+        topReturnersBarChart.xAxis.labelPosition = .bottom
+        topReturnersBarChart.xAxis.drawGridLinesEnabled = false
+        topReturnersBarChart.leftAxis.enabled = false
+        topReturnersBarChart.rightAxis.enabled = false
+        topReturnersBarChart.legend.enabled = false
+        topReturnersBarChart.xAxis.granularityEnabled = true
+        topReturnersBarChart.xAxis.granularity = 1
     }
 }
 
