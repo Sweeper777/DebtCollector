@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A041135239BD9B6004901BB /* GenerateReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A041134239BD9B6004901BB /* GenerateReportController.swift */; };
+		5A041137239C032E004901BB /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A041136239C032E004901BB /* Report.swift */; };
+		5A041139239C0E1D004901BB /* ReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A041138239C0E1D004901BB /* ReportController.swift */; };
 		5A3ED26620F4AA6700E79CE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3ED26520F4AA6700E79CE6 /* AppDelegate.swift */; };
 		5A3ED26820F4AA6700E79CE6 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3ED26720F4AA6700E79CE6 /* OverviewViewController.swift */; };
 		5A3ED26B20F4AA6700E79CE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A3ED26920F4AA6700E79CE6 /* Main.storyboard */; };
@@ -75,6 +78,9 @@
 		1251D4F1FEDDE152FF3D67C5 /* Pods_Debtors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Debtors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		280BCFAF28ED4605356A222F /* Pods-DebtCollector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DebtCollector.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DebtCollector/Pods-DebtCollector.debug.xcconfig"; sourceTree = "<group>"; };
 		324A93EBEB4C3B4244C566CD /* Pods-Debtors.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Debtors.release.xcconfig"; path = "Pods/Target Support Files/Pods-Debtors/Pods-Debtors.release.xcconfig"; sourceTree = "<group>"; };
+		5A041134239BD9B6004901BB /* GenerateReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateReportController.swift; sourceTree = "<group>"; };
+		5A041136239C032E004901BB /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		5A041138239C0E1D004901BB /* ReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportController.swift; sourceTree = "<group>"; };
 		5A3ED26220F4AA6700E79CE6 /* DebtCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DebtCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A3ED26520F4AA6700E79CE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A3ED26720F4AA6700E79CE6 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
@@ -189,8 +195,11 @@
 				5A52DCE621128D2100B4F941 /* SettingsViewController.swift */,
 				5A41FE6D214D165A0002AD83 /* CalendarController.swift */,
 				5A4A0C5722B3E2D70040DF78 /* PeopleSelectorController.swift */,
+				5A041134239BD9B6004901BB /* GenerateReportController.swift */,
+				5A041138239C0E1D004901BB /* ReportController.swift */,
 				5A3ED26920F4AA6700E79CE6 /* Main.storyboard */,
 				5A4690B920F5FE4400911E04 /* Transaction.swift */,
+				5A041136239C032E004901BB /* Report.swift */,
 				5A6BF0E220F75D0A0035407A /* RealmWrapper.swift */,
 				5A52DCE821128F7700B4F941 /* UserSettings.swift */,
 				5A3ED26C20F4AA6A00E79CE6 /* Assets.xcassets */,
@@ -364,6 +373,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DebtCollector/Pods-DebtCollector-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
@@ -386,6 +396,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
@@ -460,6 +471,8 @@
 			files = (
 				5A4690BE20F6017200911E04 /* OverviewTableViewCell.swift in Sources */,
 				5A3ED26820F4AA6700E79CE6 /* OverviewViewController.swift in Sources */,
+				5A041137239C032E004901BB /* Report.swift in Sources */,
+				5A041139239C0E1D004901BB /* ReportController.swift in Sources */,
 				5A3F33FE2101E36100B28C14 /* NewTransactionViewController.swift in Sources */,
 				5A4580B1210A9BE8002691FB /* DetailTransactionTableViewCell.swift in Sources */,
 				5A6BF0E320F75D0A0035407A /* RealmWrapper.swift in Sources */,
@@ -470,6 +483,7 @@
 				5A52DCE721128D2100B4F941 /* SettingsViewController.swift in Sources */,
 				5A3F33FC2101D7B800B28C14 /* GroupedTransactionTableViewCell.swift in Sources */,
 				5A4A0C5822B3E2D70040DF78 /* PeopleSelectorController.swift in Sources */,
+				5A041135239BD9B6004901BB /* GenerateReportController.swift in Sources */,
 				5A4690BA20F5FE4400911E04 /* Transaction.swift in Sources */,
 				5A3EE36520FC950B00756EC8 /* BriefTransactionTableViewCell.swift in Sources */,
 				5A52DCE921128F7700B4F941 /* UserSettings.swift in Sources */,
