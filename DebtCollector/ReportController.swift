@@ -30,6 +30,18 @@ class ReportController : UITableViewController {
         topBorrowersChartData.barWidth = 0.3
         
         topBorrowersBarChart.data = topBorrowersChartData
+        
+        topBorrowersBarChart.drawValueAboveBarEnabled = false
+        topBorrowersBarChart.xAxis.setLabelCount(report.borrowsByPerson.count, force: true)
+        topBorrowersBarChart.xAxis.valueFormatter = BarChartXAxisLabelFormatter(labels: report.borrowsByPerson.map { $0.0 })
+        topBorrowersBarChart.xAxis.labelPosition = .bottom
+        topBorrowersBarChart.xAxis.drawGridLinesEnabled = false
+        topBorrowersBarChart.leftAxis.enabled = false
+        topBorrowersBarChart.rightAxis.enabled = false
+        topBorrowersBarChart.legend.enabled = false
+        topBorrowersBarChart.xAxis.granularityEnabled = true
+        topBorrowersBarChart.xAxis.granularity = 1
+        
     }
 }
 
