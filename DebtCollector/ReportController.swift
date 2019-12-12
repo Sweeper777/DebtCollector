@@ -12,6 +12,19 @@ class ReportController : UITableViewController {
     @IBOutlet var topBorrowersBarChart: BarChartView!
     @IBOutlet var topReturnersBarChart: BarChartView!
     
+    fileprivate func configureChart(_ chart: BarChartView, labels: [String]) {
+        chart.drawValueAboveBarEnabled = false
+        chart.xAxis.setLabelCount(labels.count, force: true)
+        chart.xAxis.valueFormatter = BarChartXAxisLabelFormatter(labels: labels)
+        chart.xAxis.labelPosition = .bottom
+        chart.xAxis.drawGridLinesEnabled = false
+        chart.leftAxis.enabled = false
+        chart.rightAxis.enabled = false
+        chart.legend.enabled = false
+        chart.xAxis.granularityEnabled = true
+        chart.xAxis.granularity = 1
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,16 +44,7 @@ class ReportController : UITableViewController {
         
         topBorrowersBarChart.data = topBorrowersChartData
         
-        topBorrowersBarChart.drawValueAboveBarEnabled = false
-        topBorrowersBarChart.xAxis.setLabelCount(report.borrowsByPerson.count, force: true)
-        topBorrowersBarChart.xAxis.valueFormatter = BarChartXAxisLabelFormatter(labels: report.borrowsByPerson.map { $0.0 })
-        topBorrowersBarChart.xAxis.labelPosition = .bottom
-        topBorrowersBarChart.xAxis.drawGridLinesEnabled = false
-        topBorrowersBarChart.leftAxis.enabled = false
-        topBorrowersBarChart.rightAxis.enabled = false
-        topBorrowersBarChart.legend.enabled = false
-        topBorrowersBarChart.xAxis.granularityEnabled = true
-        topBorrowersBarChart.xAxis.granularity = 1
+        configureChart(topBorrowersBarChart, labels: report.borrowsByPerson.map { $0.0 })
         
         let topReturnersEntries = report.returnsByPerson.enumerated().map { BarChartDataEntry(x: Double($0.offset), y: $0.element.1) }
         let topReturnersDataSet = BarChartDataSet(entries: topReturnersEntries)
@@ -49,16 +53,7 @@ class ReportController : UITableViewController {
         
         topReturnersBarChart.data = topReturnersChartData
         
-        topReturnersBarChart.drawValueAboveBarEnabled = false
-        topReturnersBarChart.xAxis.setLabelCount(report.returnsByPerson.count, force: true)
-        topReturnersBarChart.xAxis.valueFormatter = BarChartXAxisLabelFormatter(labels: report.returnsByPerson.map { $0.0 })
-        topReturnersBarChart.xAxis.labelPosition = .bottom
-        topReturnersBarChart.xAxis.drawGridLinesEnabled = false
-        topReturnersBarChart.leftAxis.enabled = false
-        topReturnersBarChart.rightAxis.enabled = false
-        topReturnersBarChart.legend.enabled = false
-        topReturnersBarChart.xAxis.granularityEnabled = true
-        topReturnersBarChart.xAxis.granularity = 1
+        configureChart(topReturnersBarChart, labels: report.returnsByPerson.map { $0.0 })
     }
 }
 
