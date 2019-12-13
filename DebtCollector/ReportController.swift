@@ -5,6 +5,7 @@ class ReportController : UITableViewController {
     
     var report: Report!
     
+    @IBOutlet var totalTransactionsLabel: UILabel!
     @IBOutlet var totalBorrowingsLabel: UILabel!
     @IBOutlet var totalReturnsLabel: UILabel!
     @IBOutlet var netBalanceLabel: UILabel!
@@ -32,6 +33,7 @@ class ReportController : UITableViewController {
         formatter.currencySymbol = UserSettings.currencySymbol
         formatter.numberStyle = .currency
         
+        totalTransactionsLabel.text = "\(report.transactionCount)"
         totalBorrowingsLabel.text = formatter.string(from: report.totalBorrows as NSNumber)
         totalReturnsLabel.text = formatter.string(from: report.totalReturns as NSNumber)
         netBalanceLabel.text = formatter.string(from: abs(report.netBalance) as NSNumber)
