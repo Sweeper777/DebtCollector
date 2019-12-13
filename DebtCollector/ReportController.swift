@@ -13,13 +13,9 @@ class ReportController : UITableViewController {
     @IBOutlet var topBorrowersBarChart: BarChartView!
     @IBOutlet var topReturnersBarChart: BarChartView!
     
-    fileprivate func configureChart(_ chart: BarChartView, labels: [String]) {
+    fileprivate func configureChart(_ chart: BarChartView) {
         chart.drawValueAboveBarEnabled = false
-        chart.xAxis.setLabelCount(labels.count, force: true)
-        chart.xAxis.valueFormatter = BarChartXAxisLabelFormatter(labels: labels)
-        chart.xAxis.labelPosition = .bottom
-        chart.xAxis.drawGridLinesEnabled = false
-        chart.leftAxis.enabled = false
+        chart.xAxis.enabled = false
         chart.rightAxis.enabled = false
         chart.legend.enabled = false
         chart.xAxis.granularityEnabled = true
@@ -43,19 +39,19 @@ class ReportController : UITableViewController {
         let topBorrowersDataSet = BarChartDataSet(entries: topBorrowersEntries)
         let topBorrowersChartData = BarChartData(dataSet: topBorrowersDataSet)
         topBorrowersChartData.barWidth = 0.3
+        topBorrowersChartData.setValueFormatter(BarChartLabelFormatter(labels: report.borrowsByPerson.map { $0.0 }))
         
         topBorrowersBarChart.data = topBorrowersChartData
-        
-        configureChart(topBorrowersBarChart, labels: report.borrowsByPerson.map { $0.0 })
+        configureChart(topBorrowersBarChart)
         
         let topReturnersEntries = report.returnsByPerson.enumerated().map { BarChartDataEntry(x: Double($0.offset), y: $0.element.1) }
         let topReturnersDataSet = BarChartDataSet(entries: topReturnersEntries)
         let topReturnersChartData = BarChartData(dataSet: topReturnersDataSet)
         topReturnersChartData.barWidth = 0.3
+        topReturnersChartData.setValueFormatter(BarChartLabelFormatter(labels: report.returnsByPerson.map { $0.0 }))
         
         topReturnersBarChart.data = topReturnersChartData
-        
-        configureChart(topReturnersBarChart, labels: report.returnsByPerson.map { $0.0 })
+        configureChart(topReturnersBarChart)
     }
 }
 
