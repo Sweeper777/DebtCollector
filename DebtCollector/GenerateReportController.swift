@@ -71,13 +71,13 @@ class GenerateReportController: FormViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ReportController {
-            let results: Results<Transaction>
+            let results: Results<GroupTransaction>
             if let (start, end) = sender as? (Date, Date) {
-                results = RealmWrapper.shared.transactions.filter("date BETWEEN {%@, %@}", start, end)
+                results = RealmWrapper.shared.groupTransactions.filter("date BETWEEN {%@, %@}", start, end)
             } else {
-                results = RealmWrapper.shared.transactions
+                results = RealmWrapper.shared.groupTransactions
             }
-            let report = Report(transactions: Array(results))
+            let report = Report(groupTransactions: Array(results))
             vc.report = report
         }
     }
