@@ -40,6 +40,7 @@ class ReportController : UITableViewController {
         
         let topBorrowersEntries = report.borrowsByPerson.enumerated().map { BarChartDataEntry(x: Double($0.offset), y: $0.element.1) }
         let topBorrowersDataSet = BarChartDataSet(entries: topBorrowersEntries)
+        topBorrowersDataSet.setColor(UIColor.red.darker())
         let topBorrowersChartData = BarChartData(dataSet: topBorrowersDataSet)
         topBorrowersChartData.setValueFormatter(BarChartLabelFormatter(labels: report.borrowsByPerson.map { $0.0 }))
         
@@ -48,6 +49,7 @@ class ReportController : UITableViewController {
         
         let topReturnersEntries = report.returnsByPerson.enumerated().map { BarChartDataEntry(x: Double($0.offset), y: $0.element.1) }
         let topReturnersDataSet = BarChartDataSet(entries: topReturnersEntries)
+        topReturnersDataSet.setColor(UIColor.green.darker())
         let topReturnersChartData = BarChartData(dataSet: topReturnersDataSet)
         topReturnersChartData.setValueFormatter(BarChartLabelFormatter(labels: report.returnsByPerson.map { $0.0 }))
         
