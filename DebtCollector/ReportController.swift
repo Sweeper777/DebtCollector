@@ -14,12 +14,15 @@ class ReportController : UITableViewController {
     @IBOutlet var topReturnersBarChart: BarChartView!
     
     fileprivate func configureChart(_ chart: BarChartView) {
-        chart.drawValueAboveBarEnabled = false
         chart.xAxis.enabled = false
         chart.rightAxis.enabled = false
         chart.legend.enabled = false
         chart.xAxis.granularityEnabled = true
         chart.xAxis.granularity = 1
+        chart.highlightFullBarEnabled = false
+        chart.highlightPerTapEnabled = false
+        chart.highlightPerDragEnabled = false
+        chart.barData?.barWidth = 0.3
     }
     
     override func viewDidLoad() {
@@ -38,7 +41,6 @@ class ReportController : UITableViewController {
         let topBorrowersEntries = report.borrowsByPerson.enumerated().map { BarChartDataEntry(x: Double($0.offset), y: $0.element.1) }
         let topBorrowersDataSet = BarChartDataSet(entries: topBorrowersEntries)
         let topBorrowersChartData = BarChartData(dataSet: topBorrowersDataSet)
-        topBorrowersChartData.barWidth = 0.3
         topBorrowersChartData.setValueFormatter(BarChartLabelFormatter(labels: report.borrowsByPerson.map { $0.0 }))
         
         topBorrowersBarChart.data = topBorrowersChartData
@@ -47,7 +49,6 @@ class ReportController : UITableViewController {
         let topReturnersEntries = report.returnsByPerson.enumerated().map { BarChartDataEntry(x: Double($0.offset), y: $0.element.1) }
         let topReturnersDataSet = BarChartDataSet(entries: topReturnersEntries)
         let topReturnersChartData = BarChartData(dataSet: topReturnersDataSet)
-        topReturnersChartData.barWidth = 0.3
         topReturnersChartData.setValueFormatter(BarChartLabelFormatter(labels: report.returnsByPerson.map { $0.0 }))
         
         topReturnersBarChart.data = topReturnersChartData
