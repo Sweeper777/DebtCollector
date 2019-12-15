@@ -25,6 +25,10 @@ class ReportController : UITableViewController {
         chart.highlightPerTapEnabled = false
         chart.highlightPerDragEnabled = false
         chart.barData?.barWidth = 0.3
+        chart.pinchZoomEnabled = false
+        chart.doubleTapToZoomEnabled = false
+        chart.fitBars = true
+        chart.dragEnabled = false
     }
     
     override func viewDidLoad() {
