@@ -5,7 +5,10 @@ struct Report {
     let totalBorrows: Double
     let totalReturns: Double
     let netBalance: Double
+    
     let transactionCount: Int
+    let borrowCount: Int
+    let returnCount: Int
     
     let borrowsByPerson: [(String, Double)]
     let returnsByPerson: [(String, Double)]
