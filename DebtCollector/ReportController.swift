@@ -29,6 +29,10 @@ class ReportController : UITableViewController {
         chart.doubleTapToZoomEnabled = false
         chart.fitBars = true
         chart.dragEnabled = false
+        if #available(iOS 13.0, *) {
+            chart.barData?.setValueTextColor(.label)
+            chart.leftAxis.labelTextColor = .label
+        }
     }
     
     override func viewDidLoad() {
