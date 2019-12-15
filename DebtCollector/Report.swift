@@ -22,7 +22,10 @@ struct Report {
         totalBorrows = borrows.map({ $0.amount.value ?? 0 }).reduce(0, +)
         totalReturns = abs(returns.map({ $0.amount.value ?? 0 }).reduce(0, +))
         netBalance = totalBorrows - totalReturns
+        
         transactionCount = groupTransactions.count
+        borrowCount = groupTransactions.filter({ ($0.transactions.first?.amount.value ?? 0) > 0 }).count
+        returnCount = transactionCount - borrowCount
         
         let borrowsDict = Dictionary(grouping: borrows, by: { $0.personName })
             .mapValues { $0.map({ $0.amount.value ?? 0 }).reduce(0, +) }
