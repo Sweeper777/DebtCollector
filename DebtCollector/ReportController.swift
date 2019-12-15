@@ -8,6 +8,8 @@ class ReportController : UITableViewController {
     @IBOutlet var totalTransactionsLabel: UILabel!
     @IBOutlet var totalBorrowingsLabel: UILabel!
     @IBOutlet var totalReturnsLabel: UILabel!
+    @IBOutlet var borrowingsCountLabel: UILabel!
+    @IBOutlet var returnsCountLabel: UILabel!
     @IBOutlet var netBalanceLabel: UILabel!
     @IBOutlet var netBalanceTextLabel: UILabel!
     @IBOutlet var topBorrowersBarChart: BarChartView!
@@ -33,6 +35,8 @@ class ReportController : UITableViewController {
         formatter.numberStyle = .currency
         
         totalTransactionsLabel.text = "\(report.transactionCount)"
+        borrowingsCountLabel.text = "\(report.borrowCount)"
+        returnsCountLabel.text = "\(report.returnCount)"
         totalBorrowingsLabel.text = formatter.string(from: report.totalBorrows as NSNumber)
         totalReturnsLabel.text = formatter.string(from: report.totalReturns as NSNumber)
         netBalanceLabel.text = formatter.string(from: abs(report.netBalance) as NSNumber)
