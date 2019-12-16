@@ -58,7 +58,6 @@ class SettingsViewController : FormViewController {
             passcodeSection <<< ButtonRow() {
                 row in
                 row.title = "Change Passcode"
-                row.cell.tintColor = UIColor(hex: "3b7b3b")
             }
             .onCellSelection({ [weak self] (cell, row) in
                 self?.saveSettings()
@@ -77,7 +76,6 @@ class SettingsViewController : FormViewController {
             passcodeSection <<< ButtonRow() {
                 row in
                 row.title = "Set Passcode"
-                row.cell.tintColor = UIColor(hex: "3b7b3b")
             }
             .onCellSelection({ [weak self] (cell, row) in
                 self?.saveSettings()
