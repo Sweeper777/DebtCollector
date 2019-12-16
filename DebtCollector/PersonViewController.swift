@@ -56,7 +56,9 @@ class PersonViewController : UITableViewController {
         
         Observable.collection(from: RealmWrapper.shared.transactions.filter("personName == %@", person.name).sorted(byKeyPath: "date", ascending: true))
             .map { (transactions) -> [PersonTableViewSection] in
-                var sections = [PersonTableViewSection.buttonSection(rows: [.button(title: "Delete This Person", tint: .red)]), PersonTableViewSection.buttonSection(rows: [.button(title: "Add a Transaction", tint: UIColor(hex: "3b7b3b"))])]
+                var sections = [
+                    PersonTableViewSection.buttonSection(rows: [.button(title: "Delete This Person", tint: .red)])
+                ]
                 sections.append(.transactionSection(rows: transactions.toArray().map { .transaction($0) }))
                 return sections
         }
@@ -77,8 +79,6 @@ class PersonViewController : UITableViewController {
                 if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
                     self.tableView.deselectRow(at: selectedIndexPath, animated: true)
                 }
-            case .button(title: "Add a Transaction", _):
-                self.performSegue(withIdentifier: "newPersonTransaction", sender: nil)
             case .transaction(let transaction):
                 self.performSegue(withIdentifier: "showWholeTransaction", sender: transaction.parentTransactions.first)
             default:
