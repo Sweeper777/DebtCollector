@@ -45,6 +45,14 @@ class SettingsViewController : FormViewController {
             row.title = "Background"
         }
         
+        +++ ButtonRow() {
+            row in
+            row.title = "People"
+        }
+        .onCellSelection({ [weak self] (cell, row) in
+            self?.performSegue(withIdentifier: "showPeople", sender: nil)
+        })
+        
         let passcodeSection = Section("passcode")
         if LTHPasscodeViewController.doesPasscodeExist() {
             passcodeSection <<< ButtonRow() {
