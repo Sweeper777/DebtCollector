@@ -5,6 +5,8 @@ import ImageRow
 
 class SettingsViewController : FormViewController {
     
+    var bgImageChanged = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,7 +45,9 @@ class SettingsViewController : FormViewController {
             row in
             row.value = UserSettings.bgImage
             row.title = "Background"
-        }
+        }.onChange({ [weak self] (row) in
+            self?.bgImageChanged = true
+        })
         
         +++ ButtonRow() {
             row in
@@ -92,7 +96,9 @@ class SettingsViewController : FormViewController {
         UserSettings.showDetailPresetsOnBorrow = (values[tagShowDetailPresetsOnBorrow] as? Bool) ?? false
         UserSettings.showDetailPresetsOnReturn = (values[tagShowDetailPresetsOnReturn] as? Bool) ?? false
         UserSettings.currencySymbol = values[tagCurrencySymbol] as? String
-        UserSettings.bgImage = values[tagBgImage] as? UIImage
+        if bgImageChanged {
+            UserSettings.bgImage = values[tagBgImage] as? UIImage
+        }
     }
     
     @IBAction func done() {
