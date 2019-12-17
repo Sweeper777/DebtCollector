@@ -95,9 +95,7 @@ class PersonViewController : UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = (segue.destination as? UINavigationController)?.topViewController as? NewTransactionViewController {
-            vc.personNameAlreadyFilledIn = person.name
-        } else if let vc = segue.destination as? DetailTransactionViewController {
+        if let vc = segue.destination as? DetailTransactionViewController {
             vc.groupedTransaction = sender as? GroupTransaction
         }
     }
