@@ -8,7 +8,6 @@ import ImageRow
 class NewTransactionViewController : FormViewController {
     
     var personNamesAlreadyFilledIn: [String]?
-    var personNameAlreadyFilledIn: String?
     var transactionToEdit: GroupTransaction?
     var detailTransactionVC: DetailTransactionViewController?
     
@@ -32,11 +31,7 @@ class NewTransactionViewController : FormViewController {
                 .onChange({ [weak self] (row) in
                     if row.value == "Returned" {
                         let row: RowOf<String>? = self?.form.rowBy(tag: tagTitle)
-                        row?.value = "\((self?.personNameAlreadyFilledIn ?? "") + " ")Returned Money"
-                        row?.updateCell()
-                    } else if let personName = self?.personNameAlreadyFilledIn {
-                        let row: RowOf<String>? = self?.form.rowBy(tag: tagTitle)
-                        row?.value = "\(personName) Borrowed Money"
+                        row?.value = "Returned Money"
                         row?.updateCell()
                     } else {
                         let row: RowOf<String>? = self?.form.rowBy(tag: tagTitle)
@@ -52,9 +47,6 @@ class NewTransactionViewController : FormViewController {
                 guard let `self` = self else { return }
                 row.cell.textField.placeholder = "Required"
                 row.title = "Title"
-                if let personName = self.personNameAlreadyFilledIn {
-                    row.value = "\(personName) Borrowed Money"
-                }
                 if let transaction = transactionToEdit {
                     row.value = transaction.title
                 }
@@ -103,7 +95,7 @@ class NewTransactionViewController : FormViewController {
                 row.value = transactionToEdit?.desc ?? ""
         }
         
-        let loopCount = transactionToEdit?.transactions.count ?? (personNameAlreadyFilledIn == nil ? RealmWrapper.shared.people.count : 1)
+        let loopCount = transactionToEdit?.transactions.count ?? RealmWrapper.shared.people.count
         let personNameOptions = Array(Set(transactionToEdit?.transactions.map { $0.personName } ?? [])
             .union(RealmWrapper.shared.people.map { $0.name })).sorted()
         
@@ -115,11 +107,7 @@ class NewTransactionViewController : FormViewController {
                     row.options = [["<Not Selected>"], personNameOptions].flatMap { $0 }
                     row.value = transactionToEdit?.transactions[i].personName ?? "<Not Selected>"
                     
-                    if i == 0 && personNameAlreadyFilledIn != nil {
-                        row.disabled = true
-                        row.evaluateDisabled()
-                        row.value = personNameAlreadyFilledIn
-                    } else if personNamesAlreadyFilledIn != nil && i < personNamesAlreadyFilledIn!.count {
+                   if personNamesAlreadyFilledIn != nil && i < personNamesAlreadyFilledIn!.count {
                         row.value = personNamesAlreadyFilledIn![i]
                     }
                 }
