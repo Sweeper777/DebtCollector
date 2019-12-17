@@ -90,5 +90,21 @@ class OverviewViewController: UITableViewController {
             self.map { LTHPasscodeViewController.sharedUser().showForDisablingPasscode(in: $0, asModal: true) }
         }
     }
+    
+    @IBAction func unwindFromSettings(segue: UIStoryboardSegue) {
+        if let image = UserSettings.bgImage {
+            let imageView = UIImageView(image: image)
+            tableView.backgroundView = imageView
+            imageView.contentMode = .scaleAspectFill
+        } else {
+            tableView.backgroundView = UIView()
+            if #available(iOS 13.0, *) {
+                tableView.backgroundView?.backgroundColor = .systemBackground
+            } else {
+                tableView.backgroundView?.backgroundColor = .white
+            }
+        }
+        tableView.tableFooterView = UIView(frame: .zero)
+    }
 }
 
