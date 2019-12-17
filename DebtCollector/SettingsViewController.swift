@@ -104,7 +104,7 @@ class SettingsViewController : FormViewController {
     @IBAction func done() {
         saveSettings()
         
-        self.dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "unwindToOverview", sender: nil)
     }
 }
 
