@@ -430,7 +430,7 @@
             <objects>
                 <tableViewController id="lFV-F3-8Ju" customClass="TransactionListViewController" customModule="DebtCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uLL-5a-aOX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -450,6 +450,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="All Transactions" id="utv-0m-0Tc">
                         <barButtonItem key="backBarButtonItem" title=" " id="iUY-ei-7YM"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="Osg-Lt-Ufn">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="dT9-jf-5tC" kind="presentation" modalPresentationStyle="formSheet" id="EVG-nP-Wbz"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="Ln1-4E-ODY">
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -782,7 +788,7 @@
             <objects>
                 <tableViewController id="RLI-JK-oi8" customClass="DetailTransactionViewController" customModule="DebtCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Out-1n-JBc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -834,6 +840,42 @@
             </objects>
             <point key="canvasLocation" x="3119" y="1649"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rEG-U1-NDG">
+            <objects>
+                <navigationController id="dT9-jf-5tC" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mKI-8i-ofN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.30980392159999998" green="0.25882352939999997" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.99998790029999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="iAB-8f-U1h" kind="relationship" relationship="rootViewController" id="Rjj-39-gqF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ceY-da-lqQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2367" y="2327"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="aTa-TQ-FVG">
+            <objects>
+                <viewController id="iAB-8f-U1h" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bWK-Ga-ffG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="PYY-DZ-7fT"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Search" id="IYo-x3-Ieq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jIt-5o-zS5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3064" y="2327"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.right.arrow.left.square" catalog="system" width="64" height="56"/>
@@ -844,9 +886,10 @@
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="house.fill" catalog="system" width="64" height="52"/>
         <image name="icons8-settings_filled" width="25" height="25"/>
+        <image name="magnifyingglass" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LYA-iW-NO5"/>
+        <segue reference="2cV-wo-7wD"/>
         <segue reference="sdR-Cu-sjk"/>
         <segue reference="KYb-g9-9vi"/>
         <segue reference="Vm3-V9-pGH"/>
