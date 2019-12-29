@@ -80,7 +80,7 @@
         <scene sceneID="HEO-lM-ZgL">
             <objects>
                 <navigationController id="ToA-du-nQC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Calendar" image="icons8-calendar" selectedImage="icons8-calendar_filled" id="zyE-VX-qgX"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar" catalog="system" selectedImage="calendar" id="zyE-VX-qgX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CN9-so-cZl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -101,7 +101,7 @@
         <scene sceneID="Cgx-7h-d1d">
             <objects>
                 <navigationController id="IID-Fz-z35" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Reports" image="icons8-business_report" selectedImage="icons8-business_report_filled" id="Qge-R6-z75"/>
+                    <tabBarItem key="tabBarItem" title="Reports" image="doc.text" catalog="system" selectedImage="doc.text.fill" id="Qge-R6-z75"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pie-tA-mqX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -430,7 +430,7 @@
             <objects>
                 <tableViewController id="lFV-F3-8Ju" customClass="TransactionListViewController" customModule="DebtCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uLL-5a-aOX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -652,7 +652,7 @@
         <scene sceneID="sQb-T4-qmb">
             <objects>
                 <navigationController id="ZjY-9p-tnD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Transactions" image="transactions" selectedImage="transactions_filled" id="BTB-Xa-vHG"/>
+                    <tabBarItem key="tabBarItem" title="Transactions" image="arrow.right.arrow.left.square" catalog="system" selectedImage="arrow.right.arrow.left.square.fill" id="BTB-Xa-vHG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EhH-1e-6ub">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -759,7 +759,7 @@
         <scene sceneID="esB-44-vai">
             <objects>
                 <navigationController id="qE7-ul-luR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="icons8-home" selectedImage="icons8-home_filled" id="1ho-jg-teq"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="1ho-jg-teq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="acz-1b-RbC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -836,18 +836,17 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-business_report" width="25" height="25"/>
-        <image name="icons8-business_report_filled" width="25" height="25"/>
-        <image name="icons8-calendar" width="25" height="25"/>
-        <image name="icons8-calendar_filled" width="25" height="25"/>
-        <image name="icons8-home" width="25" height="25"/>
-        <image name="icons8-home_filled" width="25" height="25"/>
+        <image name="arrow.right.arrow.left.square" catalog="system" width="64" height="56"/>
+        <image name="arrow.right.arrow.left.square.fill" catalog="system" width="64" height="56"/>
+        <image name="calendar" catalog="system" width="64" height="54"/>
+        <image name="doc.text" catalog="system" width="56" height="64"/>
+        <image name="doc.text.fill" catalog="system" width="56" height="64"/>
+        <image name="house" catalog="system" width="64" height="54"/>
+        <image name="house.fill" catalog="system" width="64" height="52"/>
         <image name="icons8-settings_filled" width="25" height="25"/>
-        <image name="transactions" width="25" height="25"/>
-        <image name="transactions_filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e6S-6M-9dK"/>
+        <segue reference="LYA-iW-NO5"/>
         <segue reference="sdR-Cu-sjk"/>
         <segue reference="KYb-g9-9vi"/>
         <segue reference="Vm3-V9-pGH"/>
