@@ -9,7 +9,14 @@ class SearchController: FormViewController {
             row in
         }
         
+        form +++ Section("search in") <<< SegmentedRow<String>(tagSearchArea) {
+            row in
+            row.options = ["Titles", "Descriptions", "Details", "Everywhere"]
+            row.value = "Everywhere"
+        }
+        
     }
 }
 
 let tagKeywords = "keywords"
+let tagSearchArea = "searchArea"
