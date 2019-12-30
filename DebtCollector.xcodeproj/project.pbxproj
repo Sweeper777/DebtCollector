@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A019B3E23B97C4F002A804B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A019B3D23B97C4F002A804B /* SearchController.swift */; };
 		5A041135239BD9B6004901BB /* GenerateReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A041134239BD9B6004901BB /* GenerateReportController.swift */; };
 		5A041137239C032E004901BB /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A041136239C032E004901BB /* Report.swift */; };
 		5A041139239C0E1D004901BB /* ReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A041138239C0E1D004901BB /* ReportController.swift */; };
@@ -78,6 +79,7 @@
 		1251D4F1FEDDE152FF3D67C5 /* Pods_Debtors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Debtors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		280BCFAF28ED4605356A222F /* Pods-DebtCollector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DebtCollector.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DebtCollector/Pods-DebtCollector.debug.xcconfig"; sourceTree = "<group>"; };
 		324A93EBEB4C3B4244C566CD /* Pods-Debtors.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Debtors.release.xcconfig"; path = "Pods/Target Support Files/Pods-Debtors/Pods-Debtors.release.xcconfig"; sourceTree = "<group>"; };
+		5A019B3D23B97C4F002A804B /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		5A041134239BD9B6004901BB /* GenerateReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateReportController.swift; sourceTree = "<group>"; };
 		5A041136239C032E004901BB /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		5A041138239C0E1D004901BB /* ReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				5A4A0C5722B3E2D70040DF78 /* PeopleSelectorController.swift */,
 				5A041134239BD9B6004901BB /* GenerateReportController.swift */,
 				5A041138239C0E1D004901BB /* ReportController.swift */,
+				5A019B3D23B97C4F002A804B /* SearchController.swift */,
 				5A3ED26920F4AA6700E79CE6 /* Main.storyboard */,
 				5A4690B920F5FE4400911E04 /* Transaction.swift */,
 				5A041136239C032E004901BB /* Report.swift */,
@@ -485,6 +488,7 @@
 				5A4A0C5822B3E2D70040DF78 /* PeopleSelectorController.swift in Sources */,
 				5A041135239BD9B6004901BB /* GenerateReportController.swift in Sources */,
 				5A4690BA20F5FE4400911E04 /* Transaction.swift in Sources */,
+				5A019B3E23B97C4F002A804B /* SearchController.swift in Sources */,
 				5A3EE36520FC950B00756EC8 /* BriefTransactionTableViewCell.swift in Sources */,
 				5A52DCE921128F7700B4F941 /* UserSettings.swift in Sources */,
 				5A3F33F82101D5B300B28C14 /* TransactionListViewController.swift in Sources */,
