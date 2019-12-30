@@ -24,6 +24,9 @@ class SearchController: FormViewController {
         })
     }
     
+    
+    @IBAction func done() {
+        dismiss(animated: true, completion: nil)
     }
 }
 

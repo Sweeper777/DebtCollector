@@ -863,14 +863,21 @@
         <!--Search-->
         <scene sceneID="aTa-TQ-FVG">
             <objects>
-                <viewController id="iAB-8f-U1h" sceneMemberID="viewController">
+                <viewController id="iAB-8f-U1h" customClass="SearchController" customModule="DebtCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bWK-Ga-ffG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="PYY-DZ-7fT"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Search" id="IYo-x3-Ieq"/>
+                    <navigationItem key="navigationItem" title="Search" id="IYo-x3-Ieq">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="HJj-Ly-Wt4">
+                            <color key="tintColor" red="1" green="0.99998790029999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="done" destination="iAB-8f-U1h" id="f57-bA-dV2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIt-5o-zS5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
