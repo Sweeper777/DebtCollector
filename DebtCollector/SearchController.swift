@@ -15,6 +15,15 @@ class SearchController: FormViewController {
             row.value = "Everywhere"
         }
         
+        form +++ ButtonRow {
+            row in
+            row.title = "Search"
+        }
+        .onCellSelection({ (cell, row) in
+            
+        })
+    }
+    
     }
 }
 
