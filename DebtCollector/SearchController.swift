@@ -31,6 +31,12 @@ class SearchController: FormViewController {
         return joinedTerms
     }
     
+    private func formDescriptionsPredicateString(keywords: [String]) -> String {
+        let terms = Array(repeating: "desc CONTAINS %@", count: keywords.count)
+        let joinedTerms = terms.joined(separator: " OR ")
+        return joinedTerms
+    }
+    
     
     @IBAction func done() {
         dismiss(animated: true, completion: nil)
