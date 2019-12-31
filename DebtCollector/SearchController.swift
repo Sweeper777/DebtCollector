@@ -9,9 +9,10 @@ class SearchController: FormViewController {
             row in
         }
         
-        form +++ Section("search in") <<< SegmentedRow<String>(tagSearchArea) {
+        form +++ PickerInlineRow<String>(tagSearchArea) {
             row in
-            row.options = ["Titles", "Descriptions", "Details", "Everywhere"]
+            row.title = "Search"
+            row.options = ["in Titles", "in Descriptions", "in Details", "Everywhere"]
             row.value = "Everywhere"
         }
         
