@@ -37,6 +37,11 @@ class SearchController: FormViewController {
         return joinedTerms
     }
     
+    private func formDetailsPredicateString(keywords: [String]) -> String {
+        let terms = Array(repeating: "$transaction.details CONTAINS %@", count: keywords.count)
+        let joinedTerms = terms.joined(separator: " OR ")
+        return "SUBQUERY(transactions, $transaction, \(joinedTerms)) .@count > 0"
+    }
     
     @IBAction func done() {
         dismiss(animated: true, completion: nil)
