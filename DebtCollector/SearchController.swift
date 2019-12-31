@@ -48,21 +48,27 @@ class SearchController: FormViewController {
     }
     
     private func formTitlePredicateString(keywords: [String]) -> String {
-        let terms = Array(repeating: "title CONTAINS %@", count: keywords.count)
-        let joinedTerms = terms.joined(separator: " OR ")
-        return joinedTerms
+        return formGeneralPredicateString(keywords: keywords,
+                                          containsClauseLeftOperand: "title",
+                                          joinedTermsFormat: "%@")
     }
     
     private func formDescriptionsPredicateString(keywords: [String]) -> String {
-        let terms = Array(repeating: "desc CONTAINS %@", count: keywords.count)
-        let joinedTerms = terms.joined(separator: " OR ")
-        return joinedTerms
+        return formGeneralPredicateString(keywords: keywords,
+                                          containsClauseLeftOperand: "desc",
+                                          joinedTermsFormat: "%@")
     }
     
     private func formDetailsPredicateString(keywords: [String]) -> String {
-        let terms = Array(repeating: "$transaction.details CONTAINS %@", count: keywords.count)
+        return formGeneralPredicateString(keywords: keywords,
+                                          containsClauseLeftOperand: "$transaction.details",
+                                          joinedTermsFormat: "SUBQUERY(transactions, $transaction, %@) .@count > 0")
+    }
+    
+    private func formGeneralPredicateString(keywords: [String], containsClauseLeftOperand: String, joinedTermsFormat: String) -> String {
+        let terms = Array(repeating: "\(containsClauseLeftOperand) CONTAINS %@", count: keywords.count)
         let joinedTerms = terms.joined(separator: " OR ")
-        return "SUBQUERY(transactions, $transaction, \(joinedTerms)) .@count > 0"
+        return String(format: joinedTermsFormat, joinedTerms)
     }
     
     @IBAction func done() {
