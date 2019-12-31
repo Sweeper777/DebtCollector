@@ -24,6 +24,28 @@ class SearchController: FormViewController {
         })
     }
     
+    func formPredicate() -> NSPredicate {
+        let values = form.values()
+        let keywords = (values[tagKeywords] as! String).split(separator: " ").map(String.init)
+        let titlePredicate = formTitlePredicateString(keywords: keywords)
+        let descriptionPredicate = formDescriptionsPredicateString(keywords: keywords)
+        let detailsPredicate = formDetailsPredicateString(keywords: keywords)
+        let searchArea = values[tagSearchArea] as! String
+        switch searchArea {
+        case "Titles":
+            return NSPredicate(format: titlePredicate, argumentArray: keywords)
+        case "Descriptions":
+            return NSPredicate(format: descriptionPredicate, argumentArray: keywords)
+        case "Details":
+            return NSPredicate(format: detailsPredicate, argumentArray: keywords)
+        case "Everywhere":
+            let everywherePredicate = "(\(titlePredicate) OR (\(descriptionPredicate)) OR (\(detailsPredicate))"
+            let substitution = keywords + keywords + keywords
+            return NSPredicate(format: everywherePredicate, argumentArray: substitution)
+        default:
+            fatalError()
+        }
+    }
     
     private func formTitlePredicateString(keywords: [String]) -> String {
         let terms = Array(repeating: "title CONTAINS %@", count: keywords.count)
