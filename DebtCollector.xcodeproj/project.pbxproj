@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A019B3E23B97C4F002A804B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A019B3D23B97C4F002A804B /* SearchController.swift */; };
+		5A01C85123BACDD00044F608 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A01C85023BACDD00044F608 /* SearchResultsController.swift */; };
 		5A041135239BD9B6004901BB /* GenerateReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A041134239BD9B6004901BB /* GenerateReportController.swift */; };
 		5A041137239C032E004901BB /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A041136239C032E004901BB /* Report.swift */; };
 		5A041139239C0E1D004901BB /* ReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A041138239C0E1D004901BB /* ReportController.swift */; };
@@ -80,6 +81,7 @@
 		280BCFAF28ED4605356A222F /* Pods-DebtCollector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DebtCollector.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DebtCollector/Pods-DebtCollector.debug.xcconfig"; sourceTree = "<group>"; };
 		324A93EBEB4C3B4244C566CD /* Pods-Debtors.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Debtors.release.xcconfig"; path = "Pods/Target Support Files/Pods-Debtors/Pods-Debtors.release.xcconfig"; sourceTree = "<group>"; };
 		5A019B3D23B97C4F002A804B /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		5A01C85023BACDD00044F608 /* SearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		5A041134239BD9B6004901BB /* GenerateReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateReportController.swift; sourceTree = "<group>"; };
 		5A041136239C032E004901BB /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		5A041138239C0E1D004901BB /* ReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportController.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				5A041134239BD9B6004901BB /* GenerateReportController.swift */,
 				5A041138239C0E1D004901BB /* ReportController.swift */,
 				5A019B3D23B97C4F002A804B /* SearchController.swift */,
+				5A01C85023BACDD00044F608 /* SearchResultsController.swift */,
 				5A3ED26920F4AA6700E79CE6 /* Main.storyboard */,
 				5A4690B920F5FE4400911E04 /* Transaction.swift */,
 				5A041136239C032E004901BB /* Report.swift */,
@@ -476,6 +479,7 @@
 				5A3ED26820F4AA6700E79CE6 /* OverviewViewController.swift in Sources */,
 				5A041137239C032E004901BB /* Report.swift in Sources */,
 				5A041139239C0E1D004901BB /* ReportController.swift in Sources */,
+				5A01C85123BACDD00044F608 /* SearchResultsController.swift in Sources */,
 				5A3F33FE2101E36100B28C14 /* NewTransactionViewController.swift in Sources */,
 				5A4580B1210A9BE8002691FB /* DetailTransactionTableViewCell.swift in Sources */,
 				5A6BF0E320F75D0A0035407A /* RealmWrapper.swift in Sources */,
