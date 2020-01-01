@@ -75,6 +75,12 @@ class SearchController: FormViewController {
     @IBAction func done() {
         dismiss(animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? SearchResultsController, let predicate = sender as? NSPredicate {
+            vc.predicate = predicate
+        }
+    }
 }
 
 let tagKeywords = "keywords"
