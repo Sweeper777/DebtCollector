@@ -20,8 +20,8 @@ class SearchController: FormViewController {
             row in
             row.title = "Search"
         }
-        .onCellSelection({ (cell, row) in
-            
+        .onCellSelection({ [unowned self] (cell, row) in
+            self.performSegue(withIdentifier: "showResults", sender: self.formPredicate())
         })
     }
     
