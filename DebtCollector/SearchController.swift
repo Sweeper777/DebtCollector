@@ -40,7 +40,7 @@ class SearchController: FormViewController {
         case "in Details":
             return NSPredicate(format: detailsPredicate, argumentArray: keywords)
         case "Everywhere":
-            let everywherePredicate = "(\(titlePredicate) OR (\(descriptionPredicate)) OR (\(detailsPredicate))"
+            let everywherePredicate = "(\(titlePredicate)) OR (\(descriptionPredicate)) OR (\(detailsPredicate))"
             let substitution = keywords + keywords + keywords
             return NSPredicate(format: everywherePredicate, argumentArray: substitution)
         default:
@@ -67,7 +67,7 @@ class SearchController: FormViewController {
     }
     
     private func formGeneralPredicateString(keywords: [String], containsClauseLeftOperand: String, joinedTermsFormat: String) -> String {
-        let terms = Array(repeating: "\(containsClauseLeftOperand) CONTAINS %@", count: keywords.count)
+        let terms = Array(repeating: "\(containsClauseLeftOperand) CONTAINS \"%@\"", count: keywords.count)
         let joinedTerms = terms.joined(separator: " OR ")
         return String(format: joinedTermsFormat, joinedTerms)
     }
