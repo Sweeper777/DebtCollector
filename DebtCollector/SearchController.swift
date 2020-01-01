@@ -23,6 +23,7 @@ class SearchController: FormViewController {
         .onCellSelection({ [unowned self] (cell, row) in
             self.performSegue(withIdentifier: "showResults", sender: self.formPredicate())
         })
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     func formPredicate() -> NSPredicate {
