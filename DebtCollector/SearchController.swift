@@ -68,7 +68,7 @@ class SearchController: FormViewController {
     }
     
     private func formGeneralPredicateString(keywords: [String], containsClauseLeftOperand: String, joinedTermsFormat: String) -> String {
-        let terms = Array(repeating: "\(containsClauseLeftOperand) CONTAINS \"%@\"", count: keywords.count)
+        let terms = Array(repeating: "\(containsClauseLeftOperand) CONTAINS %@", count: keywords.count)
         let joinedTerms = terms.joined(separator: " OR ")
         return String(format: joinedTermsFormat, joinedTerms)
     }
