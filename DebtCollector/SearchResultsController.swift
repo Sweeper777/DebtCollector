@@ -17,6 +17,9 @@ class SearchResultsController: UITableViewController {
         tableView.dataSource = nil
         tableView.register(UINib(nibName: "GroupedTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         var observable: Observable<Results<GroupTransaction>>
+        
+        customResults = RealmWrapper.shared.groupTransactions.filter(predicate)
+        
         observable = Observable.collection(from: customResults)
         
         dataSource = RxTableViewSectionedAnimatedDataSource<GroupedTransactionSection>(configureCell:  {
