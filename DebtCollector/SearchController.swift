@@ -28,7 +28,7 @@ class SearchController: FormViewController {
     
     func formPredicate() -> NSPredicate {
         let values = form.values()
-        let keywords = ((values[tagKeywords] as? String) ?? "").components(separatedBy: " ")
+        let keywords = ((values[tagKeywords] as? String) ?? "").trimmed().components(separatedBy: " ")
         let titlePredicate = formTitlePredicateString(keywords: keywords)
         let descriptionPredicate = formDescriptionsPredicateString(keywords: keywords)
         let detailsPredicate = formDetailsPredicateString(keywords: keywords)
