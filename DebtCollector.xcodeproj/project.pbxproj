@@ -675,7 +675,7 @@
 				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = E9MW74DJ4Y;
 				INFOPLIST_FILE = DebtCollector/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.sweeper777.DebtCollector;
@@ -696,7 +696,7 @@
 				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = E9MW74DJ4Y;
 				INFOPLIST_FILE = DebtCollector/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.sweeper777.DebtCollector;
