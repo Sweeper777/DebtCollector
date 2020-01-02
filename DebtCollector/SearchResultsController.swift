@@ -67,4 +67,25 @@ class SearchResultsController: UITableViewController {
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.tableFooterView = UIView(frame: .zero)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? DetailTransactionViewController {
+            vc.groupedTransaction = (sender as! GroupTransaction)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = dataSource.sectionModels[section].header
+        label.backgroundColor = .black
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
+        return label
+    }
+    
 }
