@@ -15,14 +15,8 @@ class SearchController: FormViewController {
             row.options = ["in Titles", "in Descriptions", "in Details", "Everywhere"]
             row.value = "Everywhere"
         }
-        
-        form +++ ButtonRow {
             row in
-            row.title = "Search"
         }
-        .onCellSelection({ [unowned self] (cell, row) in
-            self.performSegue(withIdentifier: "showResults", sender: self.formPredicate())
-        })
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
