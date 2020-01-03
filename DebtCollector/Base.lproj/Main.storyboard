@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GqJ-bj-zFN">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -583,7 +582,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPQ-1G-1jG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5867" y="349"/>
+            <point key="canvasLocation" x="6129" y="782"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="M5b-84-g2n">
@@ -623,7 +622,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="POd-5P-6P6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5061" y="1136"/>
+            <point key="canvasLocation" x="5325" y="1599"/>
         </scene>
         <!--New Transaction-->
         <scene sceneID="RJn-ka-3fm">
@@ -652,7 +651,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4p-3Y-IMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5867" y="1136"/>
+            <point key="canvasLocation" x="6129" y="1599"/>
         </scene>
         <!--Transactions-->
         <scene sceneID="sQb-T4-qmb">
@@ -788,7 +787,7 @@
             <objects>
                 <tableViewController id="RLI-JK-oi8" customClass="DetailTransactionViewController" customModule="DebtCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Out-1n-JBc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -838,7 +837,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Rq-GW-LKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3119" y="1649"/>
+            <point key="canvasLocation" x="4525" y="1599"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rEG-U1-NDG">
@@ -910,6 +909,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Results" id="B87-X7-lbt"/>
+                    <connections>
+                        <segue destination="RLI-JK-oi8" kind="show" identifier="showDetailTransaction" id="OCJ-6o-3q3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JA5-rg-qG1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -928,9 +930,9 @@
         <image name="magnifyingglass" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LYA-iW-NO5"/>
+        <segue reference="OCJ-6o-3q3"/>
         <segue reference="sdR-Cu-sjk"/>
-        <segue reference="KYb-g9-9vi"/>
+        <segue reference="GWA-4P-n2v"/>
         <segue reference="Vm3-V9-pGH"/>
     </inferredMetricsTieBreakers>
 </document>
