@@ -73,8 +73,12 @@ class SearchController: FormViewController {
         return String(format: joinedTermsFormat, joinedTerms)
     }
     
-    @IBAction func done() {
+    @IBAction func cancel() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func search() {
+        self.performSegue(withIdentifier: "showResults", sender: self.formPredicate())
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
