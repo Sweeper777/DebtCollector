@@ -9,14 +9,23 @@ class SearchController: FormViewController {
             row in
         }
         
-        form +++ PickerInlineRow<String>(tagSearchArea) {
+        form +++ Section("search in")
+        <<< SwitchRow(tagSearchInTitles) {
             row in
-            row.title = "Search"
-            row.options = ["in Titles", "in Descriptions", "in Details", "Everywhere"]
-            row.value = "Everywhere"
+            row.title = "Titles"
+            row.value = true
         }
+        <<< SwitchRow(tagSearchInDescriptions) {
             row in
+            row.title = "Descriptions"
+            row.value = true
         }
+        <<< SwitchRow(tagSearchInDetails) {
+            row in
+            row.title = "Details"
+            row.value = true
+        }
+        
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
