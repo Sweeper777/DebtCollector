@@ -859,7 +859,7 @@
             </objects>
             <point key="canvasLocation" x="2367" y="2327"/>
         </scene>
-        <!--Search-->
+        <!--Search Controller-->
         <scene sceneID="aTa-TQ-FVG">
             <objects>
                 <viewController id="iAB-8f-U1h" customClass="SearchController" customModule="DebtCollector" customModuleProvider="target" sceneMemberID="viewController">
@@ -869,11 +869,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="PYY-DZ-7fT"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Search" id="IYo-x3-Ieq">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="HJj-Ly-Wt4">
+                    <navigationItem key="navigationItem" id="IYo-x3-Ieq">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pvN-85-Aum">
                             <color key="tintColor" red="1" green="0.99998790029999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <action selector="done" destination="iAB-8f-U1h" id="f57-bA-dV2"/>
+                                <action selector="cancel" destination="iAB-8f-U1h" id="k1u-e1-dfU"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Search" style="done" id="HJj-Ly-Wt4">
+                            <color key="tintColor" red="1" green="0.99998790029999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="search" destination="iAB-8f-U1h" id="4ev-U8-UW5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
