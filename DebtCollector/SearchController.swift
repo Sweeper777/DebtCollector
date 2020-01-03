@@ -92,4 +92,6 @@ class SearchController: FormViewController {
 }
 
 let tagKeywords = "keywords"
-let tagSearchArea = "searchArea"
+let tagSearchInTitles = "searchInTitles"
+let tagSearchInDescriptions = "searchInDescriptions"
+let tagSearchInDetails = "searchInDetails"
