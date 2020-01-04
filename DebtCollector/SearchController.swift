@@ -35,20 +35,6 @@ class SearchController: FormViewController {
         let titlePredicate = formTitlePredicateString(keywords: keywords)
         let descriptionPredicate = formDescriptionsPredicateString(keywords: keywords)
         let detailsPredicate = formDetailsPredicateString(keywords: keywords)
-        let searchArea = values[tagSearchArea] as! String
-        switch searchArea {
-        case "in Titles":
-            return NSPredicate(format: titlePredicate, argumentArray: keywords)
-        case "in Descriptions":
-            return NSPredicate(format: descriptionPredicate, argumentArray: keywords)
-        case "in Details":
-            return NSPredicate(format: detailsPredicate, argumentArray: keywords)
-        case "Everywhere":
-            let everywherePredicate = "(\(titlePredicate)) OR (\(descriptionPredicate)) OR (\(detailsPredicate))"
-            let substitution = keywords + keywords + keywords
-            return NSPredicate(format: everywherePredicate, argumentArray: substitution)
-        default:
-            fatalError()
         }
     }
     
