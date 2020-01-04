@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window?.tintColor = UIColor(hex: "4f42fd")
-        NavigationAccessoryView.appearance().tintColor = UIColor(hex: "3b7b3b")
+        NavigationAccessoryView.appearance().tintColor = UIColor(hex: "4f42fd")
         FirebaseApp.configure()
         
         let fileManager = FileManager.default
