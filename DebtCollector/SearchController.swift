@@ -14,14 +14,26 @@ class SearchController: FormViewController {
             row in
             row.title = "Titles"
             row.value = !UserSettings.searchInTitles
+        }.onChange({ (row) in
+            UserSettings.searchInTitles = !row.value!
+        })
+            
         <<< SwitchRow(tagSearchInDescriptions) {
             row in
             row.title = "Descriptions"
             row.value = !UserSettings.searchInDescriptions
+        }.onChange({ (row) in
+            UserSettings.searchInDescriptions = !row.value!
+        })
+            
         <<< SwitchRow(tagSearchInDetails) {
             row in
             row.title = "Details"
             row.value = !UserSettings.searchInDetails
+        }.onChange({ (row) in
+            UserSettings.searchInDetails = !row.value!
+        })
+        
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
