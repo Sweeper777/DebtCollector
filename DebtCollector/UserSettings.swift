@@ -67,5 +67,38 @@ final class UserSettings {
         }
     }
     
+    /// MARK: Search Option Settings
+    // NOTE: the NOT of these values are the switch values
+    
+    static var searchInTitles: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "searchInTitles")
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: "searchInTitles")
+        }
+    }
+    
+    static var searchInDescriptions: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "searchInDescriptions")
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: "searchInDescriptions")
+        }
+    }
+    
+    static var searchInDetails: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "searchInDetails")
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: "searchInDetails")
+        }
+    }
+    
     private init() {}
 }
