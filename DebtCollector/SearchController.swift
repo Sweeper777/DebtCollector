@@ -35,7 +35,31 @@ class SearchController: FormViewController {
         let titlePredicate = formTitlePredicateString(keywords: keywords)
         let descriptionPredicate = formDescriptionsPredicateString(keywords: keywords)
         let detailsPredicate = formDetailsPredicateString(keywords: keywords)
+        let searchInTitles = (values[tagSearchInTitles] as? Bool) ?? false
+        let searchInDescriptions = (values[tagSearchInDescriptions] as? Bool) ?? false
+        let searchInDetails = (values[tagSearchInDetails] as? Bool) ?? false
+        
+        if !searchInTitles && !searchInDescriptions && !searchInDetails {
+            return .init(value: false)
         }
+        
+        var clausesCount = 0
+        var predicateFormat = ""
+        if searchInTitles {
+            predicateFormat += "(\(titlePredicate)) OR "
+            clausesCount += 1
+        }
+        if searchInDescriptions {
+            predicateFormat += "(\(descriptionPredicate)) OR "
+            clausesCount += 1
+        }
+        if searchInDetails {
+            predicateFormat += "(\(detailsPredicate)) OR "
+            clausesCount += 1
+        }
+        predicateFormat += "FALSEPREDICATE"
+        let substitution = Array(repeating: keywords, count: clausesCount).flatMap { $0 }
+        return NSPredicate(format: predicateFormat, argumentArray: substitution)
     }
     
     private func formTitlePredicateString(keywords: [String]) -> String {
