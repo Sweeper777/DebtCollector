@@ -60,7 +60,7 @@ class SearchController: FormViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
-    func formPredicate() -> NSPredicate {
+    func formKeywordPredicate() -> NSPredicate {
         let values = form.values()
         let keywords = ((values[tagKeywords] as? String) ?? "").components(separatedBy: " ").filter { $0.isNotEmpty }
         let titlePredicate = formTitlePredicateString(keywords: keywords)

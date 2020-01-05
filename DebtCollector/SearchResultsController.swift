@@ -6,7 +6,7 @@ import RxRealm
 import RealmSwift
 
 class SearchResultsController: UITableViewController {
-    var predicate: NSPredicate!
+    var keywordPredicate: NSPredicate!
     
     let disposeBag = DisposeBag()
     
