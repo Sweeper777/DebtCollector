@@ -7,6 +7,7 @@ import RealmSwift
 
 class SearchResultsController: UITableViewController {
     var keywordPredicate: NSPredicate!
+    var datePredicate: NSPredicate!
     
     let disposeBag = DisposeBag()
     
@@ -18,7 +19,7 @@ class SearchResultsController: UITableViewController {
         tableView.register(UINib(nibName: "GroupedTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         var observable: Observable<Results<GroupTransaction>>
         
-        customResults = RealmWrapper.shared.groupTransactions.filter(predicate)
+        customResults = RealmWrapper.shared.groupTransactions.filter(keywordPredicate).filter(datePredicate)
         
         observable = Observable.collection(from: customResults)
         
