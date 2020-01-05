@@ -34,6 +34,28 @@ class SearchController: FormViewController {
             UserSettings.searchInDetails = !row.value!
         })
         
+        form +++ Section("select range")
+        <<< PickerInlineRow<String>(tagRange) {
+            row in
+            row.title = "Range"
+            row.options = [last7Days, last14Days, last30Days, last90Days, last365Days, allTime, custom]
+            row.value = last7Days
+        }
+        
+        <<< DateInlineRow(tagStartDate) {
+            row in
+            row.title = "From"
+            row.value = Date().addingTimeInterval(-86400 * 7)
+            row.hidden = .function([tagRange], { ($0.rowBy(tag: tagRange) as! RowOf<String>).value != custom })
+        }
+        
+        <<< DateInlineRow(tagEndDate) {
+            row in
+            row.title = "To"
+            row.value = Date()
+            row.hidden = .function([tagRange], { ($0.rowBy(tag: tagRange) as! RowOf<String>).value != custom })
+        }
+        
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
