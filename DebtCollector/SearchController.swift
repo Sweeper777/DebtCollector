@@ -149,12 +149,13 @@ class SearchController: FormViewController {
     }
     
     @IBAction func search() {
-        self.performSegue(withIdentifier: "showResults", sender: self.formPredicate())
+        self.performSegue(withIdentifier: "showResults", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? SearchResultsController, let predicate = sender as? NSPredicate {
-            vc.predicate = predicate
+        if let vc = segue.destination as? SearchResultsController {
+            vc.keywordPredicate = formKeywordPredicate()
+            vc.datePredicate = formDatePredicate()
         }
     }
 }
