@@ -93,6 +93,33 @@ class SearchController: FormViewController {
         return NSPredicate(format: predicateFormat, argumentArray: substitution)
     }
     
+    func formDatePredicate() -> NSPredicate {
+        let values = form.values()
+        let dateRange = values[tagRange] as? String
+        if dateRange == custom {
+            let start = (self.form.rowBy(tag: tagStartDate) as! RowOf<Date>).value!
+            let end = (self.form.rowBy(tag: tagEndDate) as! RowOf<Date>).value!
+            if start < end {
+                return NSPredicate(format: "date BETWEEN {%@, %@}", start as NSDate, end as NSDate)
+            } else {
+                return NSPredicate(value: false)
+            }
+        } else if dateRange == allTime {
+            return NSPredicate(value: true)
+        } else {
+            let dict = [
+                last7Days: 7,
+                last14Days: 14,
+                last30Days: 30,
+                last90Days: 90,
+                last365Days: 365
+            ]
+            let end = Date()
+            let start = end.addingTimeInterval(-86400 * Double(dict[dateRange!]!))
+            return NSPredicate(format: "date BETWEEN {%@, %@}", start as NSDate, end as NSDate)
+        }
+    }
+    
     private func formTitlePredicateString(keywords: [String]) -> String {
         return formGeneralPredicateString(keywords: keywords,
                                           containsClauseLeftOperand: "title",
