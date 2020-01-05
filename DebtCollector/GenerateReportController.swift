@@ -85,16 +85,16 @@ class GenerateReportController: FormViewController {
 
 // MARK: Date Range Options
 
-fileprivate let last7Days = "Last 7 Days"
-fileprivate let last14Days = "Last 14 Days"
-fileprivate let last30Days = "Last 30 Days"
-fileprivate let last90Days = "Last 90 Days"
-fileprivate let last365Days = "Last 365 Days"
-fileprivate let allTime = "All Time"
-fileprivate let custom = "Custom"
+let last7Days = "Last 7 Days"
+let last14Days = "Last 14 Days"
+let last30Days = "Last 30 Days"
+let last90Days = "Last 90 Days"
+let last365Days = "Last 365 Days"
+let allTime = "All Time"
+let custom = "Custom"
 
 // MARK: Form Tags
 
-fileprivate let tagRange = "range"
-fileprivate let tagStartDate = "startDate"
-fileprivate let tagEndDate = "endDate"
+let tagRange = "range"
+let tagStartDate = "startDate"
+let tagEndDate = "endDate"
