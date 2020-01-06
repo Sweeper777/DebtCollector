@@ -7,6 +7,7 @@ class SearchController: FormViewController {
         
         form +++ Section("keywords") <<< TextRow(tagKeywords) {
             row in
+            row.cell.textField.smartQuotesType = .no
         }
         
         form +++ Section("search in")
