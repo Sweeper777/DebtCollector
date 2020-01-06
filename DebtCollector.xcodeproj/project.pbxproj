@@ -12,6 +12,7 @@
 		5A041135239BD9B6004901BB /* GenerateReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A041134239BD9B6004901BB /* GenerateReportController.swift */; };
 		5A041137239C032E004901BB /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A041136239C032E004901BB /* Report.swift */; };
 		5A041139239C0E1D004901BB /* ReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A041138239C0E1D004901BB /* ReportController.swift */; };
+		5A058A3E23C1D96C0074A48D /* SearchKeywordsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A058A3D23C1D96C0074A48D /* SearchKeywordsParser.swift */; };
 		5A3ED26620F4AA6700E79CE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3ED26520F4AA6700E79CE6 /* AppDelegate.swift */; };
 		5A3ED26820F4AA6700E79CE6 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3ED26720F4AA6700E79CE6 /* OverviewViewController.swift */; };
 		5A3ED26B20F4AA6700E79CE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A3ED26920F4AA6700E79CE6 /* Main.storyboard */; };
@@ -85,6 +86,7 @@
 		5A041134239BD9B6004901BB /* GenerateReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateReportController.swift; sourceTree = "<group>"; };
 		5A041136239C032E004901BB /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		5A041138239C0E1D004901BB /* ReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportController.swift; sourceTree = "<group>"; };
+		5A058A3D23C1D96C0074A48D /* SearchKeywordsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKeywordsParser.swift; sourceTree = "<group>"; };
 		5A3ED26220F4AA6700E79CE6 /* DebtCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DebtCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A3ED26520F4AA6700E79CE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A3ED26720F4AA6700E79CE6 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				5A3ED26920F4AA6700E79CE6 /* Main.storyboard */,
 				5A4690B920F5FE4400911E04 /* Transaction.swift */,
 				5A041136239C032E004901BB /* Report.swift */,
+				5A058A3D23C1D96C0074A48D /* SearchKeywordsParser.swift */,
 				5A6BF0E220F75D0A0035407A /* RealmWrapper.swift */,
 				5A52DCE821128F7700B4F941 /* UserSettings.swift */,
 				5A3ED26C20F4AA6A00E79CE6 /* Assets.xcassets */,
@@ -486,6 +489,7 @@
 				5A8A05EA20FDD65300D98280 /* PersonViewController.swift in Sources */,
 				5A3ED26620F4AA6700E79CE6 /* AppDelegate.swift in Sources */,
 				5A4E3E2F2285EBA90016AF2A /* DescriptionCell.swift in Sources */,
+				5A058A3E23C1D96C0074A48D /* SearchKeywordsParser.swift in Sources */,
 				5A4580B3210A9CA3002691FB /* DetailTransactionViewController.swift in Sources */,
 				5A52DCE721128D2100B4F941 /* SettingsViewController.swift in Sources */,
 				5A3F33FC2101D7B800B28C14 /* GroupedTransactionTableViewCell.swift in Sources */,
@@ -672,12 +676,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DebtCollector/DebtCollector.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = E9MW74DJ4Y;
 				INFOPLIST_FILE = DebtCollector/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.sweeper777.DebtCollector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -693,12 +697,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DebtCollector/DebtCollector.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = E9MW74DJ4Y;
 				INFOPLIST_FILE = DebtCollector/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.sweeper777.DebtCollector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
