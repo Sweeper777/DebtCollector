@@ -87,6 +87,14 @@ class SettingsViewController : FormViewController {
             })
         }
         form +++ passcodeSection
+        
+        if LTHPasscodeViewController.doesPasscodeExist() {
+            form +++ SwitchRow(tagReadOnlyMode) {
+                row in
+                row.title = "Read Only Mode"
+                row.value = UserSettings.readOnlyMode
+            }
+        }
     }
     
     private func saveSettings() {
@@ -115,3 +123,4 @@ let tagCurrencySymbol = "currencySymbol"
 let tagBgImage = "bgImage"
 
 let tagTitlePresets = "titlePresets"
+let tagReadOnlyMode = "readOnlyMode"
