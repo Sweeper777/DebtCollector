@@ -659,7 +659,7 @@
                 <navigationController id="ZjY-9p-tnD" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Transactions" image="arrow.right.arrow.left.square" catalog="system" selectedImage="arrow.right.arrow.left.square.fill" id="BTB-Xa-vHG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EhH-1e-6ub">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.30980392159999998" green="0.25882352939999997" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -937,7 +937,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="OCJ-6o-3q3"/>
-        <segue reference="sdR-Cu-sjk"/>
+        <segue reference="IuL-He-dYR"/>
         <segue reference="GWA-4P-n2v"/>
         <segue reference="Vm3-V9-pGH"/>
     </inferredMetricsTieBreakers>
