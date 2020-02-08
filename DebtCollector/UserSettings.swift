@@ -67,6 +67,15 @@ final class UserSettings {
         }
     }
     
+    static var readOnlyMode: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "readOnlyMode")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "readOnlyMode")
+        }
+    }
+    
     /// MARK: Search Option Settings
     // NOTE: the NOT of these values are the switch values
     
