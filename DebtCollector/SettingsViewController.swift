@@ -107,6 +107,13 @@ class SettingsViewController : FormViewController {
         if bgImageChanged {
             UserSettings.bgImage = values[tagBgImage] as? UIImage
         }
+        
+        if let newReadOnlyMode = values[tagReadOnlyMode] as? Bool {
+            if !UserSettings.readOnlyMode && newReadOnlyMode {
+                LTHPasscodeViewController.sharedUser()?.showLockScreenOver(view, withAnimation: true, withLogout: true, andLogoutTitle: "Cancel")
+            }
+            UserSettings.readOnlyMode = newReadOnlyMode
+        }
     }
     
     @IBAction func done() {
