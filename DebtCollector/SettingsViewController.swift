@@ -120,6 +120,18 @@ class SettingsViewController : FormViewController {
                 LTHPasscodeViewController.sharedUser()?.showLockScreenOver(view, withAnimation: true, withLogout: true, andLogoutTitle: "Cancel")
             }
             UserSettings.readOnlyMode = newReadOnlyMode
+    }
+    
+    private func authenticateDisableReadOnlyMode(completion: @escaping (Bool) -> Void) {
+        let context = LAContext()
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) {
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "To disable read only mode", reply: { success, _ in
+                DispatchQueue.main.async {
+                    completion(success)
+                }
+            })
+        } else {
+            completion(true)
         }
     }
     
