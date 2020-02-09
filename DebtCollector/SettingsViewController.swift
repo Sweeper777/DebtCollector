@@ -2,6 +2,8 @@ import UIKit
 import Eureka
 import LTHPasscodeViewController
 import ImageRow
+import LocalAuthentication
+import SCLAlertView
 
 class SettingsViewController : FormViewController {
     
@@ -86,15 +88,20 @@ class SettingsViewController : FormViewController {
                 self?.performSegue(withIdentifier: "unwindForSetPasscode", sender: nil)
             })
         }
+        
         form +++ passcodeSection
         
-        if LTHPasscodeViewController.doesPasscodeExist() {
-            form +++ SwitchRow(tagReadOnlyMode) {
-                row in
-                row.title = "Read Only Mode"
-                row.value = UserSettings.readOnlyMode
-            }
+        form +++ SwitchRow(tagReadOnlyMode) {
+            row in
+            row.title = "Read Only Mode"
+            row.value = UserSettings.readOnlyMode
         }
+        
+        passcodeSection.hidden = .function([tagReadOnlyMode], { (form) -> Bool in
+            (form.rowBy(tag: tagReadOnlyMode) as! RowOf<Bool>).value ?? true
+        })
+        
+        passcodeSection.evaluateHidden()
     }
     
     private func saveSettings() {
