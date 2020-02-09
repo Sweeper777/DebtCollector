@@ -96,6 +96,21 @@ class SettingsViewController : FormViewController {
             row.title = "Read Only Mode"
             row.value = UserSettings.readOnlyMode
         }
+        .onChange({ (row) in
+            if let newReadOnlyMode = row.value {
+                if UserSettings.readOnlyMode && !newReadOnlyMode {
+                    self.authenticateDisableReadOnlyMode { (success) in
+                        if success {
+                            UserSettings.readOnlyMode = newReadOnlyMode
+                        } else {
+                            row.value = UserSettings.readOnlyMode
+                        }
+                    }
+                } else {
+                    UserSettings.readOnlyMode = newReadOnlyMode
+                }
+            }
+        })
         
         passcodeSection.hidden = .function([tagReadOnlyMode], { (form) -> Bool in
             (form.rowBy(tag: tagReadOnlyMode) as! RowOf<Bool>).value ?? true
@@ -114,12 +129,6 @@ class SettingsViewController : FormViewController {
         if bgImageChanged {
             UserSettings.bgImage = values[tagBgImage] as? UIImage
         }
-        
-        if let newReadOnlyMode = values[tagReadOnlyMode] as? Bool {
-            if !UserSettings.readOnlyMode && newReadOnlyMode {
-                LTHPasscodeViewController.sharedUser()?.showLockScreenOver(view, withAnimation: true, withLogout: true, andLogoutTitle: "Cancel")
-            }
-            UserSettings.readOnlyMode = newReadOnlyMode
     }
     
     private func authenticateDisableReadOnlyMode(completion: @escaping (Bool) -> Void) {
