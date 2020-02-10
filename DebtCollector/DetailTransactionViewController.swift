@@ -29,6 +29,11 @@ class DetailTransactionViewController : UITableViewController {
                     alert.addButton("No", action: {})
                     alert.showWarning("Delete Transaction", subTitle: "Do you really want to delete this transaction?")
                 } else if title == "Edit This Transaction" {
+                    if UserSettings.readOnlyMode {
+                        let alert = SCLAlertView()
+                        alert.showWarning("Read Only Mode", subTitle: "You cannot edit transactions in read only mode", closeButtonTitle: "OK")
+                        return
+                    }
                     self.performSegue(withIdentifier: "editTransaction", sender: self)
                 }
                 if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
@@ -95,6 +100,12 @@ class DetailTransactionViewController : UITableViewController {
     }
     
     func deleteTransaction() {
+        if UserSettings.readOnlyMode {
+            let alert = SCLAlertView()
+            alert.showWarning("Read Only Mode", subTitle: "You cannot delete transactions in read only mode", closeButtonTitle: "OK")
+            return
+        }
+        
         try! RealmWrapper.shared.realm.write {
             for transaction in self.groupedTransaction.transactions {
                 RealmWrapper.shared.realm.delete(transaction)
