@@ -96,9 +96,12 @@ class TransactionListViewController: UITableViewController {
         }).disposed(by: disposeBag)
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+        navigationController?.updateReadOnlyModePrompt()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        navigationController?.updateReadOnlyModePrompt()
         if let image = UserSettings.bgImage {
             let imageView = UIImageView(image: image)
             tableView.backgroundView = imageView
