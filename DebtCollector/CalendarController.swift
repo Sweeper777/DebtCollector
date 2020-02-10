@@ -27,9 +27,11 @@ class CalendarController: UIViewController {
         }).disposed(by: disposeBag)
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.updateReadOnlyModePrompt()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        navigationController?.updateReadOnlyModePrompt()
         calendar.reloadData()
     }
     
