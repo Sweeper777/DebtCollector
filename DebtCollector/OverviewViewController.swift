@@ -22,6 +22,7 @@ class OverviewViewController: UITableViewController {
         tableView.dataSource = nil
         tableView.delegate = nil
         tableView.allowsSelection = false
+        navigationController?.updateReadOnlyModePrompt()
         
         tableView.register(UINib(nibName: "OverviewTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         Observable.combineLatest(Observable.collection(from: RealmWrapper.shared.transactions), Observable.collection(from: RealmWrapper.shared.people), resultSelector: { (transactions: $0, people: $1) })
@@ -65,6 +66,7 @@ class OverviewViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        navigationController?.updateReadOnlyModePrompt()
         if let image = UserSettings.bgImage {
             let imageView = UIImageView(image: image)
             tableView.backgroundView = imageView
@@ -81,6 +83,7 @@ class OverviewViewController: UITableViewController {
     }
     
     @IBAction func unwindForChangePasscode(segue: UIStoryboardSegue) {
+        navigationController?.updateReadOnlyModePrompt()
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000)) {
             [weak self] in
             self.map { LTHPasscodeViewController.sharedUser().showForChangingPasscode(in: $0, asModal: true) }
@@ -88,6 +91,7 @@ class OverviewViewController: UITableViewController {
     }
     
     @IBAction func unwindForSetPasscode(segue: UIStoryboardSegue) {
+        navigationController?.updateReadOnlyModePrompt()
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000)) {
             [weak self] in
             self.map { LTHPasscodeViewController.sharedUser().showForEnablingPasscode(in: $0, asModal: true) }
@@ -96,6 +100,7 @@ class OverviewViewController: UITableViewController {
     }
     
     @IBAction func unwindForRemovePasscode(segue: UIStoryboardSegue) {
+        navigationController?.updateReadOnlyModePrompt()
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000)) {
             [weak self] in
             self.map { LTHPasscodeViewController.sharedUser().showForDisablingPasscode(in: $0, asModal: true) }
@@ -103,6 +108,7 @@ class OverviewViewController: UITableViewController {
     }
     
     @IBAction func unwindFromSettings(segue: UIStoryboardSegue) {
+        navigationController?.updateReadOnlyModePrompt()
         if let image = UserSettings.bgImage {
             let imageView = UIImageView(image: image)
             tableView.backgroundView = imageView
