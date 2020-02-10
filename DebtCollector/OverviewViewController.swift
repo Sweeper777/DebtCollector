@@ -4,6 +4,17 @@ import RxCocoa
 import RxRealm
 import LTHPasscodeViewController
 
+extension UINavigationController {
+    func updateReadOnlyModePrompt() {
+        if UserSettings.readOnlyMode {
+            topViewController?.navigationItem.prompt = "Read Only Mode"
+        } else {
+            topViewController?.navigationItem.prompt = nil
+        }
+        navigationBar.setNeedsLayout()
+    }
+}
+
 class OverviewViewController: UITableViewController {
     let disposeBag = DisposeBag()
     override func viewDidLoad() {
