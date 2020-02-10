@@ -67,6 +67,7 @@ class GenerateReportController: FormViewController {
         })
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.updateReadOnlyModePrompt()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -80,6 +81,12 @@ class GenerateReportController: FormViewController {
             let report = Report(groupTransactions: Array(results))
             vc.report = report
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        navigationController?.updateReadOnlyModePrompt()
     }
 }
 
