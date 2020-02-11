@@ -28,6 +28,12 @@ class PeopleViewController: UITableViewController {
     }
     
     @IBAction func addPerson() {
+        if UserSettings.readOnlyMode {
+            let alert = SCLAlertView()
+            alert.showWarning("Read Only Mode", subTitle: "You cannot add people in read only mode", closeButtonTitle: "OK")
+            return
+        }
+        
         let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
         let nameField = alert.addTextField("Name")
         alert.addButton("OK", action: {
