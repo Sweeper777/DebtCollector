@@ -145,6 +145,11 @@ class SettingsViewController : FormViewController {
     }
     
     @IBAction func done() {
+        if UserSettings.readOnlyMode {
+            let alert = SCLAlertView()
+            alert.showWarning("Read Only Mode", subTitle: "Settings are not saved")
+        }
+        
         saveSettings()
         
         performSegue(withIdentifier: "unwindToOverview", sender: nil)
