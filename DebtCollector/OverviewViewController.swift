@@ -21,7 +21,6 @@ class OverviewViewController: UITableViewController {
         super.viewDidLoad()
         tableView.dataSource = nil
         tableView.delegate = nil
-        tableView.allowsSelection = false
         navigationController?.updateReadOnlyModePrompt()
         
         tableView.register(UINib(nibName: "OverviewTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
