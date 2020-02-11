@@ -88,6 +88,11 @@ class PersonViewController : UITableViewController {
     }
     
     func deletePerson() {
+        if UserSettings.readOnlyMode {
+            let alert = SCLAlertView()
+            alert.showWarning("Read Only Mode", subTitle: "You cannot delete people in read only mode", closeButtonTitle: "OK")
+            return
+        }
         try! RealmWrapper.shared.realm.write {
             RealmWrapper.shared.realm.delete(self.person)
         }
