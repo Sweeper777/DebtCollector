@@ -6,6 +6,7 @@ import RealmSwift
 import SwiftyUtils
 import MGSwipeTableCell
 import RxDataSources
+import SCLAlertView
 
 
 class TransactionListViewController: UITableViewController {
@@ -128,6 +129,12 @@ class TransactionListViewController: UITableViewController {
     }
     
     @IBAction func addTransaction() {
+        if UserSettings.readOnlyMode {
+            let alert = SCLAlertView()
+            alert.showWarning("Read Only Mode", subTitle: "You cannot add transactions in read only mode", closeButtonTitle: "OK")
+            return
+        }
+        
         performSegue(withIdentifier: "newTransaction", sender: nil)
     }
     
