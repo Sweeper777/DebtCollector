@@ -74,6 +74,12 @@ class OverviewViewController: UITableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? PersonViewController, let person = sender as? Person {
+            vc.person = person
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.updateReadOnlyModePrompt()
         if let image = UserSettings.bgImage {
