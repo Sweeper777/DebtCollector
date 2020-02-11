@@ -52,6 +52,16 @@ class OverviewViewController: UITableViewController {
                 cell.amountLabel.text = formatter.string(from: personAndAmount.value as NSNumber)
             }.disposed(by: disposeBag)
         
+        tableView.rx.modelSelected((key: String, value: Double).self).subscribe(onNext: {
+            model in
+            if let person = RealmWrapper.shared.people.filter("name == %@", model.key).first {
+                self.performSegue(withIdentifier: "showPerson", sender: person)
+            }
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                self.tableView.deselectRow(at: indexPath, animated: true)
+            }
+            }).disposed(by: disposeBag)
+        
         LTHPasscodeViewController.sharedUser().navigationBarTintColor = UIColor(hex: "4f42fd")
         LTHPasscodeViewController.sharedUser().navigationTitleColor = UIColor.white
         LTHPasscodeViewController.sharedUser().hidesCancelButton = false
