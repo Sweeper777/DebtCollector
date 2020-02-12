@@ -72,6 +72,7 @@ class OverviewViewController: UITableViewController {
             LTHPasscodeViewController.sharedUser().showLockScreen(withAnimation: true, withLogout: true, andLogoutTitle: nil)
             //}
         }
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
