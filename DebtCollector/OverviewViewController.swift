@@ -62,16 +62,15 @@ class OverviewViewController: UITableViewController {
             }
             }).disposed(by: disposeBag)
         
-        LTHPasscodeViewController.sharedUser().navigationBarTintColor = UIColor(hex: "4f42fd")
-        LTHPasscodeViewController.sharedUser().navigationTitleColor = UIColor.white
-        LTHPasscodeViewController.sharedUser().hidesCancelButton = false
-        LTHPasscodeViewController.sharedUser().navigationTintColor = UIColor.white
+//        LTHPasscodeViewController.sharedUser().navigationBarTintColor = UIColor(hex: "4f42fd")
+//        LTHPasscodeViewController.sharedUser().navigationTitleColor = UIColor.white
+//        LTHPasscodeViewController.sharedUser().hidesCancelButton = false
+//        LTHPasscodeViewController.sharedUser().navigationTintColor = UIColor.white
+//
+//        if LTHPasscodeViewController.doesPasscodeExist() && !UserSettings.readOnlyMode {
+//            LTHPasscodeViewController.sharedUser().showLockScreen(withAnimation: true, withLogout: true, andLogoutTitle: nil)
+//        }
         
-        if LTHPasscodeViewController.doesPasscodeExist() {
-            //if LTHPasscodeViewController.didPasscodeTimerEnd() {
-            LTHPasscodeViewController.sharedUser().showLockScreen(withAnimation: true, withLogout: true, andLogoutTitle: nil)
-            //}
-        }
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
