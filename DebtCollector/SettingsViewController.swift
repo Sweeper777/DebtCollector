@@ -60,33 +60,6 @@ class SettingsViewController : FormViewController {
         })
         
         let passcodeSection = Section("passcode")
-        if LTHPasscodeViewController.doesPasscodeExist() {
-            passcodeSection <<< ButtonRow() {
-                row in
-                row.title = "Change Passcode"
-            }
-            .onCellSelection({ [weak self] (cell, row) in
-                self?.saveSettings()
-                self?.performSegue(withIdentifier: "unwindForChangePasscode", sender: nil)
-            })
-            <<< ButtonRow() {
-                row in
-                row.title = "Remove Passcode"
-                row.cell.tintColor = .red
-            }
-            .onCellSelection({ [weak self] (cell, row) in
-                self?.saveSettings()
-                self?.performSegue(withIdentifier: "unwindForRemovePasscode", sender: nil)
-            })
-        } else {
-            passcodeSection <<< ButtonRow() {
-                row in
-                row.title = "Set Passcode"
-            }
-            .onCellSelection({ [weak self] (cell, row) in
-                self?.saveSettings()
-                self?.performSegue(withIdentifier: "unwindForSetPasscode", sender: nil)
-            })
         }
         
         form +++ passcodeSection
@@ -111,12 +84,6 @@ class SettingsViewController : FormViewController {
                 }
             }
         })
-        
-        passcodeSection.hidden = .function([tagReadOnlyMode], { (form) -> Bool in
-            (form.rowBy(tag: tagReadOnlyMode) as! RowOf<Bool>).value ?? true
-        })
-        
-        passcodeSection.evaluateHidden()
     }
     
     private func saveSettings() {
