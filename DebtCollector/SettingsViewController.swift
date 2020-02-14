@@ -60,6 +60,10 @@ class SettingsViewController : FormViewController {
         })
         
         let passcodeSection = Section("passcode")
+        passcodeSection <<< SwitchRow(tagUsePasscode) {
+            row in
+            row.title = "Use Passcode"
+            row.value = UserSettings.passcodeEnabled
         }
         
         form +++ passcodeSection
@@ -93,6 +97,7 @@ class SettingsViewController : FormViewController {
         UserSettings.showDetailPresetsOnBorrow = (values[tagShowDetailPresetsOnBorrow] as? Bool) ?? false
         UserSettings.showDetailPresetsOnReturn = (values[tagShowDetailPresetsOnReturn] as? Bool) ?? false
         UserSettings.currencySymbol = values[tagCurrencySymbol] as? String
+        UserSettings.passcodeEnabled = values[tagUsePasscode] as? Bool ?? false
         if bgImageChanged {
             UserSettings.bgImage = values[tagBgImage] as? UIImage
         }
@@ -131,3 +136,4 @@ let tagBgImage = "bgImage"
 
 let tagTitlePresets = "titlePresets"
 let tagReadOnlyMode = "readOnlyMode"
+let tagUsePasscode = "usePasscode"
