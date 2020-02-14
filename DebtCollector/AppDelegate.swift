@@ -3,6 +3,7 @@ import SwiftyUtils
 import Eureka
 import Firebase
 import RealmSwift
+import LocalAuthentication
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,6 +33,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         Realm.Configuration.defaultConfiguration = config
         
+        if !UserSettings.readOnlyMode && UserSettings.passcodeEnabled {
+            let context = LAContext()
+            context.localizedCancelTitle = "Cancel"
+            if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) {
+                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Some description") { (success, error) in
+                    if success {
+                        print("Success")
+                    } else {
+                        print(error?.localizedDescription ?? "General Error")
+                    }
+                }
+            }
+        }
+        
         return true
     }
 
@@ -46,7 +61,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        if !UserSettings.readOnlyMode && UserSettings.passcodeEnabled {
+            let context = LAContext()
+            context.localizedCancelTitle = "Cancel"
+            if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) {
+                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Some description") { (success, error) in
+                    if success {
+                        print("Success")
+                    } else {
+                        print(error?.localizedDescription ?? "General Error")
+                    }
+                }
+            }
+        }
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
