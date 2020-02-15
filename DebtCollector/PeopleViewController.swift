@@ -25,6 +25,10 @@ class PeopleViewController: UITableViewController {
         }).disposed(by: disposeBag)
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+        if UserSettings.readOnlyMode {
+            self.navigationItem.rightBarButtonItems = []
+        }
     }
     
     @IBAction func addPerson() {
