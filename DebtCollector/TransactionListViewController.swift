@@ -103,6 +103,7 @@ class TransactionListViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.updateReadOnlyModePrompt()
+        toggleAddButton()
         if let image = UserSettings.bgImage {
             let imageView = UIImageView(image: image)
             tableView.backgroundView = imageView
@@ -154,6 +155,15 @@ class TransactionListViewController: UITableViewController {
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
         return label
+    }
+    
+    func toggleAddButton() {
+        guard date == nil && customResults == nil else { return }
+        if UserSettings.readOnlyMode {
+            navigationItem.rightBarButtonItems?.first?.isEnabled = false
+        } else {
+            navigationItem.rightBarButtonItems?.first?.isEnabled = true
+        }
     }
 }
 
