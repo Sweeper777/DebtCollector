@@ -93,6 +93,9 @@ class DetailTransactionViewController : UITableViewController {
                     let rows = [DetailTransactionTableViewSection.DetailTransactionTableViewRow.text(groupedTransaction.desc)]
                     sections.insert(.infoSection(rows: rows), at: 2)
                 }
+                if UserSettings.readOnlyMode {
+                    sections = Array(sections.dropFirst(2))
+                }
                 return sections
             }
             .bind(to: tableView.rx.items(dataSource: dataSource))
