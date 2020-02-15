@@ -59,6 +59,11 @@ class PersonViewController : UITableViewController {
                 var sections = [
                     PersonTableViewSection.buttonSection(rows: [.button(title: "Delete This Person", tint: .red)])
                 ]
+                
+                if UserSettings.readOnlyMode {
+                    sections = []
+                }
+                
                 sections.append(.transactionSection(rows: transactions.toArray().map { .transaction($0) }))
                 return sections
         }
