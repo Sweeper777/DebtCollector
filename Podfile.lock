@@ -66,7 +66,6 @@ PODS:
     - GoogleUtilities/Logger
   - ImageRow (4.0.0):
     - Eureka (~> 5.0)
-  - LTHPasscodeViewController (3.9.4)
   - MGSwipeTableCell (1.6.11)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
@@ -102,7 +101,6 @@ DEPENDENCIES:
   - Firebase/Core
   - FSCalendar
   - ImageRow (= 4.0.0)
-  - LTHPasscodeViewController
   - MGSwipeTableCell
   - RealmSwift
   - RxCocoa
@@ -131,7 +129,6 @@ SPEC REPOS:
     - GoogleDataTransportCCTSupport
     - GoogleUtilities
     - ImageRow
-    - LTHPasscodeViewController
     - MGSwipeTableCell
     - nanopb
     - Realm
@@ -175,7 +172,6 @@ SPEC CHECKSUMS:
   GoogleDataTransportCCTSupport: f6ab1962e9dc05ab1fb938b795e5b310209edeec
   GoogleUtilities: f895fde57977df4e0233edda0dbeac490e3703b6
   ImageRow: e65b2e1a33f89062bf2a553a2aad61d975eb7428
-  LTHPasscodeViewController: 9fbe9d2b7c5664dc5f530893ea90e61eaf31b956
   MGSwipeTableCell: b804e4e450dee439c42250be90bd50458bf67fce
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Realm: 8b2ca5bc6479a91f379b6b42b5922e396cd5ba5a
@@ -189,6 +185,6 @@ SPEC CHECKSUMS:
   SearchTextField: 40dc3cc57def5a211f263cac263622c163bbc25a
   SwiftyUtils: e2c0b1fd674684e1083c894f6a71a64bb9617402
 
-PODFILE CHECKSUM: c7103042e9db6a815ce70886c3edba47baf97b8b
+PODFILE CHECKSUM: 706e49284a9f0a2c281d67e0bd273187e52d8aae
 
 COCOAPODS: 1.7.5
