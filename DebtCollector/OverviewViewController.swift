@@ -2,7 +2,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxRealm
-import LTHPasscodeViewController
 
 extension UINavigationController {
     func updateReadOnlyModePrompt() {
@@ -95,31 +94,6 @@ class OverviewViewController: UITableViewController {
             }
         }
         tableView.tableFooterView = UIView(frame: .zero)
-    }
-    
-    @IBAction func unwindForChangePasscode(segue: UIStoryboardSegue) {
-        navigationController?.updateReadOnlyModePrompt()
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000)) {
-            [weak self] in
-            self.map { LTHPasscodeViewController.sharedUser().showForChangingPasscode(in: $0, asModal: true) }
-        }
-    }
-    
-    @IBAction func unwindForSetPasscode(segue: UIStoryboardSegue) {
-        navigationController?.updateReadOnlyModePrompt()
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000)) {
-            [weak self] in
-            self.map { LTHPasscodeViewController.sharedUser().showForEnablingPasscode(in: $0, asModal: true) }
-        }
-        
-    }
-    
-    @IBAction func unwindForRemovePasscode(segue: UIStoryboardSegue) {
-        navigationController?.updateReadOnlyModePrompt()
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000)) {
-            [weak self] in
-            self.map { LTHPasscodeViewController.sharedUser().showForDisablingPasscode(in: $0, asModal: true) }
-        }
     }
     
     @IBAction func unwindFromSettings(segue: UIStoryboardSegue) {

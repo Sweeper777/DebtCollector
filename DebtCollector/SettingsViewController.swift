@@ -1,6 +1,5 @@
 import UIKit
 import Eureka
-import LTHPasscodeViewController
 import ImageRow
 import LocalAuthentication
 import SCLAlertView
