@@ -277,7 +277,7 @@ class NewTransactionViewController : FormViewController {
             if amount == nil {
                 isDraft = true
             } else if amount! < 0 {
-                showErrorMessage("Amount cannot be less than to 0!")
+                showErrorMessage("Amount cannot be less than 0!")
                 return
             }
             let transaction = Transaction()
