@@ -58,6 +58,10 @@ class SettingsViewController : FormViewController {
             self?.performSegue(withIdentifier: "showPeople", sender: nil)
         })
         
+        +++ ButtonRow() {
+            row in
+            row.title = "Export Data"
+        }
         let passcodeSection = Section(header: "passcode", footer: "The iPhone passcode will be used.")
         passcodeSection <<< SwitchRow(tagUsePasscode) {
             row in
