@@ -62,6 +62,16 @@ class SettingsViewController : FormViewController {
             row in
             row.title = "Export Data"
         }
+        .onCellSelection({ (cell, row) in
+            guard let realmURL = RealmWrapper.shared.realm.configuration.fileURL else {
+                let alert = SCLAlertView()
+                alert.showError("Error", subTitle: "Unable to export!", closeButtonTitle: "OK")
+                return
+            }
+            let vc = UIActivityViewController(activityItems: [realmURL], applicationActivities: nil)
+            self.present(vc, animated: true, completion: nil)
+        })
+        
         let passcodeSection = Section(header: "passcode", footer: "The iPhone passcode will be used.")
         passcodeSection <<< SwitchRow(tagUsePasscode) {
             row in
