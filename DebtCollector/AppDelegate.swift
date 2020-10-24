@@ -1,7 +1,6 @@
 import UIKit
 import SwiftyUtils
 import Eureka
-import Firebase
 import RealmSwift
 import LocalAuthentication
 
@@ -15,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.tintColor = UIColor(hex: "4f42fd")
         NavigationAccessoryView.appearance().tintColor = UIColor(hex: "4f42fd")
-        FirebaseApp.configure()
         
         let fileManager = FileManager.default
         
