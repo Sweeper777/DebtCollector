@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let context = LAContext()
             context.localizedCancelTitle = "Cancel"
             if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) {
-                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Some description") { (success, error) in
+                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "") { (success, error) in
                     if success {
                         print("Success")
                     } else {
@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let context = LAContext()
             context.localizedCancelTitle = "Cancel"
             if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) {
-                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Some description") { (success, error) in
+                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "") { (success, error) in
                     if success {
                         print("Success")
                     } else {
